@@ -1,0 +1,550 @@
+{%- liquid
+  assign s = section.settings
+
+  case s.heading_size
+    when 'h1'
+      assign heading_tag = 'h1'
+    when 'h3'
+      assign heading_tag = 'h3'
+    when 'h4'
+      assign heading_tag = 'h4'
+    else
+      assign heading_tag = 'h2'
+  endcase
+
+  case s.image_shape
+    when 'star'
+      assign shape_class = 'sih-shape--star'
+    when 'hexagon'
+      assign shape_class = 'sih-shape--hexagon'
+    when 'circle'
+      assign shape_class = 'sih-shape--circle'
+    when 'none'
+      assign shape_class = 'sih-shape--none'
+    when 'original'
+      assign shape_class = ''
+    else
+      assign shape_class = 'sih-shape--badge'
+  endcase
+-%}
+
+<div
+  class="scattered-images-hero color-{{ s.color_scheme.id }}{% if s.custom_class != blank %} {{ s.custom_class }}{% endif %}"
+  style="
+    --sih-min-height: {{ s.section_min_height }}px;
+    --sih-padding-top: {{ s.padding_top }}px;
+    --sih-padding-bottom: {{ s.padding_bottom }}px;
+    --sih-content-max-width: {{ s.content_max_width }}px;
+    --sih-image-size: {{ s.image_size }}px;
+    --sih-image-col-width: {{ s.image_size | plus: 60 }}px;
+  "
+  {{ section.shopify_attributes }}
+>
+  <div class="scattered-images-hero__grid">
+
+    {%- comment -%} Centre content — spans both grid rows in the middle column {%- endcomment -%}
+    <div class="scattered-images-hero__content">
+      {%- if s.heading != blank -%}
+        <{{ heading_tag }} class="scattered-images-hero__heading">
+          {{- s.heading  -}}
+        </{{ heading_tag }}>
+      {%- endif -%}
+
+      {%- if s.subheading != blank -%}
+        <div class="scattered-images-hero__subheading rte">
+          {{- s.subheading -}}
+        </div>
+      {%- endif -%}
+
+      {%- if s.button_label != blank -%}
+        <a
+          href="{{ s.button_url | default: '#' }}"
+          class="button button-{{ s.button_style }} scattered-images-hero__button"
+        >
+          {{- s.button_label | escape -}}
+        </a>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Top-left image {%- endcomment -%}
+    <div class="scattered-images-hero__image-wrapper scattered-images-hero__image-wrapper--1 {{ shape_class }}">
+      {%- if s.image_1 != blank -%}
+        {{-
+          s.image_1
+          | image_url: width: 600
+          | image_tag:
+            class: 'scattered-images-hero__image',
+            alt: s.image_1_alt,
+            loading: 'lazy',
+            widths: '200, 300, 400, 600'
+        -}}
+      {%- else -%}
+        {{- 'image' | placeholder_svg_tag: 'scattered-images-hero__image scattered-images-hero__image--placeholder' -}}
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Top-right image {%- endcomment -%}
+    <div class="scattered-images-hero__image-wrapper scattered-images-hero__image-wrapper--2 {{ shape_class }}">
+      {%- if s.image_2 != blank -%}
+        {{-
+          s.image_2
+          | image_url: width: 600
+          | image_tag:
+            class: 'scattered-images-hero__image',
+            alt: s.image_2_alt,
+            loading: 'lazy',
+            widths: '200, 300, 400, 600'
+        -}}
+      {%- else -%}
+        {{- 'image' | placeholder_svg_tag: 'scattered-images-hero__image scattered-images-hero__image--placeholder' -}}
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Bottom-left image {%- endcomment -%}
+    <div class="scattered-images-hero__image-wrapper scattered-images-hero__image-wrapper--3 {{ shape_class }}">
+      {%- if s.image_3 != blank -%}
+        {{-
+          s.image_3
+          | image_url: width: 600
+          | image_tag:
+            class: 'scattered-images-hero__image',
+            alt: s.image_3_alt,
+            loading: 'lazy',
+            widths: '200, 300, 400, 600'
+        -}}
+      {%- else -%}
+        {{- 'image' | placeholder_svg_tag: 'scattered-images-hero__image scattered-images-hero__image--placeholder' -}}
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Bottom-right image {%- endcomment -%}
+    <div class="scattered-images-hero__image-wrapper scattered-images-hero__image-wrapper--4 {{ shape_class }}">
+      {%- if s.image_4 != blank -%}
+        {{-
+          s.image_4
+          | image_url: width: 600
+          | image_tag:
+            class: 'scattered-images-hero__image',
+            alt: s.image_4_alt,
+            loading: 'lazy',
+            widths: '200, 300, 400, 600'
+        -}}
+      {%- else -%}
+        {{- 'image' | placeholder_svg_tag: 'scattered-images-hero__image scattered-images-hero__image--placeholder' -}}
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{% stylesheet %}
+  .scattered-images-hero {
+    padding-block: var(--sih-padding-top, 40px) var(--sih-padding-bottom, 40px);
+    overflow: hidden;
+  }
+
+  .scattered-images-hero__grid {
+    display: grid;
+    grid-template-columns: var(--sih-image-col-width, 260px) 1fr var(--sih-image-col-width, 260px);
+    grid-template-rows: 1fr 1fr;
+    min-height: var(--sih-min-height, 520px);
+    max-width: var(--page-width, 1200px);
+    margin-inline: auto;
+    padding-inline: var(--page-margin, 20px);
+  }
+
+  /* Content — placed in the centre column, spans both rows */
+  .scattered-images-hero__content {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-inline: var(--spacing-4, 24px);
+    gap: var(--spacing-3, 16px);
+    /* max-width: var(--sih-content-max-width, 420px); */
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .scattered-images-hero__heading {
+    margin: 0;
+    color: var(--color-foreground-heading);
+  }
+
+  .scattered-images-hero__subheading {
+    color: var(--color-foreground);
+    margin: 0;
+  }
+
+  .scattered-images-hero__subheading > * {
+    margin: 0;
+  }
+
+  .scattered-images-hero__button {
+    margin-top: var(--spacing-1, 8px);
+    flex-shrink: 0;
+  }
+
+  /* Shared image wrapper */
+  .scattered-images-hero__image-wrapper {
+    width: var(--sih-image-size, 200px);
+    height: var(--sih-image-size, 200px);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* Individual image grid placement — staggered for a scattered, dynamic feel */
+  .scattered-images-hero__image-wrapper--1 {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    justify-self: start;
+  }
+
+  .scattered-images-hero__image-wrapper--2 {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: start;
+    justify-self: end;
+    height:auto;
+  }
+
+  .scattered-images-hero__image-wrapper--3 {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
+    justify-self: end;
+    height:auto;
+  }
+
+  .scattered-images-hero__image-wrapper--4 {
+    grid-column: 3;
+    grid-row: 2;
+    align-self: end;
+    justify-self: end;
+  }
+
+  .scattered-images-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .scattered-images-hero__image--placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(var(--color-foreground-rgb) / 0.08);
+  }
+
+  /* ── Image shapes ──────────────────────────────────────── */
+
+  /* Badge / octagon — matches the screenshot design */
+  .sih-shape--badge {
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+  }
+
+  /* 5-pointed star */
+  .sih-shape--star {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  /* Hexagon */
+  .sih-shape--hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  }
+
+  /* Circle */
+  .sih-shape--circle {
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  /* Rounded rectangle */
+  .sih-shape--none {
+    border-radius: var(--border-radius-md, 8px);
+  }
+  @media(max-width:1024px){
+    .scattered-images-hero__grid{
+      --sih-image-col-width:200px;
+      grid-template-columns: var(--sih-image-col-width, 250px) 1fr var(--sih-image-col-width, 250px);
+      min-height: 450px;
+    }
+    .scattered-images-hero__image-wrapper{
+
+        width: 150px;
+        height:auto;
+    }
+    .scattered-images-hero__content{
+      padding-inline:0;
+    }
+    .scattered-images-hero__image-wrapper--3{
+      justify-content: center;
+    }
+  }
+
+  /* ── Mobile layout (< 750px) ───────────────────────────── */
+  @media screen and (max-width: 749px) {
+
+    
+    .scattered-images-hero__grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: var(--spacing-3, 16px);
+      min-height: unset;
+      padding-inline: var(--page-margin, 16px);
+    }
+
+    /* Image pair above content */
+    .scattered-images-hero__image-wrapper--1 {
+      grid-column: 1;
+      grid-row: 1;
+      align-self: start;
+      justify-self: start;
+    }
+
+    .scattered-images-hero__image-wrapper--2 {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: end;
+      justify-self: end;
+    }
+
+    /* Content full-width in the middle row */
+    .scattered-images-hero__content {
+      grid-column: 1 / 3;
+      grid-row: 2;
+      padding-inline: 0;
+      max-width: 100%;
+    }
+
+    /* Image pair below content */
+    .scattered-images-hero__image-wrapper--3 {
+      grid-column: 1;
+      grid-row: 3;
+      align-self: end;
+      justify-self: start;
+    }
+
+    .scattered-images-hero__image-wrapper--4 {
+      grid-column: 2;
+      grid-row: 3;
+      align-self: end;
+      justify-self: end;
+    }
+
+    /* Scale images down proportionally on mobile */
+    .scattered-images-hero__image-wrapper {
+      width: clamp(100px, 28vw, var(--sih-image-size, 200px));
+      height: auto
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Scattered Images Hero",
+  "class": "section-scattered-images-hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colour scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h1", "label": "H1 — Extra large" },
+        { "value": "h2", "label": "H2 — Large" },
+        { "value": "h3", "label": "H3 — Medium" },
+        { "value": "h4", "label": "H4 — Small" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Paragraph",
+      "default": "<p>Design to delivery. Every detail managed in-house, for teams of any size, in any industry.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Learn more",
+      "info": "Leave blank to hide the button"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "label": "Image shape",
+      "options": [
+        { "value": "badge", "label": "Badge (octagon)" },
+        { "value": "star", "label": "Star" },
+        { "value": "hexagon", "label": "Hexagon" },
+        { "value": "circle", "label": "Circle" },
+        { "value": "none", "label": "Rounded rectangle" },
+        { "value": "original", "label": "Original" },
+      ],
+      "default": "original"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image — top left"
+    },
+    {
+      "type": "text",
+      "id": "image_1_alt",
+      "label": "Top-left image alt text",
+      "info": "Describe the image for screen readers and SEO"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image — top right"
+    },
+    {
+      "type": "text",
+      "id": "image_2_alt",
+      "label": "Top-right image alt text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image — bottom left"
+    },
+    {
+      "type": "text",
+      "id": "image_3_alt",
+      "label": "Bottom-left image alt text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image — bottom right"
+    },
+    {
+      "type": "text",
+      "id": "image_4_alt",
+      "label": "Bottom-right image alt text"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "label": "Image size",
+      "min": 120,
+      "max": 320,
+      "step": 10,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content column width",
+      "min": 240,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "default": 400
+    },
+    {
+      "type": "range",
+      "id": "section_min_height",
+      "label": "Minimum section height",
+      "min": 300,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "default": 520
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class",
+      "info": "Optional class added to the section wrapper for targeted custom CSS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scattered Images Hero"
+    }
+  ]
+}
+{% endschema %}

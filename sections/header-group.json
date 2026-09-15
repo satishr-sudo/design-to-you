@@ -1,0 +1,221 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "header_announcements_9jGBFp": {
+      "type": "header-announcements",
+      "blocks": {
+        "announcement_BxgCk9": {
+          "type": "_announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "announcement_BxgCk9"
+      ],
+      "disabled": true,
+      "name": "t:names.announcement_bar",
+      "settings": {
+        "speed": 5,
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "divider_width": 1,
+        "padding-block-start": 15,
+        "padding-block-end": 15
+      }
+    },
+    "header_section": {
+      "type": "header",
+      "blocks": {
+        "header-logo": {
+          "type": "_header-logo",
+          "static": true,
+          "settings": {
+            "hide_logo_on_home_page": false,
+            "padding-block-start": 10,
+            "padding-block-end": 10,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "header-menu": {
+          "type": "_header-menu",
+          "static": true,
+          "settings": {
+            "menu": "main-menu-1",
+            "color_scheme": "scheme-6",
+            "type_font_primary_size": "1rem",
+            "menu_font_style": "inverse",
+            "type_font_primary_link": "body",
+            "type_case_primary_link": "none",
+            "menu_style": "menu_promo",
+            "featured_products_aspect_ratio": "4 / 5",
+            "featured_collections_aspect_ratio": "16 / 9",
+            "image_border_radius": 0,
+            "navigation_bar": false,
+            "color_scheme_navigation_bar": "",
+            "drawer_accordion": false,
+            "drawer_accordion_expand_first": false,
+            "drawer_dividers": false
+          },
+          "blocks": {
+            "mega_menu_promo_JMGC8K": {
+              "type": "mega-menu-promo",
+              "name": "Mega Menu Promotion",
+              "settings": {
+                "menu_link_title": "About Us",
+                "promo_1_title": "About Us",
+                "promo_1_image": "shopify://shop_images/X24_0226.jpg",
+                "promo_1_link": "shopify://pages/about-us",
+                "promo_2_title": "Sustainability",
+                "promo_2_image": "shopify://shop_images/the_make_image_b30785aa-1d92-47ab-8cd7-286dd7727738.jpg",
+                "promo_2_link": "shopify://pages/sustainability-and-csr",
+                "promo_3_title": "Our Craft",
+                "promo_3_image": "shopify://shop_images/we_dont_disappear.jpg",
+                "promo_3_link": "shopify://pages/our-fabrics",
+                "promo_4_title": "",
+                "promo_4_link": "",
+                "promo_5_title": "",
+                "promo_5_link": ""
+              },
+              "blocks": {}
+            },
+            "mega_menu_promo_U7XTHt": {
+              "type": "mega-menu-promo",
+              "name": "Mega Menu Promotion",
+              "settings": {
+                "menu_link_title": "Solutions",
+                "promo_1_title": "Catalogue",
+                "promo_1_image": "shopify://shop_images/the_catalogue_v2.jpg",
+                "promo_1_link": "shopify://pages/catalogue-sign-up",
+                "promo_2_title": "Case Studies",
+                "promo_2_image": "shopify://shop_images/healius-hero-2_735708be-cec4-45c9-91f6-ed3b58787158.jpg",
+                "promo_2_link": "shopify://pages/case-studies",
+                "promo_3_title": "Management Systems",
+                "promo_3_image": "shopify://shop_images/uniform_managment.jpg",
+                "promo_3_link": "shopify://pages/online-uniform-solutions-system",
+                "promo_4_title": "",
+                "promo_4_link": "",
+                "promo_5_title": "",
+                "promo_5_link": ""
+              },
+              "blocks": {}
+            },
+            "mega_menu_promo_NiUW6d": {
+              "type": "mega-menu-promo",
+              "name": "Mega Menu Promotion",
+              "settings": {
+                "menu_link_title": "The Shop",
+                "promo_1_title": "Scrubs",
+                "promo_1_image": "shopify://shop_images/scrubs_banner_v2.jpg",
+                "promo_1_link": "shopify://collections/scrubs",
+                "promo_2_title": "Corporate Wear",
+                "promo_2_image": "shopify://shop_images/Coporate_wear-banner.jpg",
+                "promo_2_link": "shopify://collections/corporate-wear",
+                "promo_3_title": "Pharmacy Wear",
+                "promo_3_image": "shopify://shop_images/pharmacy.jpg",
+                "promo_3_link": "shopify://collections/pharmacy",
+                "promo_4_title": "",
+                "promo_4_link": "",
+                "promo_5_title": "",
+                "promo_5_link": ""
+              },
+              "blocks": {}
+            },
+            "mega_menu_promo_w4YnPX": {
+              "type": "mega-menu-promo",
+              "name": "Mega Menu Promotion",
+              "settings": {
+                "menu_link_title": "Industries",
+                "promo_1_title": "Healthcare Uniforms",
+                "promo_1_image": "shopify://shop_images/Healthcare_Uniforms.jpg",
+                "promo_1_link": "shopify://pages/healthcare-uniforms",
+                "promo_2_title": "Corporate Uniforms",
+                "promo_2_image": "shopify://shop_images/Corprate_Uniforms.jpg",
+                "promo_2_link": "shopify://pages/corporate-uniforms",
+                "promo_3_title": "Retail Uniforms",
+                "promo_3_image": "shopify://shop_images/DTY-7726-2544.jpg",
+                "promo_3_link": "shopify://pages/retail-uniforms",
+                "promo_4_title": "",
+                "promo_4_link": "",
+                "promo_5_title": "",
+                "promo_5_link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "mega_menu_promo_JMGC8K",
+            "mega_menu_promo_U7XTHt",
+            "mega_menu_promo_NiUW6d",
+            "mega_menu_promo_w4YnPX"
+          ]
+        }
+      },
+      "settings": {
+        "logo_position": "left",
+        "menu_position": "center",
+        "menu_row": "top",
+        "customer_account_menu": "customer-account-main-menu",
+        "show_search": true,
+        "search_position": "right",
+        "search_row": "top",
+        "show_country": false,
+        "country_selector_style": false,
+        "show_language": false,
+        "localization_font": "heading",
+        "localization_font_size": "0.875rem",
+        "localization_position": "right",
+        "localization_row": "top",
+        "section_width": "page-width",
+        "section_height": "standard",
+        "enable_sticky_header": "always",
+        "divider_width": 0,
+        "divider_size": "page-width",
+        "border_width": 0,
+        "actions_display_style": "icon",
+        "actions_font_size": "0.875rem",
+        "actions_font": "body",
+        "actions_text_case": "none",
+        "color_scheme_top": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
+        "color_scheme_bottom": "",
+        "color_scheme_transparent": "scheme-6",
+        "enable_transparent_header_home": true,
+        "home_color_scheme": "default",
+        "enable_transparent_header_product": false,
+        "product_color_scheme": "default",
+        "enable_transparent_header_collection": true,
+        "collection_color_scheme": "default",
+        "enable_transparent_header_blog": false,
+        "blog_color_scheme": "default",
+        "enable_transparent_header_article": false,
+        "article_color_scheme": "default",
+        "enable_transparent_header_other": true,
+        "other_color_scheme": "default"
+      }
+    }
+  },
+  "order": [
+    "header_announcements_9jGBFp",
+    "header_section"
+  ]
+}

@@ -1,0 +1,737 @@
+
+{% liquid
+  assign max_items = section.settings.max_products
+%}
+
+{% if section.settings.layout_type == 'carousel' %}
+  <style>
+    #shopify-section-{{ section.id }} slideshow-component {
+      timeline-scope: var(--slideshow-timeline), --pls-scroll;
+    }
+    #shopify-section-{{ section.id }} .product-list-slider__inner slideshow-slides {
+      scroll-timeline-name: --pls-scroll;
+      scroll-timeline-axis: inline;
+    }
+  </style>
+
+  <script>
+    /*
+     * Force single-slide navigation for this carousel only.
+     *
+     * The Horizon slideshow.js computes nextIndex / previousIndex as:
+     *   current ± visibleSlides.length
+     * so clicking next on a 3-up carousel jumps 3 slides at once.
+     *
+     * We shadow those two getters on the specific slideshow-component
+     * instance inside this section so the step is always exactly 1.
+     * No shared theme files are modified.
+     */
+    (function () {
+      var sectionId = {{ section.id | json }};
+
+      customElements.whenDefined('slideshow-component').then(function () {
+        var section = document.getElementById('shopify-section-' + sectionId);
+        if (!section) return;
+
+        var slideshow = section.querySelector('slideshow-component');
+        if (!slideshow) return;
+
+        Object.defineProperty(slideshow, 'nextIndex', {
+          get: function () { return this.current + 1; },
+          configurable: true
+        });
+
+        Object.defineProperty(slideshow, 'previousIndex', {
+          get: function () { return this.current - 1; },
+          configurable: true
+        });
+      });
+    }());
+  </script>
+{% endif %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  data-testid="product-list-slider"
+  class="
+    section
+    section--{{ section.settings.section_width }}
+    color-{{ section.settings.color_scheme }}
+    section-resource-list
+    product-list-slider
+    spacing-style
+    gap-style
+    {% if section.settings.custom_class_name  %}{{ section.settings.custom_class_name }}{% endif %}
+  "
+  style="
+    {% render 'spacing-style', settings: section.settings %}
+    {% render 'gap-style', value: section.settings.gap %}
+  "
+>
+
+  {% capture list_items %}
+    {% if section.settings.collection != blank and shop.products_count != 0 %}
+      {% paginate section.settings.collection.products by max_items %}
+        {% for product in section.settings.collection.products limit: max_items %}
+          <div class="resource-list__item">
+            {% # theme-check-disable UniqueStaticBlockId %}
+              {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
+            {% # theme-check-enable UniqueStaticBlockId %}
+          </div>
+          {% unless forloop.last %}<!--@list/split-->{% endunless %}
+        {% endfor %}
+      {% endpaginate %}
+    {% else %}
+      {% for i in (1..max_items) %}
+        <div class="resource-list__item">
+          {% # theme-check-disable UniqueStaticBlockId %}
+            {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: null %}
+          {% # theme-check-enable UniqueStaticBlockId %}
+        </div>
+        {% unless forloop.last %}<!--@list/split-->{% endunless %}
+      {% endfor %}
+    {% endif %}
+  {% endcapture %}
+
+  {% liquid
+    assign list_items_array = list_items | strip | split: '<!--@list/split-->'
+  %}
+
+  {% if section.settings.layout_type == 'carousel' %}
+
+    {% liquid
+      if section.settings.section_width == 'page-width'
+        assign gutter_style = '--gutter-slide-width: var(--util-page-margin-offset);'
+        if section.settings.header_position == 'left'
+          assign slideshow_gutters = 'end'
+        else
+          assign slideshow_gutters = 'start end'
+        endif
+      else
+        assign slideshow_gutters = null
+        assign gutter_style = '--gutter-slide-width: 0px;'
+      endif
+    %}
+
+    {% capture carousel_slides %}
+      {% for item in list_items_array %}
+        {% render 'slideshow-slide',
+          index: forloop.index0,
+          children: item,
+          class: 'resource-list__slide'
+        %}
+      {% endfor %}
+    {% endcapture %}
+
+    {% capture carousel_footer %}
+      <div class="product-list-slider__footer">
+        <div class="product-list-slider__nav">
+          {%- render 'slideshow-arrow', action: 'previous', icon_style: section.settings.icons_style, icon_shape: section.settings.icons_shape -%}
+          {%- render 'slideshow-arrow', action: 'next', icon_style: section.settings.icons_style, icon_shape: section.settings.icons_shape -%}
+        </div>
+        <div class="product-list-slider__progress-track">
+          <div class="product-list-slider__progress-fill"></div>
+        </div>
+      </div>
+    {% endcapture %}
+
+    <div class="product-list-slider__layout force-full-width{% if section.settings.header_position != 'left' %} product-list-slider__layout--top{% endif %}">
+
+      <div class="product-list-slider__header">
+        {%- content_for 'blocks' -%}
+      </div>
+
+      <div
+        class="product-list-slider__inner resource-list resource-list__carousel"
+        style="
+          --resource-list-column-gap-desktop: {{ section.settings.columns_gap }}px;
+          --column-count: {{ section.settings.columns }};
+          --column-count-mobile: 1;
+          --mobile-card-size: {{ section.settings.mobile_card_size | default: '60cqw' }};
+        "
+      >
+        <div class="resource-list__carousel" style="--slide-width-max: 450px; {{ gutter_style }}">
+          {% render 'slideshow',
+            ref: 'productListSlider',
+            class: 'resource-list__carousel',
+            slides: carousel_slides,
+            show_arrows: false,
+            controls: carousel_footer,
+            auto_hide_controls: false,
+            infinite: false,
+            slide_count: max_items,
+            slideshow_gutters: slideshow_gutters
+          %}
+        </div>
+      </div>
+
+    </div>
+
+  {% else %}
+
+    {% render 'resource-list',
+      list_items: list_items,
+      list_items_array: list_items_array,
+      settings: section.settings,
+      slide_count: max_items,
+      content_type: 'products',
+      test_id: 'resource-list-grid'
+    %}
+
+  {% endif %}
+
+</div>
+
+{% schema %}
+{
+  "name": "Products Slider",
+  "class": "ui-test-product-list",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class_name",
+      "label": "Custom class",
+      "info": "Add a custom CSS class for additional styling."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:settings.collection"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "t:settings.layout_type",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:options.grid"
+        },
+        {
+          "value": "carousel",
+          "label": "t:options.carousel"
+        },
+        {
+          "value": "editorial",
+          "label": "t:options.editorial"
+        }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "carousel_on_mobile",
+      "label": "t:settings.carousel_on_mobile",
+      "default": false,
+      "visible_if": "{{ section.settings.layout_type != 'carousel' }}"
+    },
+    {
+      "type": "range",
+      "id": "max_products",
+      "label": "t:settings.product_count",
+      "min": 1,
+      "max": 16,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "t:settings.columns",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "visible_if": "{{ section.settings.layout_type != 'editorial' }}"
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "t:settings.mobile_columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:options.one_number"
+        },
+        {
+          "value": "2",
+          "label": "t:options.two_number"
+        }
+      ],
+      "default": "2",
+      "visible_if": "{{ section.settings.layout_type == 'grid' and section.settings.carousel_on_mobile == false }}"
+    },
+    {
+      "type": "select",
+      "id": "mobile_card_size",
+      "label": "t:settings.mobile_columns",
+      "options": [
+        {
+          "value": "60cqw",
+          "label": "t:options.one_number"
+        },
+        {
+          "value": "44cqw",
+          "label": "t:options.two_number"
+        }
+      ],
+      "default": "60cqw",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "t:settings.horizontal_gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8,
+      "visible_if": "{{ section.settings.layout_type == 'grid' or section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "range",
+      "id": "rows_gap",
+      "label": "t:settings.vertical_gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.carousel_navigation",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "select",
+      "id": "header_position",
+      "label": "Header position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left (side by side)"
+        },
+        {
+          "value": "top",
+          "label": "Top (stacked)"
+        }
+      ],
+      "default": "left",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "t:settings.icon",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "t:options.arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "t:options.chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "t:options.arrows_large"
+        },
+        {
+          "value": "chevron_large",
+          "label": "t:options.chevron_large"
+        },
+        {
+          "value": "none",
+          "label": "t:options.none"
+        }
+      ],
+      "default": "arrow",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "t:settings.icon_background",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "circle",
+          "label": "t:options.circle"
+        },
+        {
+          "value": "square",
+          "label": "t:options.square"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.icons_style != 'none' and section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.section_layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "t:settings.alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:options.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Products Slider",
+      "category": "t:categories.products",
+      "settings": {
+        "collection": "",
+        "max_products": 8,
+        "layout_type": "carousel",
+        "carousel_on_mobile": false,
+        "columns": 4,
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "header_position": "left",
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      },
+      "blocks": {
+        "header-group": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "gap": 16,
+            "width": "fit-content",
+            "width_mobile": "fill",
+            "height": "fill",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "border": "none",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Best Sellers</h2>",
+                "width": "fit-content",
+                "max_width": "none"
+              }
+            },
+            "cta": {
+              "type": "button",
+              "settings": {
+                "label": "Shop Now",
+                "style_class": "button-secondary",
+                "width": "fit-content",
+                "width_mobile": "fit-content"
+              }
+            }
+          },
+          "block_order": ["heading", "cta"]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product-card-gallery": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "product_title": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "price": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            }
+          },
+          "block_order": ["product-card-gallery", "product_title", "price"]
+        }
+      },
+      "block_order": ["header-group"]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+  .product-list-slider__layout {
+    display: flex;
+    align-items: stretch;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section--page-width .product-list-slider__layout:not(.product-list-slider__layout--top) {
+      padding-inline-start: var(--util-page-margin-offset);
+      gap: var(--gap);
+    }
+  }
+
+  .product-list-slider__layout--top {
+    flex-direction: column;
+  }
+
+  .section--page-width .product-list-slider__layout--top .product-list-slider__header {
+    padding-inline: var(--util-page-margin-offset);
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-list-slider__layout {
+      flex-direction: column;
+      gap: var(--gap, 1.5rem);
+    }
+  }
+
+  .product-list-slider__header {
+    flex-shrink: 0;
+   
+  }
+  .product-list-slider .product-list-slider__header {
+     width:350px;
+    max-width:350px;
+   
+  }
+
+  .product-list-slider__inner {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .product-list-slider__footer {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-block-start: 1.5rem;
+    padding-inline: var(--gutter-slide-width, 0px);
+  }
+
+  .product-list-slider__nav {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap:20px;
+  }
+
+  .product-list-slider__progress-track {
+     flex: 1;
+    height: 3px;
+    background-color: var(--color-border);
+    position: relative;
+    overflow: hidden;
+    max-width:400px;
+    border-radius:50px
+  }
+
+  .product-list-slider__progress-fill {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    background-color: #240000;
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: product-list-slider-progress linear both;
+    animation-timeline: --pls-scroll;
+  }
+
+  @keyframes product-list-slider-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+.product-list-custom .product-list-slider__footer button.slideshow-control{
+  display: flex;
+  align-items: center;
+}
+  .product-list-custom .product-list-slider__footer .svg-wrapper.icon-arrow
+ {
+    color: var(--color-input-background);
+    height:auto;
+    width: auto;
+}
+.product-list-custom .product-list-slider__footer .svg-wrapper.icon-arrow svg
+
+ {
+    width:var(--icon-size-lg);
+    height:var(--icon-size-lg);
+}
+@media(min-width:750px){
+  .product-list-custom .product-list-slider__footer{
+  padding-left:0;
+}
+}
+@media(max-width:749px){
+  .product-list-custom .product-list-slider__layout .product-list-slider__header {
+    padding-inline: var(--util-page-margin-offset);
+}
+.product-list-custom .product-list-slider__layout .resource-list__carousel slideshow-slides:has(product-card){
+      padding-inline:var(--gutter-slide-width, 0);
+      scroll-padding-inline-start: var(--gutter-slide-width, 0);
+}
+.product-list-custom .product-list-slider__layout .product-list-slider__header .group-block-content{
+  align-items: flex-start;
+}
+}
+{% endstylesheet %}

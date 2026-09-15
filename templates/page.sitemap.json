@@ -1,0 +1,229 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "class_name": "",
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "section_XXtUcW": {
+      "type": "section",
+      "blocks": {
+        "text_UFM8qc": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_9Wkp6A": {
+          "type": "text",
+          "name": "t:names.text",
+          "disabled": true,
+          "settings": {
+            "class_name": "",
+            "text": "<h1>Custom Embroidery Services</h1><p>Stand Out With Custom Embroidery</p><p>Take your business’ uniform to the next level with our online custom embroidery services. </p><p>Adding custom name or logo embroidery to your DTY uniform is easy, just select the ' Add Embroidery' option on any product page and add to cart!</p><p><strong>Note: Embroidered items cannot be returned or exchanged unless faulty.</strong></p><p><a href=\"/pages/the-shop\">Shop Now<br/></a></p><h2>RETAIL EMBROIDERY OPTIONS</h2><h5>Let Your Uniforms Do the Talking</h5><p>01</p><h3>Logo Embroidery</h3><p><strong>Cost:</strong><br/>$10.00 AUD per item<br/><strong><br/>Setup fee:</strong></p><p>New embroidered logos incur a one-off digitising fee of $88.00 AUD. The setup is then filed and can be used for future orders.<br/><strong><br/>Turnaround time:</strong></p><p>Please allow 10-14 business days from date of artwork approval.</p><p>02</p><h3>Text Embroidery</h3><p><strong>Cost:</strong><br/>1-2 words: $10.00 AUD<br/>3-4 words: $15.00 AUD</p><p> </p><p><strong>Turnaround time:<br/></strong>Please allow 7-10 business days from order date.</p><p>Black Navy Forest Red Gold Charcoal Cobalt Teal Hot Pink Silver Mid Gray Pale Blue Mint Blush White</p><p>Block Font</p><p>Script Font</p><h2>To Embroider or To Not Embroider?</h2><p>We may be biased, but we wholeheartedly believe that embroidery can elevate a generic uniform into a professionally personalised uniform. Embroidery provides a professional finish to any uniform garment, including polo shirts, caps, aprons, blazers, and business shirts (just to name a few!). </p><p>Embroidery is also longer-lasting than printed uniforms. Threads wash well, can be ironed, and retain colour after many washes. Whether you want to upgrade your uniform garments with the business logo, personalise them with your employees' names, or both, Designs To You can make it happen. </p><h2>Got Questions About Embroidered Workwear?</h2><p>We’re here to help! Whether you need embroidery for a single item or a large-scale B2B uniform program, our team has the expertise to guide you.</p><p><a href=\"/pages/contact\">Contact Us<br/></a></p><h2>Frequently Asked Questions</h2><h3>Needle Little Help?</h3><p>Can I return or exchange embroidered items?</p><p>Embroidered items cannot be returned or exchanged unless faulty or incorrectly supplied.</p><p>While we do our best to ensure every item is of high quality and delivered with care, if you receive a faulty embroidered item, we will refund or exchange it.</p><p>What items do you offer embroidery on?</p><p>We offer embroidery on most products in our online uniform range, including blazers, polos, button-up shirts, shorts, and pants.</p><p>If you’re unsure whether a specific item is suitable for embroidery, our friendly team is here to help. Just get in touch and we’ll walk you through your options!</p><p>Why is there an initial fee for logo embroidery?</p><p>To embroider your logo with precision, we first need to convert your design into a specialised digital file, a process known as digitising. This one-off setup involves time and expertise to ensure your logo stitches out cleanly and consistently across all garments.</p><p>The $88.00 AUD fee covers this custom setup, and once it’s done, your logo is securely stored for any and all future orders. That means as your team grows or changes, you can easily add logo embroidery to your professional uniforms for just $10.00 AUD per item, without paying the setup fee again.</p>",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_UFM8qc",
+        "text_9Wkp6A"
+      ],
+      "disabled": true,
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 25,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 70,
+        "padding-block-end": 70
+      }
+    },
+    "advanced_sitemap_aKDwd8": {
+      "type": "advanced-sitemap",
+      "blocks": {
+        "menu_group_RmVMdn": {
+          "type": "menu_group",
+          "settings": {}
+        },
+        "menu_group_NWr6Cd": {
+          "type": "menu_group",
+          "settings": {}
+        },
+        "menu_group_tN98RM": {
+          "type": "menu_group",
+          "settings": {}
+        },
+        "menu_group_cPXnXC": {
+          "type": "menu_group",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "menu_group_RmVMdn",
+        "menu_group_NWr6Cd",
+        "menu_group_tN98RM",
+        "menu_group_cPXnXC"
+      ],
+      "name": "Advanced Sitemap",
+      "settings": {
+        "heading": "Sitemap",
+        "description": "",
+        "show_pages": true,
+        "pages_menu": "main-menu-1",
+        "show_collections": true,
+        "show_products": false,
+        "products_per_page": 50,
+        "show_blogs": false,
+        "show_articles": false,
+        "show_policies": true,
+        "show_customer_links": true,
+        "show_search": true,
+        "show_empty_groups": true,
+        "columns_desktop": 4,
+        "columns_tablet": 3,
+        "section_width": "page-width",
+        "custom_width": 1200,
+        "color_scheme": "scheme-1",
+        "bg_color": "",
+        "card_bg_color": "",
+        "heading_color": "",
+        "text_color": "",
+        "link_color": "",
+        "hover_color": "",
+        "border_color": "",
+        "padding-block-start": 60,
+        "padding-block-end": 60,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "heading_size": 32,
+        "group_heading_size": 18,
+        "link_size": 16,
+        "animation_enabled": false,
+        "animation_style": "fade",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_XXtUcW",
+    "advanced_sitemap_aKDwd8"
+  ]
+}

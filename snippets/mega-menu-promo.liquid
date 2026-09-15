@@ -1,0 +1,116 @@
+{%- doc -%}
+  Renders Mega Menu Promotion cards for a matched _mega-menu-promo block.
+
+  Desktop: outputs a <span class="mega-menu__content mega-menu-promo"> that slots
+  into the mega-menu__grid CSS grid alongside the menu links list. Column span is
+  driven by the number of active cards so the grid fills cleanly.
+
+  Mobile: outputs a standalone <div class="mega-menu-promo--mobile"> with a
+  two-column responsive card grid.
+
+  @param {object} promo_block   - The matched _mega-menu-promo block object.
+  @param {number} promo_count   - Pre-counted number of cards with images.
+  @param {boolean} [is_mobile]  - Pass true when rendering inside the drawer.
+{%- enddoc -%}
+
+{% liquid
+  assign desktop_cols = promo_count | at_most: 5 | at_least: 1
+  assign tablet_cols  = promo_count | at_most: 3 | at_least: 1
+%}
+
+{% if is_mobile %}
+  <div class="mega-menu-promo mega-menu-promo--mobile" {{ promo_block.shopify_attributes }}>
+    <ul class="mega-menu-promo__list mega-menu-promo__list--mobile list-unstyled">
+      {% for i in (1..5) %}
+        {% assign image_key = 'promo_' | append: i | append: '_image' %}
+        {% assign title_key = 'promo_' | append: i | append: '_title' %}
+        {% assign link_key  = 'promo_' | append: i | append: '_link' %}
+        {% assign promo_image = promo_block.settings[image_key] %}
+        {% assign promo_title = promo_block.settings[title_key] %}
+        {% assign promo_link  = promo_block.settings[link_key] %}
+        {% if promo_image != blank %}
+          <li class="mega-menu-promo__item">
+            <a
+              href="{{ promo_link | default: '#' }}"
+              class="mega-menu-promo__card"
+              {% if promo_title != blank %}
+                aria-label="{{ promo_title | escape }}"
+              {% endif %}
+            >
+              <div class="mega-menu-promo__image-wrapper">
+                {{
+                  promo_image
+                  | image_url: width: 600
+                  | image_tag:
+                    widths: '200, 300, 400, 600',
+                    sizes: '(max-width: 749px) calc(50vw - 24px), 200px',
+                    loading: 'lazy',
+                    alt: promo_title
+                }}
+              </div>
+              {% if promo_title != blank %}
+                <div class="mega-menu-promo__title">
+                  <span>{{ promo_title }}</span>
+                </div>
+              {% endif %}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+{% else %}
+  <span
+    class="mega-menu__content mega-menu-promo"
+    style="
+      --menu-content-columns-desktop: {{ desktop_cols }};
+      --menu-content-columns-tablet: {{ tablet_cols }};
+    "
+    {{ promo_block.shopify_attributes }}
+  >
+    <ul class="mega-menu__content-list mega-menu-promo__list list-unstyled"
+      style="
+        --menu-content-columns-desktop: {{ desktop_cols }};
+        --menu-content-columns-tablet: {{ tablet_cols }};
+      "
+    >
+      {% for i in (1..5) %}
+        {% assign image_key = 'promo_' | append: i | append: '_image' %}
+        {% assign title_key = 'promo_' | append: i | append: '_title' %}
+        {% assign link_key  = 'promo_' | append: i | append: '_link' %}
+        {% assign promo_image = promo_block.settings[image_key] %}
+        {% assign promo_title = promo_block.settings[title_key] %}
+        {% assign promo_link  = promo_block.settings[link_key] %}
+        {% if promo_image != blank %}
+          <li class="mega-menu__content-list-item mega-menu-promo__item">
+            <a
+              href="{{ promo_link | default: '#' }}"
+              class="mega-menu-promo__card"
+              {% if promo_title != blank %}
+                aria-label="{{ promo_title | escape }}"
+              {% endif %}
+            >
+              <div class="mega-menu-promo__image-wrapper">
+                {{
+                  promo_image
+                  | image_url: width: 600
+                  | image_tag:
+                    widths: '200, 300, 400, 600',
+                    sizes: '(max-width: 989px) calc(33vw - 24px), calc(16vw - 24px)',
+                    loading: 'lazy',
+                    alt: promo_title
+                }}
+              </div>
+              {% if promo_title != blank %}
+                <div class="mega-menu-promo__title">
+                  <span>{{ promo_title }}</span>
+                </div>
+              {% endif %}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </span>
+{% endif %}

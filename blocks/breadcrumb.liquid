@@ -1,0 +1,559 @@
+
+{%- doc -%}
+  Breadcrumb navigation block for Shopify Horizon themes.
+
+  Supports: product, collection, blog, article, page, and search pages.
+  Outputs schema.org BreadcrumbList microdata and full ARIA accessibility.
+{%- enddoc -%}
+
+{% liquid
+  assign s = block.settings
+  assign home_label = s.home_label | default: 'Home'
+  assign separator  = s.separator  | default: '/'
+
+  # Map text-alignment to flex justify-content
+  case s.alignment
+    when 'center'
+      assign bc_justify = 'center'
+    when 'right'
+      assign bc_justify = 'flex-end'
+    else
+      assign bc_justify = 'flex-start'
+  endcase
+
+  # Mobile font size: use custom value or inherit desktop size
+  if s.custom_mobile_font
+    assign bc_font_size_mobile = s.font_size_mobile
+  else
+    assign bc_font_size_mobile = 'var(--bc-font-size)'
+  endif
+
+  # Background
+  if s.show_background and s.background_color != blank
+    assign bc_bg = 'rgb(' | append: s.background_color.rgba | append: ')'
+  else
+    assign bc_bg = 'transparent'
+  endif
+
+  assign bc_position = 0
+%}
+
+<nav
+  class="breadcrumb-block{% if s.show_background %} breadcrumb-block--has-bg{% endif %}"
+  aria-label="Breadcrumb"
+  style="
+    --bc-font-size: {{ s.font_size }};
+    --bc-font-size-mobile: {{ bc_font_size_mobile }};
+    --bc-font-weight: {{ s.font_weight }};
+    --bc-text-color: {{ s.text_color }};
+    --bc-link-color: {{ s.link_color }};
+    --bc-hover-color: {{ s.hover_color }};
+    --bc-justify: {{ bc_justify }};
+    --bc-separator: '{{ separator }}';
+    --bc-bg: {{ bc_bg }};
+    --bc-radius: {{ s.border_radius }}px;
+    padding-block-start: {{ s['padding-block-start'] }}px;
+    padding-block-end: {{ s['padding-block-end'] }}px;
+    text-align: {{ s.alignment | default: 'left' }};
+  "
+  {{ block.shopify_attributes }}
+>
+  <ol
+    class="breadcrumb-block__list list-unstyled{% unless s.wrap_mobile %} breadcrumb-block__list--nowrap{% endunless %}"
+    itemscope
+    itemtype="https://schema.org/BreadcrumbList"
+  >
+
+    {%- comment -%}── HOME ─────────────────────────────────────────────────────{%- endcomment -%}
+    {%- if s.show_home -%}
+      {%- assign bc_position = bc_position | plus: 1 -%}
+      <li
+        class="breadcrumb-block__item"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/ListItem"
+      >
+        <a
+          href="{{ routes.root_url }}"
+          class="breadcrumb-block__link"
+          itemprop="item"
+        >
+          <span itemprop="name">{{ home_label }}</span>
+        </a>
+        <meta itemprop="position" content="{{ bc_position }}" />
+      </li>
+    {%- endif -%}
+
+    {%- comment -%}── PAGE-TYPE ITEMS ──────────────────────────────────────────{%- endcomment -%}
+    {%- case request.page_type -%}
+
+      {%- when 'product' -%}
+        {%- comment -%}
+          Prefer the contextual collection from the URL (collection handle in
+          the route). Fall back to the first non-"all" collection the product
+          belongs to.
+        {%- endcomment -%}
+        {%- assign bc_collection = nil -%}
+        {%- if collection -%}
+          {%- assign bc_collection = collection -%}
+        {%- elsif product.collections.size > 0 -%}
+          {%- for pc in product.collections -%}
+            {%- unless pc.handle == 'all' -%}
+              {%- assign bc_collection = pc -%}
+              {%- break -%}
+            {%- endunless -%}
+          {%- endfor -%}
+        {%- endif -%}
+
+        {%- if bc_collection -%}
+          {%- assign bc_position = bc_position | plus: 1 -%}
+          <li
+            class="breadcrumb-block__item"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem"
+          >
+            <a
+              href="{{ bc_collection.url }}"
+              class="breadcrumb-block__link"
+              itemprop="item"
+            >
+              <span itemprop="name">{{ bc_collection.title }}</span>
+            </a>
+            <meta itemprop="position" content="{{ bc_position }}" />
+          </li>
+        {%- endif -%}
+
+        {%- if s.show_current -%}
+          {%- assign bc_position = bc_position | plus: 1 -%}
+          <li
+            class="breadcrumb-block__item breadcrumb-block__item--current"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem"
+            aria-current="page"
+          >
+            <span class="breadcrumb-block__current" itemprop="name">{{ product.title }}</span>
+            <meta itemprop="position" content="{{ bc_position }}" />
+          </li>
+        {%- endif -%}
+
+      {%- when 'collection' -%}
+        {%- if s.show_current -%}
+          {%- assign bc_position = bc_position | plus: 1 -%}
+          <li
+            class="breadcrumb-block__item breadcrumb-block__item--current"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem"
+            aria-current="page"
+          >
+            <span class="breadcrumb-block__current" itemprop="name">
+              {%- if collection -%}
+                {{- collection.title -}}
+              {%- else -%}
+                {{- 'collections.general.catalog' | t -}}
+              {%- endif -%}
+            </span>
+            <meta itemprop="position" content="{{ bc_position }}" />
+          </li>
+        {%- endif -%}
+
+      {%- when 'blog' -%}
+        {%- if s.show_current -%}
+          {%- assign bc_position = bc_position | plus: 1 -%}
+          <li
+            class="breadcrumb-block__item breadcrumb-block__item--current"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem"
+            aria-current="page"
+          >
+            <span class="breadcrumb-block__current" itemprop="name">{{ blog.title }}</span>
+            <meta itemprop="position" content="{{ bc_position }}" />
+          </li>
+        {%- endif -%}
+
+      {%- when 'article' -%}
+        {%- comment -%}Parent: always link to the blog{%- endcomment -%}
+        {%- assign bc_position = bc_position | plus: 1 -%}
+        <li
+          class="breadcrumb-block__item"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem"
+        >
+          <a
+            href="{{ blog.url }}"
+            class="breadcrumb-block__link"
+            itemprop="item"
+          >
+            <span itemprop="name">{{ blog.title }}</span>
+          </a>
+          <meta itemprop="position" content="{{ bc_position }}" />
+        </li>
+
+        {%- if s.show_current -%}
+          {%- assign bc_position = bc_position | plus: 1 -%}
+          <li
+            class="breadcrumb-block__item breadcrumb-block__item--current"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem"
+            aria-current="page"
+          >
+            <span class="breadcrumb-block__current" itemprop="name">{{ article.title }}</span>
+            <meta itemprop="position" content="{{ bc_position }}" />
+          </li>
+        {%- endif -%}
+
+      {%- when 'page' -%}
+        {%- if s.show_current -%}
+          {%- assign bc_position = bc_position | plus: 1 -%}
+          <li
+            class="breadcrumb-block__item breadcrumb-block__item--current"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem"
+            aria-current="page"
+          >
+            <span class="breadcrumb-block__current" itemprop="name">{{ page.title }}</span>
+            <meta itemprop="position" content="{{ bc_position }}" />
+          </li>
+        {%- endif -%}
+
+      {%- when 'search' -%}
+        {%- if s.show_current -%}
+          {%- assign bc_position = bc_position | plus: 1 -%}
+          {%- if search.performed -%}
+            {%- assign bc_search_label = 'general.search.results_for' | t: terms: search.terms -%}
+          {%- else -%}
+            {%- assign bc_search_label = 'general.search.title' | t -%}
+          {%- endif -%}
+          <li
+            class="breadcrumb-block__item breadcrumb-block__item--current"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem"
+            aria-current="page"
+          >
+            <span class="breadcrumb-block__current" itemprop="name">{{ bc_search_label }}</span>
+            <meta itemprop="position" content="{{ bc_position }}" />
+          </li>
+        {%- endif -%}
+
+    {%- endcase -%}
+
+  </ol>
+</nav>
+
+{% stylesheet %}
+  /* ── Container ──────────────────────────────────────────────────────── */
+  .breadcrumb-block {
+    background: var(--bc-bg, transparent);
+    border-radius: var(--bc-radius, 0);
+  }
+
+  .breadcrumb-block--has-bg {
+    padding-inline: 0.75em;
+    padding-block: 0.5em;
+  }
+
+  /* ── List ───────────────────────────────────────────────────────────── */
+  .breadcrumb-block__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: var(--bc-justify, flex-start);
+    font-size: var(--bc-font-size, 0.875rem);
+    font-weight: var(--bc-font-weight, 400);
+    line-height: 1.5;
+  }
+
+  .breadcrumb-block__list--nowrap {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .breadcrumb-block__list--nowrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Items ──────────────────────────────────────────────────────────── */
+  .breadcrumb-block__item {
+    display: inline-flex;
+    align-items: center;
+    color: var(--bc-text-color, var(--color-foreground));
+    flex-shrink: 0;
+    text-transform:uppercase;
+    letter-spacing: 0.6px;
+  }
+
+  /* Separator injected via CSS before every item after the first.
+     The --bc-separator CSS variable holds a quoted CSS string e.g. '/'. */
+  .breadcrumb-block__item + .breadcrumb-block__item::before {
+    content: var(--bc-separator, '/');
+    color: var(--bc-text-color, var(--color-foreground));
+    padding-inline: 0.45em;
+    flex-shrink: 0;
+    speak: never; /* non-standard but widely understood */
+  }
+
+  /* ── Links ──────────────────────────────────────────────────────────── */
+  .breadcrumb-block__link {
+    color: var(--bc-link-color, var(--color-primary));
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb-block__link:hover {
+    color: var(--bc-hover-color, var(--color-primary-hover, var(--color-primary)));
+    text-decoration: none;
+  }
+
+  .breadcrumb-block__link:focus-visible {
+    color: var(--bc-hover-color, var(--color-primary-hover, var(--color-primary)));
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
+    text-decoration: none;
+  }
+
+  /* ── Current page ───────────────────────────────────────────────────── */
+  .breadcrumb-block__item--current {
+    color: var(--bc-text-color, var(--color-foreground));
+    /* opacity: var(--opacity-subdued-text, 0.7); */
+  }
+
+  .breadcrumb-block__current {
+    color: inherit;
+    /* Truncate extremely long titles gracefully */
+    max-width: 28ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* ── Mobile ─────────────────────────────────────────────────────────── */
+  @media screen and (max-width: 749px) {
+    .breadcrumb-block__list {
+      font-size: var(--bc-font-size-mobile, var(--bc-font-size, 0.875rem));
+    }
+
+    .breadcrumb-block__current {
+      max-width: 18ch;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Breadcrumb",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_home",
+      "label": "Show home link",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "home_label",
+      "label": "Home label",
+      "default": "Home",
+      "placeholder": "Home"
+    },
+    {
+      "type": "select",
+      "id": "separator",
+      "label": "Separator style",
+      "options": [
+        { "value": "/",  "label": "Slash  /" },
+        { "value": ">",  "label": "Chevron  >" },
+        { "value": "→",  "label": "Arrow  →" },
+        { "value": "•",  "label": "Dot  •" },
+        { "value": "|",  "label": "Pipe  |" }
+      ],
+      "default": "/"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_current",
+      "label": "Show current page",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "select",
+      "id": "font_size",
+      "label": "Font size",
+      "options": [
+        { "value": "0.75rem",   "label": "12px" },
+        { "value": "0.875rem",  "label": "14px" },
+        { "value": "1rem",      "label": "16px" },
+        { "value": "1.125rem",  "label": "18px" },
+        { "value": "1.25rem",   "label": "20px" }
+      ],
+      "default": "0.875rem"
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_mobile_font",
+      "label": "Custom mobile font size",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "font_size_mobile",
+      "label": "Mobile font size",
+      "options": [
+        { "value": "0.625rem",  "label": "10px" },
+        { "value": "0.75rem",   "label": "12px" },
+        { "value": "0.875rem",  "label": "14px" },
+        { "value": "1rem",      "label": "16px" }
+      ],
+      "default": "0.75rem",
+      "visible_if": "{{ block.settings.custom_mobile_font == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "label": "Text color",
+      "options": [
+        { "value": "var(--color-foreground)",         "label": "Text" },
+        { "value": "var(--color-foreground-heading)", "label": "Heading" },
+        { "value": "var(--color-primary)",            "label": "Brand" }
+      ],
+      "default": "var(--color-foreground)"
+    },
+    {
+      "type": "select",
+      "id": "link_color",
+      "label": "Link color",
+      "options": [
+        { "value": "var(--color-primary)",            "label": "Brand" },
+        { "value": "var(--color-foreground)",         "label": "Text" },
+        { "value": "var(--color-foreground-heading)", "label": "Heading" }
+      ],
+      "default": "var(--color-primary)"
+    },
+    {
+      "type": "select",
+      "id": "hover_color",
+      "label": "Hover color",
+      "options": [
+        { "value": "var(--color-primary-hover)",      "label": "Brand hover" },
+        { "value": "var(--color-primary)",            "label": "Brand" },
+        { "value": "var(--color-foreground)",         "label": "Text" },
+        { "value": "var(--color-foreground-heading)", "label": "Heading" }
+      ],
+      "default": "var(--color-primary-hover)"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Alignment",
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "wrap_mobile",
+      "label": "Wrap on mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_background",
+      "label": "Show background",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "alpha": true,
+      "default": "#00000014",
+      "visible_if": "{{ block.settings.show_background == true }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 4,
+      "visible_if": "{{ block.settings.show_background == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Breadcrumb",
+      "category": "Navigation"
+    }
+  ]
+}
+{% endschema %}

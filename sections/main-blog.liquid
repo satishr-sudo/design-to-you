@@ -1,0 +1,539 @@
+
+
+<script
+  src="{{ 'blog-posts-list.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% style %}
+  #blog-grid-{{ section.id }} {
+    --blog-columns-desktop: {{ section.settings.columns_desktop | default: 3 }};
+    --blog-columns-mobile: {{ section.settings.columns_mobile | default: 1 }};
+  }
+{% endstyle %}
+
+{% liquid
+  assign posts_per_page = 9
+
+  if section.settings.article_source == 'all'
+    assign articles_to_show = blogs['news'].articles
+
+    assign uncategorized_articles = blogs['uncategorized'].articles
+    assign uniform_design_articles = blogs['uniform-design'].articles
+    assign sustainable_articles = blogs['sustainable-uniforms'].articles
+    assign healthcare_articles = blogs['healthcare-uniforms'].articles
+    assign ethical_articles = blogs['ethical-uniforms'].articles
+
+    assign articles_to_show = articles_to_show | concat: uncategorized_articles
+    assign articles_to_show = articles_to_show | concat: uniform_design_articles
+    assign articles_to_show = articles_to_show | concat: sustainable_articles
+    assign articles_to_show = articles_to_show | concat: healthcare_articles
+    assign articles_to_show = articles_to_show | concat: ethical_articles
+
+    assign articles_to_show = articles_to_show | sort: 'published_at' | reverse
+  else
+    assign articles_to_show = blog.articles
+  endif
+
+  assign items_on_page = articles_to_show.size
+  assign total_pages = items_on_page | plus: posts_per_page | minus: 1 | divided_by: posts_per_page
+  assign show_hero = section.settings.show_featured_hero
+%}
+
+<blog-posts-list section-id="{{ section.id }}">
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+  <div
+    class="
+      section
+      color-{{ section.settings.color_scheme }}
+      blog-posts
+      spacing-style
+      size-style
+    "
+    data-testid="blog-posts"
+    style="{% render 'spacing-style', settings: section.settings %}"
+  >
+    {% content_for 'blocks' %}
+
+    <div
+      ref="grid"
+      id="blog-grid-{{ section.id }}"
+      class="blog-posts-container"
+    >
+      {% for article in articles_to_show %}
+        {% liquid
+          assign article_page = forloop.index0 | divided_by: posts_per_page
+          assign is_hero = false
+          assign is_horizontal = false
+
+          if show_hero and forloop.index == 1 and items_on_page >= 2
+            assign is_hero = true
+            assign is_horizontal = true
+          endif
+        %}
+
+        <div
+          class="blog-post-item{% if is_horizontal %} blog-post-item--horizontal{% endif %}{% if is_hero %} blog-post-item--hero{% endif %}"
+          data-testid="blog-post-item"
+          data-blog-page="{{ article_page }}"
+          {% if article_page != 0 %}
+            hidden
+          {% endif %}
+        >
+          {% content_for 'block',
+            id: 'static-blog-post-card',
+            type: '_blog-post-card',
+            article: article
+          %}
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if total_pages > 1 %}
+      <nav
+        id="blog-pagination-{{ section.id }}"
+        class="blog-pagination"
+        aria-label="Blog pagination"
+        data-current-page="0"
+        data-total-pages="{{ total_pages }}"
+      >
+        <button
+          type="button"
+          class="blog-pagination__button blog-pagination__previous"
+          aria-label="Previous page"
+          disabled
+        >
+          Previous
+        </button>
+
+        <div class="blog-pagination__numbers">
+          {% for page_number in (1..total_pages) %}
+            <button
+              type="button"
+              class="blog-pagination__button blog-pagination__number{% if page_number == 1 %} is-active{% endif %}"
+              data-page="{{ page_number | minus: 1 }}"
+              aria-label="Go to page {{ page_number }}"
+              {% if page_number == 1 %}
+                aria-current="page"
+              {% endif %}
+            >
+              {{ page_number }}
+            </button>
+          {% endfor %}
+        </div>
+
+        <button
+          type="button"
+          class="blog-pagination__button blog-pagination__next"
+          aria-label="Next page"
+        >
+          Next
+        </button>
+      </nav>
+    {% endif %}
+  </div>
+</blog-posts-list>
+
+<script>
+  (() => {
+    const sectionId = {{ section.id | json }};
+    const grid = document.getElementById(`blog-grid-${sectionId}`);
+    const pagination = document.getElementById(
+      `blog-pagination-${sectionId}`
+    );
+
+    if (
+      !grid ||
+      !pagination ||
+      pagination.dataset.initialised === 'true'
+    ) {
+      return;
+    }
+
+    pagination.dataset.initialised = 'true';
+
+    const articles = Array.from(
+      grid.querySelectorAll('[data-blog-page]')
+    );
+
+    const pageButtons = Array.from(
+      pagination.querySelectorAll('[data-page]')
+    );
+
+    const previousButton = pagination.querySelector(
+      '.blog-pagination__previous'
+    );
+
+    const nextButton = pagination.querySelector(
+      '.blog-pagination__next'
+    );
+
+    const totalPages = Number(pagination.dataset.totalPages);
+    let currentPage = 0;
+
+    function showPage(page, shouldScroll = true) {
+      const safePage = Math.max(
+        0,
+        Math.min(page, totalPages - 1)
+      );
+
+      currentPage = safePage;
+
+      articles.forEach((article) => {
+        const articlePage = Number(article.dataset.blogPage);
+        article.hidden = articlePage !== currentPage;
+      });
+
+      pageButtons.forEach((button) => {
+        const buttonPage = Number(button.dataset.page);
+        const isActive = buttonPage === currentPage;
+
+        button.classList.toggle('is-active', isActive);
+
+        if (isActive) {
+          button.setAttribute('aria-current', 'page');
+        } else {
+          button.removeAttribute('aria-current');
+        }
+      });
+
+      previousButton.disabled = currentPage === 0;
+      nextButton.disabled = currentPage === totalPages - 1;
+      pagination.dataset.currentPage = String(currentPage);
+
+      if (shouldScroll) {
+        const headerOffset = 120;
+        const gridPosition =
+          grid.getBoundingClientRect().top +
+          window.scrollY -
+          headerOffset;
+
+        window.scrollTo({
+          top: gridPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    pageButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        showPage(Number(button.dataset.page));
+      });
+    });
+
+    previousButton.addEventListener('click', () => {
+      showPage(currentPage - 1);
+    });
+
+    nextButton.addEventListener('click', () => {
+      showPage(currentPage + 1);
+    });
+
+    showPage(0, false);
+  })();
+</script>
+
+{% stylesheet %}
+  .blog-posts {
+    --page-content-width: var(--narrow-page-width);
+    --page-width: calc(
+      var(--page-content-width) + (var(--page-margin) * 2)
+    );
+    --columns-gap: 24px;
+    --rows-gap: 60px;
+  }
+
+  .blog-posts-container {
+    display: grid;
+    grid-template-columns:
+      repeat(
+        var(--blog-columns-desktop, 3),
+        minmax(0, 1fr)
+      );
+    width: 100%;
+    column-gap: var(--columns-gap);
+    row-gap: var(--rows-gap);
+  }
+
+  .blog-post-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .blog-post-item[hidden] {
+    display: none !important;
+  }
+
+  .blog-post-item--hero {
+    grid-column: 1 / -1;
+  }
+
+  /*
+   * Softer image zoom for the main blog cards.
+   */
+  .blog-post-item img {
+    transition: transform 0.35s ease !important;
+    will-change: transform;
+  }
+
+  .blog-post-item:hover img {
+    transform: scale(1.025) !important;
+  }
+
+  .blog-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: 100%;
+    margin-top: 70px;
+  }
+
+  .blog-pagination__numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .blog-pagination__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    min-height: 38px;
+    padding: 8px 12px;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1;
+    color: #151c3b;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #d5d6dc;
+    border-radius: 2px;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .blog-pagination__button:hover:not(:disabled),
+  .blog-pagination__button.is-active {
+    color: #ffffff;
+    background-color: #151c3b;
+    border-color: #151c3b;
+  }
+
+  .blog-pagination__button.is-active {
+    cursor: default;
+  }
+
+  .blog-pagination__button:disabled {
+    color: #151c3b;
+    cursor: not-allowed;
+    background: transparent;
+    border-color: #d5d6dc;
+    opacity: 0.35;
+  }
+
+  .blog-pagination__previous,
+  .blog-pagination__next {
+    min-width: 82px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .blog-posts {
+      --columns-gap: 16px;
+      --rows-gap: 42px;
+    }
+
+    .blog-posts-container {
+      grid-template-columns:
+        repeat(
+          var(--blog-columns-mobile, 1),
+          minmax(0, 1fr)
+        );
+    }
+
+    .blog-pagination {
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 48px;
+    }
+
+    .blog-pagination__numbers {
+      order: -1;
+      width: 100%;
+    }
+
+    .blog-pagination__button {
+      min-width: 36px;
+      min-height: 36px;
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+
+    .blog-pagination__previous,
+    .blog-pagination__next {
+      min-width: 92px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blog-post-item img {
+      transition: none !important;
+    }
+
+    .blog-post-item:hover img {
+      transform: none !important;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.blog_posts",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "video"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Blog articles"
+    },
+    {
+      "type": "select",
+      "id": "article_source",
+      "label": "Articles to display",
+      "options": [
+        {
+          "value": "all",
+          "label": "All blogs"
+        },
+        {
+          "value": "current",
+          "label": "Current blog only"
+        }
+      ],
+      "default": "all"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Desktop columns",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Mobile columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_hero",
+      "label": "Show first article as featured",
+      "info": "When enabled, the first article spans the full width.",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

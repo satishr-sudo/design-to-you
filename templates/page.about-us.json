@@ -1,0 +1,1603 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "class_name": "",
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "scattered_images_hero_iJ48kz": {
+      "type": "scattered-images-hero",
+      "disabled": true,
+      "name": "Scattered Images Hero",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "heading": "<p>Our operations are made to measure</p>",
+        "heading_size": "h2",
+        "subheading": "<p>Design to delivery. Every detail managed in-house, for teams of any size, in any industry.</p>",
+        "button_label": "",
+        "button_url": "",
+        "button_style": "secondary",
+        "image_shape": "original",
+        "image_1_alt": "",
+        "image_2_alt": "",
+        "image_3_alt": "",
+        "image_4_alt": "",
+        "image_size": 200,
+        "content_max_width": 400,
+        "section_min_height": 520,
+        "padding_top": 120,
+        "padding_bottom": 40,
+        "custom_class": ""
+      }
+    },
+    "section_8KtbW9": {
+      "type": "section",
+      "blocks": {
+        "text_bc3wnm": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h2>About US</h2>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_BwBUBa": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "about-banner-text",
+            "text": "<p>We don't supply products destined to sit in back rooms. We design uniform solutions that bring people together, make every wearer feel valued and help organisations look their best.</p><p>We don't believe in one-size-fits-all business — we enter partnerships. Every relationship starts with listening: understanding your people, your brand and the realities of your operation. From there, we bring creativity and commercial thinking together to build something that actually works.</p><p>We're obsessive about the details. Fit. Fabric. Finish. Precision at every step, so the result feels effortless. <strong>Why copy, when we could create?</strong></p>",
+            "device_visibility": "desktop",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_g3d9zK": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "about-banner-text",
+            "text": "<p>We don’t just supply uniforms — we create solutions that bring people together, make them feel valued and help your brand stand out.</p><p>We listen, think creatively and obsess over the details to create uniforms that truly work for your people and your business. <strong>Why copy, when we could create?</strong></p>",
+            "device_visibility": "mobile",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_bc3wnm",
+        "text_BwBUBa",
+        "text_g3d9zK"
+      ],
+      "custom_css": [
+        ".faq-tab--about-banner-text rte-formatter {max-width: 850px !important; margin-inline: auto !important;}"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-c21fb250-0bdb-4523-ac3a-239ea8e18494",
+        "background_media": "image",
+        "video_position": "cover",
+        "background_image": "shopify://shop_images/Design_Header_-_About_Us_page_c075b843-930c-4e11-92b1-ffd96156252e.jpg",
+        "mobile_background_image": "shopify://shop_images/purple_background.jpg",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "section_CLFBFj": {
+      "type": "section",
+      "blocks": {
+        "group_HkJBye": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "class_name": "",
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 15,
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image_AbxHid": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "media_type": "image",
+                "image": "shopify://shop_images/dan_and_maria_pt2.png",
+                "link": "",
+                "enable_mobile_image": false,
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_3CXkVR": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "class_name": "",
+                "text": "<h3>Our Story</h3>",
+                "device_visibility": "all",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 40,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_RjGABT": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "class_name": "",
+                "text": "<p>As an independent, family-owned alternative to mainstream manufacturers, our hand literally holds the scissors. We stay close to every detail, at every stage of the uniform journey.</p><p>We've shaped the perfect fit for small start-ups, global giants, corporate businesses and healthcare clients since 1999 — building each program around the people wearing it, the teams managing it and the brand it represents.</p><p>End-to-end ordering systems. Patterns designed and owned in-house. Fabrics tested by thousands of washing machines. Inclusive sizing from AU 4 to 30. Customer service that knows partners by name. From first sketch to final delivery, every element is tested, refined and made to perform.</p><p><strong>DTY is the best uniform workers will ever wear. We're cut from a different cloth.</strong></p>",
+                "device_visibility": "all",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_AbxHid",
+            "text_3CXkVR",
+            "text_RjGABT"
+          ]
+        }
+      },
+      "block_order": [
+        "group_HkJBye"
+      ],
+      "custom_css": [
+        "[class*=\"__text_RjGABT\"] {--max-width: 1050px !important;}",
+        "[class*=\"__text_RjGABT\"] > * {max-width: 1050px !important;}",
+        "@media screen and (max-width: 749px) {[class*=\"__text_RjGABT\"], [class*=\"__text_RjGABT\"] > * {--max-width: 100% !important; max-width: 100% !important; }}"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "custom_classname": "about-img-wrapper",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-5dd74320-9673-42e3-b6ca-b3323db2e760",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 100
+      }
+    },
+    "section_LXFJBX": {
+      "type": "section",
+      "blocks": {
+        "group_Ujfxzt": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "class_name": "",
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_YqX7ft": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "class_name": "",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_hapxxR": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<h3>By the numbers</h3>",
+                    "device_visibility": "all",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_aAXAEV": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<h4>Measured in more ways than one</h4>",
+                    "device_visibility": "all",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-subheading--family)",
+                    "font_size": "1.5rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_hapxxR",
+                "text_aAXAEV"
+              ]
+            },
+            "group_KnLb64": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "class_name": "",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_tHtzbf": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<p>The numbers speak for themselves. But behind every one is 26 years of partnerships, programs and people who actually want to wear what we make.</p>",
+                    "device_visibility": "all",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_tHtzbf"
+              ]
+            }
+          },
+          "block_order": [
+            "group_YqX7ft",
+            "group_KnLb64"
+          ]
+        },
+        "group_fyAEqb": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "class_name": "bg-img-cards",
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 36,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_UgwrXf": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "class_name": "bg-img-card",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fill",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "image",
+                "video_position": "cover",
+                "background_image": "shopify://shop_images/26_years_in_business_hero.jpg",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 10,
+                "toggle_overlay": true,
+                "overlay_color": "#6d5c5159",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 20,
+                "padding-block-end": 20,
+                "padding-inline-start": 20,
+                "padding-inline-end": 20
+              },
+              "blocks": {
+                "image_q3tKBa": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "disabled": true,
+                  "settings": {
+                    "media_type": "image",
+                    "image": "shopify://shop_images/5cf7675f16d6e7502e7e990d30d06029_1_1.png",
+                    "link": "",
+                    "enable_mobile_image": false,
+                    "image_ratio": "portrait",
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_MirhpD": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<p>26+ years <br/>in business.</p>",
+                    "device_visibility": "all",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "center",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "2rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "uppercase",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_q3tKBa",
+                "text_MirhpD"
+              ]
+            },
+            "group_nDWaar": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "class_name": "bg-img-card",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fill",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "image",
+                "video_position": "cover",
+                "background_image": "shopify://shop_images/Tailor-made_solutions.jpg",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 10,
+                "toggle_overlay": true,
+                "overlay_color": "#6d5c5159",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 20,
+                "padding-block-end": 20,
+                "padding-inline-start": 20,
+                "padding-inline-end": 20
+              },
+              "blocks": {
+                "image_AfNKRw": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "disabled": true,
+                  "settings": {
+                    "media_type": "image",
+                    "image": "shopify://shop_images/5cf7675f16d6e7502e7e990d30d06029_1_1.png",
+                    "link": "",
+                    "enable_mobile_image": false,
+                    "image_ratio": "portrait",
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_zcn7Xw": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<p>1,000+ Businesses. <br/>One Partner.</p>",
+                    "device_visibility": "all",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "center",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "2rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "uppercase",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_AfNKRw",
+                "text_zcn7Xw"
+              ]
+            },
+            "group_cthR4q": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "class_name": "bg-img-card",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fill",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "image",
+                "video_position": "cover",
+                "background_image": "shopify://shop_images/deliverd_hero_2f65bd2b-74b5-49ac-8c14-6831700857bd.jpg",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 10,
+                "toggle_overlay": true,
+                "overlay_color": "#6d5c5159",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 20,
+                "padding-block-end": 20,
+                "padding-inline-start": 20,
+                "padding-inline-end": 20
+              },
+              "blocks": {
+                "image_cDYQxV": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "disabled": true,
+                  "settings": {
+                    "media_type": "image",
+                    "image": "shopify://shop_images/5cf7675f16d6e7502e7e990d30d06029_1_1.png",
+                    "link": "",
+                    "enable_mobile_image": false,
+                    "image_ratio": "portrait",
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_Y3Bgkq": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<p>250,000+ uniforms<br/>DELIVERED YEARLY.</p>",
+                    "device_visibility": "all",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "center",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "2rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "uppercase",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_cDYQxV",
+                "text_Y3Bgkq"
+              ]
+            }
+          },
+          "block_order": [
+            "group_UgwrXf",
+            "group_nDWaar",
+            "group_cthR4q"
+          ]
+        }
+      },
+      "block_order": [
+        "group_Ujfxzt",
+        "group_fyAEqb"
+      ],
+      "custom_css": [],
+      "name": "t:names.custom_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 75,
+        "section_width": "page-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "media_with_content_WGC6Wz": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/What_we_do_hero.jpg",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
+          },
+          "blocks": {
+            "group_xzreFK": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "class_name": "case-study-content-group",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 24,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 24,
+                "padding-block-end": 24,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_P7ixaR": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<h3>WHAT We DO</h3>",
+                    "device_visibility": "all",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "2rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "uppercase",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_mE6QdM": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<p>Every industry. One standard.</p>",
+                    "device_visibility": "all",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-subheading--family)",
+                    "font_size": "1.375rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_GnDfQf": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<p>We don't do one-size-fits-all businesses. We enter partnerships. We design uniform solutions. For every role, every department, every worker.</p>",
+                    "device_visibility": "all",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 24,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "accordion_rMVeUc": {
+                  "type": "accordion",
+                  "name": "t:names.accordion",
+                  "settings": {
+                    "class_name": "",
+                    "icon": "caret",
+                    "dividers": true,
+                    "type_preset": "",
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "accordion_row_RXmJpm": {
+                      "type": "_accordion-row",
+                      "settings": {
+                        "heading": "Retail & Hospitality",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20,
+                        "scroll_to_reviews": false
+                      },
+                      "blocks": {
+                        "text_YMpxA3": {
+                          "type": "text",
+                          "settings": {
+                            "class_name": "",
+                            "text": "<p>Your uniform is the first thing a customer notices. We design for that moment — polished styles, comfortable fits and consistent delivery across every location, from a single store to a national rollout.</p>",
+                            "device_visibility": "all",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "left",
+                            "type_preset": "custom",
+                            "font": "var(--font-body--family)",
+                            "font_size": "0.875rem",
+                            "line_height": "loose",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_YMpxA3"
+                      ]
+                    },
+                    "accordion_row_Tdb7E9": {
+                      "type": "_accordion-row",
+                      "settings": {
+                        "heading": "Healthcare",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20,
+                        "scroll_to_reviews": false
+                      },
+                      "blocks": {
+                        "text_6zDy9W": {
+                          "type": "text",
+                          "settings": {
+                            "class_name": "",
+                            "text": "<p>Fabric that works as hard as your team. Durable, easy-care and designed for long shifts — with the fit and finish that helps your people feel confident on the floor.<br/><br/></p>",
+                            "device_visibility": "all",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "left",
+                            "type_preset": "custom",
+                            "font": "var(--font-body--family)",
+                            "font_size": "0.875rem",
+                            "line_height": "loose",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_6zDy9W"
+                      ]
+                    },
+                    "accordion_row_PXqDHJ": {
+                      "type": "_accordion-row",
+                      "settings": {
+                        "heading": "Corporate",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20,
+                        "scroll_to_reviews": false
+                      },
+                      "blocks": {
+                        "text_YdxaHd": {
+                          "type": "text",
+                          "settings": {
+                            "class_name": "",
+                            "text": "<p>A uniform that represents your brand before anyone says a word. Tailored styles, in-house patterns and a managed program that takes the complexity out of dressing an entire workforce.</p>",
+                            "device_visibility": "all",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "left",
+                            "type_preset": "custom",
+                            "font": "var(--font-body--family)",
+                            "font_size": "0.875rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_YdxaHd"
+                      ]
+                    },
+                    "accordion_row_D3Gg7a": {
+                      "type": "_accordion-row",
+                      "settings": {
+                        "heading": "Trade & Industry",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20,
+                        "scroll_to_reviews": false
+                      },
+                      "blocks": {
+                        "text_GYtM6V": {
+                          "type": "text",
+                          "settings": {
+                            "class_name": "",
+                            "text": "<p>Built for the job. Durable fabrics, practical cuts and a program that keeps your team kitted out — from first order to ongoing replacements, without the back-and-forth.</p>",
+                            "device_visibility": "all",
+                            "width": "100%",
+                            "max_width": "none",
+                            "alignment": "left",
+                            "type_preset": "custom",
+                            "font": "var(--font-body--family)",
+                            "font_size": "0.875rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_GYtM6V"
+                      ]
+                    }
+                  },
+                  "block_order": [
+                    "accordion_row_RXmJpm",
+                    "accordion_row_Tdb7E9",
+                    "accordion_row_PXqDHJ",
+                    "accordion_row_D3Gg7a"
+                  ]
+                }
+              },
+              "block_order": [
+                "text_P7ixaR",
+                "text_mE6QdM",
+                "text_GnDfQf",
+                "accordion_rMVeUc"
+              ]
+            }
+          },
+          "block_order": [
+            "group_xzreFK"
+          ]
+        }
+      },
+      "name": "t:names.editorial",
+      "settings": {
+        "media_position": "right",
+        "media_width": "medium",
+        "media_height": "80svh",
+        "section_width": "page-width",
+        "extend_media": true,
+        "color_scheme": "scheme-4",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "section_8ghkD6": {
+      "type": "section",
+      "blocks": {
+        "text_KKT7bD": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h3>OUR VALUES</h3>",
+            "device_visibility": "all",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_KKT7bD"
+      ],
+      "disabled": true,
+      "name": "t:names.custom_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 100,
+        "padding-block-end": 0
+      }
+    },
+    "custom_work_slider_ge4Nrq": {
+      "type": "custom-work-slider",
+      "blocks": {
+        "slide_QpT4Vf": {
+          "type": "slide",
+          "settings": {
+            "image_alt": "",
+            "use_background_color": true,
+            "background_color": "#a22f35",
+            "label": "Always Better",
+            "description": "Good enough isn't our standard. From fit to fabric to delivery, every detail is considered, every single time.",
+            "button_url": ""
+          }
+        },
+        "slide_JpDrBB": {
+          "type": "slide",
+          "settings": {
+            "image_alt": "",
+            "use_background_color": true,
+            "background_color": "#a22f35",
+            "label": "We're Human",
+            "description": "We design for the people wearing it — every size, every role, every person on your team, considered.",
+            "button_url": ""
+          }
+        },
+        "slide_xRt3Lz": {
+          "type": "slide",
+          "settings": {
+            "image_alt": "",
+            "use_background_color": true,
+            "background_color": "#a22f35",
+            "label": "We Get the Job Done",
+            "description": "Challenges don't intimidate us. We deliver with the consistency and accountability our partners deserve.",
+            "button_url": ""
+          }
+        },
+        "slide_MbnWLq": {
+          "type": "slide",
+          "settings": {
+            "image_alt": "",
+            "use_background_color": true,
+            "background_color": "#a22f35",
+            "label": "We Do It Right",
+            "description": "We operate with integrity, choosing ethical and sustainable methods that reduce our impact without cutting any corners.",
+            "button_url": ""
+          }
+        },
+        "slide_tg8gGL": {
+          "type": "slide",
+          "settings": {
+            "image_alt": "",
+            "use_background_color": true,
+            "background_color": "#a22f35",
+            "label": "We Own Our Craft",
+            "description": "Every pattern, every stitch, designed in-house by people who know their craft — nothing here is off-the-rack.",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_QpT4Vf",
+        "slide_JpDrBB",
+        "slide_xRt3Lz",
+        "slide_MbnWLq",
+        "slide_tg8gGL"
+      ],
+      "name": "Custom Work Slider",
+      "settings": {
+        "custom_class_name": "our-values-section",
+        "heading": "Our values",
+        "subheading": "",
+        "button_label": "",
+        "button_url": "#",
+        "button_style": "secondary",
+        "layout_type": "carousel",
+        "columns": 3,
+        "mobile_card_size": "75cqw",
+        "columns_gap": 8,
+        "header_position": "top",
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "section_3zmHec": {
+      "type": "section",
+      "blocks": {
+        "text_JJr98N": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<p>The best uniform your team will ever wear.</p>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "custom",
+            "font": "var(--font-subheading--family)",
+            "font_size": "1.5rem",
+            "line_height": "loose",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "button_rAEtxC": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "Get in Touch",
+            "link": "shopify://pages/contact",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_JJr98N",
+        "button_rAEtxC"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 30,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "scattered_images_hero_iJ48kz",
+    "section_8KtbW9",
+    "section_CLFBFj",
+    "section_LXFJBX",
+    "media_with_content_WGC6Wz",
+    "section_8ghkD6",
+    "custom_work_slider_ge4Nrq",
+    "section_3zmHec"
+  ]
+}

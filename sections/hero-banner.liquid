@@ -1,0 +1,445 @@
+{% comment %}
+  ============================================================
+  Section: Hero Banner — Designs To You
+  ============================================================
+{% endcomment %}
+
+{%- liquid
+  case section.settings.section_height
+    when 'small'
+      assign min_height = '44rem'
+    when 'medium'
+      assign min_height = '60rem'
+    when 'large'
+      assign min_height = '76rem'
+    else
+      assign min_height = '0px'
+  endcase
+
+  assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0
+-%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --hero-min-height: {{ min_height }};
+    --overlay-opacity: {{ overlay_opacity }};
+    --navy:   #2B103E;
+    --cream:  #EDEFE8;
+    --ease-soft: cubic-bezier(0.33, 1, 0.34, 1);
+  }
+{%- endstyle -%}
+
+<section
+  class="hero hero--{{ section.settings.section_height }} hero--{{ section.settings.content_alignment }}"
+  id="Hero-{{ section.id }}"
+  aria-label="Hero banner"
+>
+
+  <div class="hero__media">
+    {%- if section.settings.custom_mobile_media and section.settings.image_1_mobile != blank -%}
+      <picture>
+        <source
+          media="(max-width: 749px)"
+          srcset="{{ section.settings.image_1_mobile | image_url: width: 1200 }} 1200w, {{ section.settings.image_1_mobile | image_url: width: 800 }} 800w"
+          sizes="100vw"
+        >
+        {{
+          section.settings.image_1
+          | image_url: width: 2400
+          | image_tag:
+            loading: 'eager',
+            fetchpriority: 'high',
+            class: 'hero__bg-img',
+            sizes: '100vw',
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            alt: section.settings.image_1.alt | escape
+        }}
+      </picture>
+    {%- elsif section.settings.image_1 != blank -%}
+      {{
+        section.settings.image_1
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          class: 'hero__bg-img',
+          sizes: '100vw',
+          widths: '750, 1100, 1500, 1780, 2000, 2400',
+          alt: section.settings.image_1.alt | escape
+      }}
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'hero__placeholder-svg' }}
+    {%- endif -%}
+  </div>
+
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  {%- if section.settings.link != blank -%}
+    <a
+      href="{{ section.settings.link }}"
+      class="hero__full-link"
+      {%- if section.settings.open_in_new_tab %} target="_blank" rel="noopener"{%- endif -%}
+      aria-hidden="true"
+      tabindex="-1"
+    ></a>
+  {%- endif -%}
+
+  <div class="hero__inner page-width">
+    <div class="hero__content">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+
+</section>
+
+<style>
+  /* ──────────────────────────────────────────────
+     Hero Banner — scoped styles
+     Mirrors the handoff design exactly.
+  ────────────────────────────────────────────── */
+
+  #shopify-section-{{ section.id }} .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: var(--hero-min-height, 60rem);
+    overflow: hidden;
+    background: linear-gradient(180deg, #C9D7EA 0%, #B9CBE6 100%);
+  }
+
+  /* ── Background image ── */
+  #shopify-section-{{ section.id }} .hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  #shopify-section-{{ section.id }} .hero__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.image_position }};
+    display: block;
+  }
+  #shopify-section-{{ section.id }} .hero__placeholder-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ── Directional overlay ── */
+  #shopify-section-{{ section.id }} .hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      90deg,
+      rgba(30, 45, 75, var(--overlay-opacity, 0.55)) 0%,
+      rgba(30, 45, 75, calc(var(--overlay-opacity, 0.55) * 0.25)) 38%,
+      rgba(30, 45, 75, 0) 55%
+    );
+  }
+
+  /* ── Full-section link ── */
+  #shopify-section-{{ section.id }} .hero__full-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  /* ── Inner layout ── */
+  #shopify-section-{{ section.id }} .hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+  #shopify-section-{{ section.id }} .hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 54rem;
+  }
+
+  /* Content alignment */
+  #shopify-section-{{ section.id }} .hero--center .hero__inner {
+    display: flex;
+    justify-content: center;
+  }
+  #shopify-section-{{ section.id }} .hero--center .hero__content {
+    align-items: center;
+    text-align: center;
+  }
+  #shopify-section-{{ section.id }} .hero--right .hero__inner {
+    display: flex;
+    justify-content: flex-end;
+  }
+  #shopify-section-{{ section.id }} .hero--right .hero__content {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  /* ── Heading ── */
+  #shopify-section-{{ section.id }} .hero__heading {
+    margin: 0;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 1.08;
+  }
+  #shopify-section-{{ section.id }} .hero__heading--small  { font-size: clamp(2rem, 2.4vw, 3rem); }
+  #shopify-section-{{ section.id }} .hero__heading--medium { font-size: clamp(2.2rem, 3.2vw, 4.2rem); }
+  #shopify-section-{{ section.id }} .hero__heading--large  { font-size: clamp(2.8rem, 4.5vw, 5.8rem); }
+
+  /* ── Body text ── */
+  #shopify-section-{{ section.id }} .hero__text {
+    margin-top: 2.2rem;
+    font-size: 1.7rem;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 42ch;
+    line-height: 1.5;
+  }
+  #shopify-section-{{ section.id }} .hero__text p { margin: 0; }
+
+  /* ── CTA buttons ── */
+  #shopify-section-{{ section.id }} .hero__buttons {
+    display: flex;
+    gap: 1.4rem;
+    margin-top: 3.4rem;
+    flex-wrap: wrap;
+  }
+  #shopify-section-{{ section.id }} .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    padding: 1.4rem 2.4rem;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      transform 0.45s var(--ease-soft),
+      background 0.45s var(--ease-soft),
+      color 0.45s var(--ease-soft),
+      border-color 0.45s var(--ease-soft);
+  }
+  #shopify-section-{{ section.id }} .hero-btn:hover {
+    transform: translateY(-2px);
+  }
+  #shopify-section-{{ section.id }} .hero-btn--solid {
+    background: var(--navy);
+    color: var(--cream);
+    border-color: var(--navy);
+  }
+  #shopify-section-{{ section.id }} .hero-btn--solid:hover {
+    background: #1d2244;
+    border-color: #1d2244;
+  }
+  #shopify-section-{{ section.id }} .hero-btn--outline {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+  #shopify-section-{{ section.id }} .hero-btn--outline:hover {
+    background: #fff;
+    color: var(--navy);
+    border-color: #fff;
+  }
+
+  /* ── Adapt height: use natural image ratio on mobile ── */
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .hero--adapt {
+      min-height: 50rem;
+    }
+    #shopify-section-{{ section.id }} .hero__text {
+      font-size: 1.5rem;
+    }
+    #shopify-section-{{ section.id }} .hero__buttons {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    #shopify-section-{{ section.id }} .hero--center .hero__buttons {
+      align-items: center;
+    }
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .hero-btn { transition: none; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero banner",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    { "type": "@theme" },
+    { "type": "text" },
+    { "type": "button" },
+    { "type": "logo" },
+    { "type": "jumbo-text" },
+    { "type": "spacer" },
+    { "type": "group" },
+    { "type": "_marquee" }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "select",
+      "id": "media_type_1",
+      "label": "Type",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "video", "label": "Video" }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Background image",
+      "visible_if": "{{ section.settings.media_type_1 == 'image' }}"
+    },
+    {
+      "type": "video",
+      "id": "video_1",
+      "label": "Video",
+      "visible_if": "{{ section.settings.media_type_1 == 'video' }}"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image focal point",
+      "options": [
+        { "value": "center center", "label": "Centre" },
+        { "value": "right center",  "label": "Right" },
+        { "value": "left center",   "label": "Left" },
+        { "value": "center top",    "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" }
+      ],
+      "default": "right center"
+    },
+    {
+      "type": "header",
+      "content": "Mobile media"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_mobile_media",
+      "label": "Use custom mobile image",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1_mobile",
+      "label": "Mobile background image",
+      "visible_if": "{{ section.settings.custom_mobile_media }}"
+    },
+    {
+      "type": "header",
+      "content": "Section link"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "Open in new tab",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "Section height",
+      "options": [
+        { "value": "adapt",  "label": "Adapt to image" },
+        { "value": "small",  "label": "Small (440px)" },
+        { "value": "medium", "label": "Medium (600px)" },
+        { "value": "large",  "label": "Large (760px)" }
+      ],
+      "default": "large"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "options": [
+        { "value": "left",   "label": "Left" },
+        { "value": "center", "label": "Centre" },
+        { "value": "right",  "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "info": "Controls the dark gradient that fades in from the left side.",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero banner"
+    }
+  ]
+}
+{% endschema %}

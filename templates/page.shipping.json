@@ -1,0 +1,468 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "class_name": "",
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "section_9KqWWg": {
+      "type": "section",
+      "blocks": {
+        "text_EQL8rm": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h2>Shipping & Delivery</h2>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 10,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_8RGidK": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "about-banner-text",
+            "text": "<p>Everything you need to know about our shipping options, delivery timelines and costs — including free standard shipping within Australia on orders over $85.</p>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_EQL8rm",
+        "text_8RGidK"
+      ],
+      "custom_css": [
+        ".shipping-page-text a {color: #0c2633 !important; text-decoration: underline !important; text-underline-offset: 3px;}",
+        ".shipping-page-text a:hover {color: #0c2633 !important; opacity: 0.65;}"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-c21fb250-0bdb-4523-ac3a-239ea8e18494",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image": "shopify://shop_images/Design_Header_-_About_Us_page_c075b843-930c-4e11-92b1-ffd96156252e.jpg",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "section_UmLXWN": {
+      "type": "section",
+      "blocks": {
+        "text_3GUkft": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h3>DELIVERY INFORMATION</h3>",
+            "device_visibility": "all",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_UBhimV": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "shipping-page-text",
+            "text": "<p>We currently deliver within Australia and New Zealand.</p><p>Shipping costs are calculated automatically at checkout, based on your order value. Any additional costs will be clearly displayed before you complete your purchase.</p><p>Please provide a valid, accurate delivery address with every order. DTY isn't responsible for delays, losses, cancellations or added charges resulting from incorrect information.</p><p>We deliver via <strong>Australia Post</strong>. All deliveries require a signature on receipt, to a residential or commercial address — we can't deliver to PO boxes or leave parcels unattended.</p>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_a8fbBt": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h3>SHIPPING COST</h3>",
+            "device_visibility": "all",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 16,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "custom_liquid_TkiRXN": {
+          "type": "custom-liquid",
+          "name": "t:names.custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>\n.section-content-wrapper > div:has(.dty-delivery-card) {\n  width: 100%;\n  align-self: stretch;\n}\n  .dty-delivery-card {\n    width: 100%;\n    max-width: 100%;\n    margin-bottom: 16px;\n    padding: 26px 32px;\n    border: 1px solid rgba(12, 38, 51, 0.55);\n    border-radius: 5px;\n    background: #fff;\n    box-sizing: border-box;\n  }\n\n  .dty-delivery-card:last-child {\n  margin-bottom: 0;\n  }\n\n  .dty-table-wrap {\n    width: 100%;\n    max-width: 100%;\n    overflow-x: auto;\n  }\n\n  .dty-table {\n    width: 100%;\n    min-width: 580px;\n    border-collapse: collapse;\n    color: #0c2633;\n    font-size: 13px;\n    line-height: 1.45;\n  }\n\n  .dty-table th,\n  .dty-table td {\n    padding: 13px 12px;\n    border-bottom: 1px solid rgba(12, 38, 51, 0.3);\n    text-align: left;\n    vertical-align: top;\n  }\n\n  .dty-table th {\n    font-weight: 500;\n  }\n\n  .dty-table tbody tr:last-child td {\n    border-bottom: 0;\n  }\n\n  @media screen and (max-width: 749px) {\n  .dty-delivery-card {\n    padding: 20px 16px;\n  }\n\n  .dty-table {\n    width: 100%;\n    min-width: 0;\n    table-layout: fixed;\n    font-size: 12px;\n  }\n\n  .dty-table th,\n  .dty-table td {\n    padding: 10px 6px;\n    white-space: normal;\n    overflow-wrap: break-word;\n  }\n}\n</style>\n\n<div class=\"dty-delivery-card\">\n  <h4>Domestic Shipping Costs (Australia)</h4>\n\n  <div class=\"dty-table-wrap\">\n    <table class=\"dty-table\">\n      <thead>\n        <tr>\n          <th>Order Value</th>\n          <th>Standard Shipping</th>\n          <th>Express Shipping</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td>Under $150</td>\n          <td>$15</td>\n          <td>$27</td>\n        </tr>\n        <tr>\n          <td>$150–$299</td>\n          <td>Free</td>\n          <td>$27</td>\n        </tr>\n        <tr>\n          <td>$300+</td>\n          <td>Free</td>\n          <td>$27</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n\n<div class=\"dty-delivery-card\">\n  <h4>International Shipping Costs (New Zealand)</h4>\n  <p>All orders to New Zealand are delivered by Express for $35 AUD.</p>\n</div>"
+          },
+          "blocks": {}
+        },
+        "text_tDj6Wb": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h3>GST AND INTERNATIONAL SHIPPING</h3>",
+            "device_visibility": "all",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 16,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_Wrdqkp": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "shipping-page-list",
+            "text": "<ul><li>For orders being shipped within Australia, prices include 10% GST.</li><li>For orders being shipped internationally, Australian GST is removed from the item price.</li><li>Prices may be subject to currency variations. Import duties will be calculated at the price applicable at the time the order is submitted.</li><li>All international shipping destinations have Delivery Duty Unpaid (DDU) declarations, meaning that any duties and taxes will be payable upon your order arriving in your country.</li><li>For orders to New Zealand, a GST of 15% applies to all imported items or consignments over NZD $1,000. This is imposed by and payable to your local customs office. Payment of these taxes is necessary to release your order from customs.</li><li>Any orders refused upon delivery at their final destination or customs will have the charged shipping fees deducted from the refunded amount and may be subject to a 30-day reprocessing time.</li></ul>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_bFcQC9": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h3>PROCESSING & DELIVERY TIMES</h3>",
+            "device_visibility": "all",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 16,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "custom_liquid_9D9hKi": {
+          "type": "custom-liquid",
+          "name": "t:names.custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>\n@media screen and (max-width: 749px) {\n  .dty-table.dty-table--compact {\n    width: 100%;\n    min-width: 0 !important;\n    table-layout: fixed;\n  }\n\n  .dty-table.dty-table--compact td {\n    white-space: normal;\n    overflow-wrap: break-word;\n  }\n}\n</style>\n<div class=\"dty-delivery-card\">\n  <h4>Processing Times</h4>\n\n  <div class=\"dty-table-wrap\">\n    <table class=\"dty-table dty-table--compact\">\n      <tbody>\n        <tr>\n          <td>Non-embroidered items</td>\n          <td>1–2 business days</td>\n        </tr>\n\n        <tr>\n          <td>Embroidered items</td>\n          <td>5–10 business days</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>"
+          },
+          "blocks": {}
+        },
+        "custom_liquid_MyenDJ": {
+          "type": "custom-liquid",
+          "name": "t:names.custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>\n.dty-table-section-title {\n  padding-top: 20px !important;\n  border-bottom: 0 !important;\n  font-weight: 600;\n}\n</style>\n\n<div class=\"dty-delivery-card\">\n  <h4>Delivery Times</h4>\n\n  <div class=\"dty-table-wrap\">\n    <table class=\"dty-table\">\n      <tbody>\n        <tr>\n          <td colspan=\"3\" class=\"dty-table-section-title\">\n            Domestic Orders\n          </td>\n        </tr>\n\n        <tr>\n          <th>Area</th>\n          <th>Standard Delivery</th>\n          <th>Express Shipping</th>\n        </tr>\n\n        <tr>\n          <td>Victoria</td>\n          <td>2–5 business days</td>\n          <td>1–2 business days</td>\n        </tr>\n\n        <tr>\n          <td>New South Wales</td>\n          <td>3–6 business days</td>\n          <td>1–2 business days</td>\n        </tr>\n\n        <tr>\n          <td>Australian Capital Territory</td>\n          <td>3–6 business days</td>\n          <td>1–2 business days</td>\n        </tr>\n\n        <tr>\n          <td>Queensland</td>\n          <td>3–6 business days</td>\n          <td>1–2 business days</td>\n        </tr>\n\n        <tr>\n          <td>Northern Territory</td>\n          <td>7–10 business days</td>\n          <td>1–2 business days</td>\n        </tr>\n\n        <tr>\n          <td>Western Australia</td>\n          <td>7–10 business days</td>\n          <td>1–2 business days</td>\n        </tr>\n\n        <tr>\n          <td>South Australia</td>\n          <td>3–6 business days</td>\n          <td>1–2 business days</td>\n        </tr>\n\n        <tr>\n          <td>Tasmania</td>\n          <td>3–6 business days</td>\n          <td>1–2 business days</td>\n        </tr>\n\n        <tr>\n          <td colspan=\"3\" class=\"dty-table-section-title\">\n            International Orders\n          </td>\n        </tr>\n\n        <tr>\n          <th>Country</th>\n          <th>Standard Delivery</th>\n          <th>Express Shipping</th>\n        </tr>\n\n        <tr>\n          <td>New Zealand</td>\n          <td>N/A</td>\n          <td>2–5 business days</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>"
+          },
+          "blocks": {}
+        },
+        "text_rVGKeh": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h3>REFUND POLICY</h3>",
+            "device_visibility": "all",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 16,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_xrjbC3": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "shipping-page-list",
+            "text": "<ol><li>Designs To You does not cover the cost of return postage unless the item is faulty.</li><li>We do not refund initial shipping charges or taxes and duties for goods returned, other than for faulty items.</li><li>Any orders refused upon delivery at their final destination or customs will have the charged shipping fees deducted from the refunded amount and may be subject to a 30-day reprocessing time.</li></ol>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_3GUkft",
+        "text_UBhimV",
+        "text_a8fbBt",
+        "custom_liquid_TkiRXN",
+        "text_tDj6Wb",
+        "text_Wrdqkp",
+        "text_bFcQC9",
+        "custom_liquid_9D9hKi",
+        "custom_liquid_MyenDJ",
+        "text_rVGKeh",
+        "text_xrjbC3"
+      ],
+      "custom_css": [
+        ".faq-tab--shipping-page-text a {color: #0c2633 !important; text-decoration: underline !important; text-underline-offset: 3px;}",
+        ".faq-tab--shipping-page-text a:hover {color: #0c2633 !important; opacity: 0.65;}",
+        ".faq-tab--shipping-page-list li {margin-bottom: 8px;}",
+        ".faq-tab--shipping-page-list li:last-child {margin-bottom: 0;}"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 64
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_9KqWWg",
+    "section_UmLXWN"
+  ]
+}

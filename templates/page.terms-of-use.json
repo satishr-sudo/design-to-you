@@ -1,0 +1,158 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "class_name": "",
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "section_qDqHhN": {
+      "type": "section",
+      "blocks": {
+        "text_d3J9az": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<p>{{ closest.page.title }}</p>",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_KhP9tb": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "",
+            "text": "<p>This Website (“Website”) is owned by Designs To You Pty Ltd. (ABN 39 160 358 308).<br/>The Terms of Service (“Terms”) outlined below apply to your use of the Website and all services and functions found on the Website. Please read these Terms carefully before placing your order. By accessing and/or using this Website you agree to our Terms as well as our Privacy Policy incorporated within. Our Privacy Policy determines how we use your information. Please read our Privacy Policy for more details.<br/><br/>Designs To You (“DTY”) may amend the Terms at any time without notice. Please check this page for updates. If you do not agree with the Terms, please stop accessing and/or using the Website.</p><h4><strong><br/>Availability</strong></h4><p>All Goods listed on this Website are subject to availability and price confirmation. DTY will endeavour to make sure that the Goods are in stock unless otherwise specified, and that pricing is accurate and up to date.<br/><br/>If there are insufficient Goods to fulfil your order we will contact you to offer an equivalent replacement or a refund of any amounts paid for the relevant goods. If you choose to cancel your order due to the unavailability of Goods, we will refund your order in full.</p><h3><strong><br/>Pricing and Payment</strong></h3><p>Prices are displayed in:</p><ul><li>Australian Dollars (AUD) by default; and</li><li>New Zealand Dollars (NZD) when NZD is selected as the user's preferred currency within their account detail settings.</li></ul><p>Prices are subject to change, effective immediately upon posting to the Site(s) or other form of notification.<br/><br/>Prices shown are in Australian dollars AUD including a 10% GST (Goods and Services Tax). GST will be removed at the checkout for orders shipping outside Australia.<br/><br/>Temporary Special pricing such as discounts or promotions (“Special Pricing”) may be provided at times. The conditions of sale for Special Pricing will be provided for each such occasion. Prices are as shown on the website. No further discounts will apply.<br/></p><h3><strong><br/>Discounts</strong></h3><h4><strong>10% Welcome/VIP Discount:</strong></h4><h5><strong>General</strong></h5><p>The 10% Welcome/VIP Discount (\"Discount\") is available to customers who sign up for our mailing list. This Discount is governed by the following terms and conditions, and by applying the Discount, you are agreeing to comply with and be bound by these terms.</p><h5><strong><br/>Eligibility</strong></h5><p>To be eligible for the Discount, you must:</p><ol><li>Sign up for our VIP mailing list.</li><li>Use the unique discount code sent to your registered email address.</li></ol><h5><strong><br/>Application</strong></h5><ol><li>The Discount applies to your first order only.</li><li>Add the received discount code to your cart at the checkout stage to apply the Discount to your order.</li></ol><h5><strong><br/>Limitations</strong></h5><ol><li>The Discount cannot be used in conjunction with any other offers, promotions, or discounts.</li><li>The Discount is non-transferable and cannot be exchanged for cash or other forms of credit.</li><li>We reserve the right to modify or cancel this Discount at any time without prior notice.</li></ol><p>Although we endeavour to ensure that all details, descriptions and prices that appear on this Website are accurate, errors may occur. If we discover an error in the price of any Goods ordered, we will contact you and give you the option of reconfirming your order at the correct price or cancelling it. If we are unable to contact you we will treat the order as cancelled. If you choose to cancel the order due to our error and have already paid for the goods, you will receive a full refund.</p><h3><strong><br/>Currency, Duties and Tax</strong></h3><p>For orders being shipped within Australia, prices are inclusive of GST. For orders being shipped internationally, Australian GST is removed from the item price. Prices may be subject to change without notice. Goods ordered are charged at the price applicable at the time the order is submitted.<br/></p><p>All international shipping destinations are Delivery Duty Unpaid (DDU) destinations meaning that any duties and taxes will be payable upon your order arriving in your country. For orders to New Zealand, a GST of 15% applies to all imported items/shipments over NZD $1,000 which is imposed by and payable to your local customs office. Payment of these is necessary to release your order from customs.<br/><br/>Any orders refused upon delivery at either the final destination or customs will have the charged shipping fees deducted from the refunded amount and be subject to a 30-day return processing time.<br/><br/>Designs To You does not cover the cost of return postage unless the item is faulty and we do not refund initial shipping charges or taxes & duties for goods returned, other than for faulty items.</p><h3><strong><br/>Returns and Exchanges</strong></h3><p>You can return or exchange items that meet our Conditions of Return within 30 days of the invoice date. All returned items must satisfy the following criteria:</p><ol><li>Goods must be in their original (unworn) condition with all tags and labels attached.</li><li>Goods must have a valid Return Authority Number (RA) issued by Designs To You.</li><li>Goods must be returned within 14 days of the RA number being issued.</li><li>Customised goods (embroidered or otherwise), as well as final sale or clearance items, cannot be returned unless they are faulty or incorrectly supplied.</li></ol><p>To initiate a return or exchange, please obtain a Return Authority Number (RA) by contacting us at (03) 9753 2555 or submitting the ‘<a href=\"/pages/submit-a-return-request\" title=\"Submit a Return Request\">Return Request</a>’ form. Note that return postage costs will be at your expense unless the goods received are faulty or incorrectly supplied.</p><p><strong>Afterpay Orders:</strong> Items purchased with Afterpay can only be returned for store credit. Refunds are not available for orders made using Afterpay.</p><p><strong>Final Sale and Clearance Items:</strong> Items marked as 'Final Sale' or 'Clearance' cannot be returned. If returned, they will be sent back to you at an additional charge.</p><h3><strong><br/>Payment Information</strong></h3><p>Designs To You accepts the following payment methods for online orders: Visa, Mastercard, Afterpay, Apple Pay, Google Pay, Designs To You Gift Vouchers and Store Credits. Please note:</p><ul><li><strong>Afterpay:</strong> Payments made through Afterpay are subject to Afterpay's User Agreement. <a href=\"https://www.afterpay.com/en-AU/terms-of-service\">View Afterpay's terms of service</a>.</li><li><strong>Google Pay:</strong> Payments made through Google Pay are subject to Google Pay's User Agreement. <a href=\"https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=buyertos&ldr=AU\">View Google Pay's terms of service</a>.</li></ul><p>Your online order must be paid in full at the time of purchase. Your order will not be processed or shipped until payment has cleared in full.</p><p>For more information please see our <a href=\"/pages/submit-a-return-request\" title=\"Submit a Return Request\">Delivery & Returns</a> page.</p><h3><strong><br/>Delivery</strong></h3><p>Currently, we deliver within Australia and New Zealand.<br/><br/>Shipping cost is stated upon approval of your order during the purchase process. Shipping costs are automatically calculated during the online purchase based on the order value. Delivery costs may be charged in addition to the amount charged for the Goods. Such additional charges will be automatically calculated and clearly displayed where applicable and included in the total cost of the order.</p><p>It is the customer’s responsibility to provide a valid and accurate delivery address with every Online Order. DTY will not be responsible for delays, losses, cancellations or additional charges resulting from incorrect information provided by customers.</p><p>DTY uses Australia Post for deliveries within Australia and New Zealand. All deliveries require a signature upon receipt of Goods. Anyone at the Delivery Address who receives and signs for the Goods shall be presumed by DTY to be authorised to receive the Goods. Your delivery address must be a residential or business location. DTY will not deliver to a Post Office box or other unattended delivery options.<br/>If a package is not collected or if it is refused, we reserve the right to charge you for the shipping costs of returning the Goods to DTY.<br/><br/>Dispatch times may vary according to availability. Any guarantees or representations of delivery times may be subject to delays resulting from postal services issues or force majeure for which we will not be responsible.</p><p>DTY does not offer refunds on orders that were shown by Australia Post to be delivered in full. If you believe your order is lost please contact us. A Proof of Delivery (“POD”) can be made available on request.</p><p>For more information please see our <a href=\"/pages/submit-a-return-request\" title=\"Submit a Return Request\">Delivery & Returns</a> page.</p><h3><strong><br/>Using This Website</strong></h3><p>Although we do our best to ensure all information provided on this Website is correct, We do not guarantee the accuracy, completeness, reliability or timeliness of the Website. DTY shall not be liable if for any reason the Website is unavailable at any time or for any period. You acknowledge and agree that your use of the Website is on an “AS-IS” basis. DTY may from time to time restrict access to some parts of the Website, or even the entire Website, without notice.</p><p>You must not use this Website:</p><ul><li>in a way that violates these Terms;</li><li>to commit or encourage unlawful activities or criminal offences;</li><li>in a way that is fraudulent, defamatory, inaccurate, false, misleading or deceptive;</li><li>to transmit or distribute malicious or technologically harmful material, and/or any unsolicited advertising or promotional material;</li><li>in a way that violates any applicable law (including, without limitation, applicable privacy laws);</li><li>in a way that infringes the propriety rights of DTY or of any other person; and/or</li><li>hack into any aspect of the Website, corrupt data or cause annoyance to other users</li></ul><p>DTY will not be liable for any loss or damage caused by a distributed denial-of-service attack, viruses or other technologically harmful material that may infect your computer equipment, computer programs, data or other proprietary material due to your use of this Website or to your downloading of any material posted on it, or on any website linked to it.</p><h3><strong><br/>Limitations</strong></h3><p>DTY does not authorise the purchase of our Goods for resale purposes. We may limit quantities purchased per person, per delivery location or per order. These restrictions may include orders placed by or under the same customer account, the same credit card and/or orders that use the same billing and/or shipping address. We reserve the right to limit or prohibit orders that, in our sole judgment, appear to be placed by dealers, resellers or distributors. We also reserve the right to cease doing business with customers who violate this policy. These Limitations apply to all purchases made at our Head Office and on our Website.</p><h3><strong><br/>Warranties</strong></h3><p>All DTY goods carry a manufacturer warranty where applicable according to Australian Consumer Laws, except where otherwise stated and to the extent permitted by such laws. Our manufacturer warranty does not apply to normal wear and tear, misuse or incorrect handling of the Goods.</p><h3><strong><br/>Intellectual Property Rights</strong></h3><p>DTY invests a lot of resources into designing and developing our unique products. Unless stated otherwise, Designs To You Pty Ltd is the owner of all intellectual property rights and titles as follows:</p><p>(a) all information appearing on this Website including without limitations, text, graphics, photos, artwork, logos, domain names, copyrights, audio and video content, the framework, source code, layout, user interface and ‘look and feel’ of the DTY Website; and</p><p>(b) all rights embodied in Goods and Services supplied by DTY including without limitations, any and all copyright, designs (whether registered or unregistered), trademarks and other intellectual property rights.</p><p>You are not permitted to reproduce, distribute or communicate any content from this Website in a manner that is inconsistent with our Intellectual Property Rights and without specific written consent from DTY.</p><h3><strong><br/>Privacy Policy</strong></h3><p>DTY is bound by and committed to supporting the requirements of the Privacy Act 1988. To learn more about how we collect, store and use personal information from users of this Website please read our <a href=\"/pages/privacy-policy\" title=\"Privacy Policy\">Privacy Policy</a>, which forms part of these terms and conditions</p><h3><strong><br/>Indemnity</strong></h3><p>You agree to indemnify and hold DTY harmless from any demands, loss, liability, claims or expenses (including legal fees and costs on a full indemnity basis) made against DTY by you or any third party due to, arising from or in any way connected to your access and/or use of the Website or purchase of our Goods.</p><h3><strong><br/>Governing Law</strong></h3><p>These Terms are to be governed by and construed in accordance with the laws of the State of Victoria, Australia without giving effect to any conflict of laws principle applicable in other jurisdictions. You agree to submit to the personal jurisdiction of the courts of Victoria.</p><h3><strong><br/>Customer Service</strong></h3><p>DTY is committed to providing exceptional customer service. If you have any enquiries about our products, services or this Website, please contact us on 03-9753 2555.</p><h3><strong><br/>Consent for Use of Reviews and Testimonials</strong></h3><h5><strong>Submission and Use:</strong></h5><p>By submitting a testimonial to Designs To You, whether through our website, in-store, via email, or through any other means, you agree that we may publish your testimonial, along with your first name and last initial, on our website, in our promotional materials, on social media, and in other marketing communications.</p><h5><strong><br/>Voluntary Participation</strong>:</h5><p>You acknowledge that your submission of any testimonial is done voluntarily and that you will not receive financial compensation of any kind for the use of your testimonial.</p><h5><strong><br/>Right to Withdraw Consent</strong>:</h5><p>You have the right to request the removal or withdrawal of your testimonial from any platform by contacting us via email at hello@designstoyou.com.au or via phone at (03) 9753 2555. Upon such a request, we will cease the use of your testimonial in future publications but may not be able to remove it from materials already published or distributed.</p><h5><strong><br/>Non-Confidentiality</strong>:</h5><p>You understand that the testimonials are not considered confidential and may be read, used, and distributed by Designs To You at its sole discretion.</p><h5><strong><br/>Accuracy of Information:</strong></h5><p>You confirm that your testimonial is your genuine opinion based on your own experience and represents your honest views. You agree not to submit anything that violates any right of any third party, including copyright, privacy rights, and publicity rights.</p><h5><strong><br/>Compliance with Privacy Policy:</strong></h5><p>The collection and use of any personal information you provide in conjunction with your testimonial will be governed by our Privacy Policy.</p><h5><strong><br/>Modification of Testimonials:</strong></h5><p>Designs To You reserves the right to edit or modify any testimonial submitted for clarity, brevity, or other legitimate business reasons, provided that such edits or modifications do not materially misrepresent the content of the testimonial.</p>",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "loose",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_d3J9az",
+        "text_KhP9tb"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "custom_classname": "cms-page-content",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 25,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 70,
+        "padding-block-end": 70
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_qDqHhN"
+  ]
+}

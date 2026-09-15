@@ -1,0 +1,2019 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "class_name": "",
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "section_qJytHq": {
+      "type": "section",
+      "blocks": {
+        "text_hpPtAe": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h3>Frequently asked questions</h3>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 10,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_BTjy3T": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "about-banner-text",
+            "text": "<p>Everything you need to know about ordering, delivery, sizing and branding<br/>for retail customers and B2B clients alike.</p>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 10,
+            "padding-block-end": 20,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_hpPtAe",
+        "text_BTjy3T"
+      ],
+      "custom_css": [
+        ".faq-tab--about-banner-text rte-formatter {max-width: 850px !important; margin-inline: auto !important;}"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-c21fb250-0bdb-4523-ac3a-239ea8e18494",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image": "shopify://shop_images/Design_Header_-_About_Us_page_c075b843-930c-4e11-92b1-ffd96156252e.jpg",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "faq_tabs_bpCebC": {
+      "type": "faq-tabs",
+      "blocks": {
+        "group_j6yMBa": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "class_name": "",
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_3UnaGn": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "class_name": "",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_MG3ghh": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<h2>How can we help?</h2>",
+                    "device_visibility": "all",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "2.75rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_MG3ghh"
+              ]
+            },
+            "group_iQEN7W": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "class_name": "",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 16,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_MH7b4L": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<p>We've gathered the questions we hear most often. Choose a topic below to jump straight to the answers, or browse to find what you need.</p>",
+                    "device_visibility": "all",
+                    "width": "fit-content",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.875rem",
+                    "line_height": "loose",
+                    "letter_spacing": "loose",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_4iMAq9": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "class_name": "",
+                    "text": "<p>Can't find what you're looking for? <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact\">Get in touch with our team</a> and we'll point you in the right direction.</p>",
+                    "device_visibility": "all",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.875rem",
+                    "line_height": "loose",
+                    "letter_spacing": "loose",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_MH7b4L",
+                "text_4iMAq9"
+              ]
+            }
+          },
+          "block_order": [
+            "group_3UnaGn",
+            "group_iQEN7W"
+          ]
+        },
+        "group_kyYW46": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "class_name": "",
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_AegL7E": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "class_name": "faq-tabs-nav",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 20,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 30,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "group_6FEEJP": {
+                  "type": "group",
+                  "name": "t:names.group",
+                  "settings": {
+                    "class_name": "faq-tabs-group",
+                    "content_direction": "row",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "space-between",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 20,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "text_HrEc44": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "class_name": "ordering",
+                        "text": "<p>Ordering & Payments</p>",
+                        "device_visibility": "all",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "center",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "1.25rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_EnPLhW": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "class_name": "shipping",
+                        "text": "<p>Shipping & Delivery</p>",
+                        "device_visibility": "all",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "center",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "1.25rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_fKmmKQ": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "class_name": "returns-exchanges",
+                        "text": "<p>Returns & Exchanges</p>",
+                        "device_visibility": "all",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "center",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "1.25rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_RfzbRf": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "class_name": "sizing-fit",
+                        "text": "<p>Sizing & Fit</p>",
+                        "device_visibility": "all",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "center",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "1.25rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_aipY8Q": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "class_name": "customisation-branding",
+                        "text": "<p>Customisation & Branding</p>",
+                        "device_visibility": "all",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "center",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "1.25rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_VyYgxE": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "class_name": "account-support",
+                        "text": "<p>Account & Support</p>",
+                        "device_visibility": "all",
+                        "width": "100%",
+                        "max_width": "none",
+                        "alignment": "center",
+                        "type_preset": "paragraph",
+                        "font": "var(--font-subheading--family)",
+                        "font_size": "1.25rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_HrEc44",
+                    "text_EnPLhW",
+                    "text_fKmmKQ",
+                    "text_RfzbRf",
+                    "text_aipY8Q",
+                    "text_VyYgxE"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_6FEEJP"
+              ]
+            },
+            "text_dTFCAp": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "class_name": "",
+                "text": "<p>Retail customers & B2B clients</p>",
+                "device_visibility": "all",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-subheading--family)",
+                "font_size": "1.125rem",
+                "line_height": "loose",
+                "letter_spacing": "loose",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "group_r4dm4F": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "class_name": "faq-panel",
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "group_wBdNQP": {
+                  "type": "group",
+                  "name": "t:names.group",
+                  "settings": {
+                    "class_name": "",
+                    "content_direction": "column",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 12,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "accordion_yGmCfa": {
+                      "type": "accordion",
+                      "name": "t:names.accordion",
+                      "settings": {
+                        "class_name": "ordering",
+                        "icon": "caret",
+                        "dividers": true,
+                        "type_preset": "paragraph",
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "accordion_row_zTXQhF": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "What payment methods do you accept?",
+                            "open_by_default": true,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_wnDYhq": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>We accept all major credit and debit cards, PayPal, and bank transfer. B2B clients on an approved account can also order against purchase orders with agreed payment terms.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_wnDYhq"
+                          ]
+                        },
+                        "accordion_row_weTJWJ": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Can I order on account as a business?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_tzpLew": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Yes. Once your organisation is set up with a trade account you can place orders against a PO, manage approvals, and consolidate invoicing across sites.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_tzpLew"
+                          ]
+                        },
+                        "accordion_row_QWjPLb": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Is there a minimum order quantity?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_iQX44P": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>There's no minimum for retail orders. Custom-branded programs may have minimums depending on the decoration method — your account manager will confirm this up front.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_iQX44P"
+                          ]
+                        },
+                        "accordion_row_rTzmzc": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Can I get a quote before ordering?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_3p6KxT": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Absolutely. Reach out with your requirements and we'll prepare a detailed quote, including any branding, sizing sets and freight.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_3p6KxT"
+                          ]
+                        }
+                      },
+                      "block_order": [
+                        "accordion_row_zTXQhF",
+                        "accordion_row_weTJWJ",
+                        "accordion_row_QWjPLb",
+                        "accordion_row_rTzmzc"
+                      ]
+                    },
+                    "accordion_TTjcJX": {
+                      "type": "accordion",
+                      "name": "t:names.accordion",
+                      "settings": {
+                        "class_name": "shipping",
+                        "icon": "caret",
+                        "dividers": true,
+                        "type_preset": "paragraph",
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "accordion_row_zdbLaW": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "How long will it take for my order to be processed?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_6MWwX9": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>In-stock retail orders are processed within 1–2 business days. Custom and branded orders are scheduled into production and timelines are confirmed at order.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_6MWwX9"
+                          ]
+                        },
+                        "accordion_row_NWBadg": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "How long will it take for my order to arrive?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_Tj8CTH": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Standard delivery within Australia is typically 3–7 business days once dispatched. Express options are available at checkout.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_Tj8CTH"
+                          ]
+                        },
+                        "accordion_row_XtgTBF": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Can I click and collect?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_HLr3Mm": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Yes — click and collect is available from our distribution centre. Choose the option at checkout and we'll notify you when your order is ready.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_HLr3Mm"
+                          ]
+                        },
+                        "accordion_row_rQJ8Lt": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Can I track my order?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_jCxEzx": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Once your order is dispatched you'll receive a tracking link by email so you can follow it through to delivery.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_jCxEzx"
+                          ]
+                        },
+                        "accordion_row_iqaXBc": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "My order is lost/hasn't arrived. What should I do?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_BUDt4q": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Get in touch with our support team with your order number and we'll investigate with the carrier and make it right as quickly as possible.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_BUDt4q"
+                          ]
+                        }
+                      },
+                      "block_order": [
+                        "accordion_row_zdbLaW",
+                        "accordion_row_NWBadg",
+                        "accordion_row_XtgTBF",
+                        "accordion_row_rQJ8Lt",
+                        "accordion_row_iqaXBc"
+                      ]
+                    },
+                    "accordion_U4iExY": {
+                      "type": "accordion",
+                      "name": "t:names.accordion",
+                      "settings": {
+                        "class_name": "returns-exchanges",
+                        "icon": "caret",
+                        "dividers": true,
+                        "type_preset": "paragraph",
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "accordion_row_jYEYpF": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "What is your returns policy?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_dJDN9F": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Unworn items with tags can be returned within 30 days for a refund or exchange. Custom-branded items are excluded unless faulty.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_dJDN9F"
+                          ]
+                        },
+                        "accordion_row_LWXzmh": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "How do I exchange for a different size?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_HxCQ8Y": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Start a return through your account or contact us, and we'll arrange the exchange. We can also send a sizing set for larger teams.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_HxCQ8Y"
+                          ]
+                        },
+                        "accordion_row_LJxTPW": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Are custom-branded items returnable?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_DerqnF": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Branded items are made to order and can't be returned unless there's a fault or error on our part — in which case we'll replace them promptly.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_DerqnF"
+                          ]
+                        }
+                      },
+                      "block_order": [
+                        "accordion_row_jYEYpF",
+                        "accordion_row_LWXzmh",
+                        "accordion_row_LJxTPW"
+                      ]
+                    },
+                    "accordion_FbKaRJ": {
+                      "type": "accordion",
+                      "name": "t:names.accordion",
+                      "settings": {
+                        "class_name": "sizing-fit",
+                        "icon": "caret",
+                        "dividers": true,
+                        "type_preset": "paragraph",
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "accordion_row_kE4nLz": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "How do I find my size?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_KDY9nf": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Each product page has a detailed size guide with body measurements. If you're between sizes we generally recommend sizing down for a tailored fit.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_KDY9nf"
+                          ]
+                        },
+                        "accordion_row_eErCCp": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Can I order a sizing set for my team?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_GTRmkE": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Yes. For uniform programs we provide a fit set so your team can try on sizes before you commit to the full order.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_GTRmkE"
+                          ]
+                        },
+                        "accordion_row_XWcU7h": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Do your garments shrink?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_FNaKf8": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Our fabrics are selected for durability and shape retention. Follow the care instructions on each product and garments will hold their fit wash after wash.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_FNaKf8"
+                          ]
+                        }
+                      },
+                      "block_order": [
+                        "accordion_row_kE4nLz",
+                        "accordion_row_eErCCp",
+                        "accordion_row_XWcU7h"
+                      ]
+                    },
+                    "accordion_ePQxUn": {
+                      "type": "accordion",
+                      "name": "t:names.accordion",
+                      "settings": {
+                        "class_name": "customisation-branding",
+                        "icon": "caret",
+                        "dividers": true,
+                        "type_preset": "paragraph",
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "accordion_row_krxpFx": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "What branding methods do you offer?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_raWtQk": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>We offer embroidery, screen printing, heat transfer and woven badges. We'll recommend the best method for your fabric, logo and budget.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_raWtQk"
+                          ]
+                        },
+                        "accordion_row_twFr9T": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Can you match my brand colours?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_8PG7rg": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Yes — we colour-match to your brand guidelines and can supply a digital proof and physical sample before production begins.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_8PG7rg"
+                          ]
+                        },
+                        "accordion_row_pya4f7": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Can you manage uniforms across multiple sites?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_EqebUX": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Our uniform management system handles ordering, approvals, reordering and reporting across every location from one place.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_EqebUX"
+                          ]
+                        }
+                      },
+                      "block_order": [
+                        "accordion_row_krxpFx",
+                        "accordion_row_twFr9T",
+                        "accordion_row_pya4f7"
+                      ]
+                    },
+                    "accordion_iXce9g": {
+                      "type": "accordion",
+                      "name": "t:names.accordion",
+                      "settings": {
+                        "class_name": "account-support",
+                        "icon": "caret",
+                        "dividers": true,
+                        "type_preset": "paragraph",
+                        "inherit_color_scheme": true,
+                        "color_scheme": "",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "accordion_row_QxjApj": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "How do I set up a trade account?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_zCxi8F": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Contact our team with your organisation's details and we'll set up an account with the right users, approvals and pricing for you.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_zCxi8F"
+                          ]
+                        },
+                        "accordion_row_L4EMFz": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "How do I reset my password?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_bTcbpn": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Use the 'forgot password' link on the sign-in page and we'll email you a secure reset link.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_bTcbpn"
+                          ]
+                        },
+                        "accordion_row_CrYJTn": {
+                          "type": "_accordion-row",
+                          "settings": {
+                            "heading": "Who do I contact for help with a program?",
+                            "open_by_default": false,
+                            "icon": "none",
+                            "width": 20,
+                            "scroll_to_reviews": false
+                          },
+                          "blocks": {
+                            "text_9b8ckW": {
+                              "type": "text",
+                              "settings": {
+                                "class_name": "",
+                                "text": "<p>Every B2B client has a dedicated account manager. You'll find their contact details in your account, or reach our support team any time.</p>",
+                                "device_visibility": "all",
+                                "width": "100%",
+                                "max_width": "none",
+                                "alignment": "left",
+                                "type_preset": "custom",
+                                "font": "var(--font-body--family)",
+                                "font_size": "0.875rem",
+                                "line_height": "loose",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_9b8ckW"
+                          ]
+                        }
+                      },
+                      "block_order": [
+                        "accordion_row_QxjApj",
+                        "accordion_row_L4EMFz",
+                        "accordion_row_CrYJTn"
+                      ]
+                    }
+                  },
+                  "block_order": [
+                    "accordion_yGmCfa",
+                    "accordion_TTjcJX",
+                    "accordion_U4iExY",
+                    "accordion_FbKaRJ",
+                    "accordion_ePQxUn",
+                    "accordion_iXce9g"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_wBdNQP"
+              ]
+            }
+          },
+          "block_order": [
+            "group_AegL7E",
+            "text_dTFCAp",
+            "group_r4dm4F"
+          ]
+        }
+      },
+      "block_order": [
+        "group_j6yMBa",
+        "group_kyYW46"
+      ],
+      "name": "FAQ — Tabbed",
+      "settings": {
+        "custom_classname": "",
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "gap": 60,
+        "color_scheme": "scheme-8b8a8209-f8ce-4623-a9aa-8c71c76ad929",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 80,
+        "padding-block-end": 80,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "section_3hgaMd": {
+      "type": "section",
+      "blocks": {
+        "text_ganRm3": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h3>Still need a hand?</h3>",
+            "device_visibility": "all",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "2rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_cEPQgd": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "",
+            "text": "<p>Our team is here to help with anything from sizing and samples to managed uniform programs for your whole organisation.</p>",
+            "device_visibility": "all",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "button_DmkNhG": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "Contact Us",
+            "link": "shopify://pages/contact",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_ganRm3",
+        "text_cEPQgd",
+        "button_DmkNhG"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 25,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": true,
+        "overlay_color": "#edefe8",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_qJytHq",
+    "faq_tabs_bpCebC",
+    "section_3hgaMd"
+  ]
+}

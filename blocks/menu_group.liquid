@@ -1,0 +1,227 @@
+
+{%- comment -%}
+  Block: Menu Group
+  Section: Advanced Sitemap
+  Purpose: Renders a merchant-defined navigable group with full 3-level
+           hierarchy — parent links, child links, and grandchild links.
+           Each level is indented and bullet-styled to match the sitemap
+           layout shown in the design reference.
+
+  Settings:
+    title       — Custom group heading (falls back to the menu's own title)
+    menu        — link_list picker; supports nested child and grandchild links
+    icon_image  — Optional image rendered next to the heading (32 × 32 recommended)
+
+  Link hierarchy:
+    Level 1  →  menu.links          (top-level links)
+    Level 2  →  link.links          (child links under each top-level item)
+    Level 3  →  child_link.links    (grandchild links under each child item)
+{%- endcomment -%}
+
+{%- liquid
+  assign bs    = block.settings
+  assign menu  = bs.menu
+  assign title = bs.title | default: menu.title
+-%}
+
+{%- if title != blank or menu != blank -%}
+  <div
+    class="advanced-sitemap__group advanced-sitemap__group--block"
+    {{ block.shopify_attributes }}
+  >
+
+    {%- comment -%} Group header: optional icon + heading ─────────────── {%- endcomment -%}
+    {%- if title != blank or bs.icon_image != blank -%}
+      <div class="advanced-sitemap__group-header">
+        {%- if bs.icon_image != blank -%}
+          {{
+            bs.icon_image
+            | image_url: width: 32
+            | image_tag:
+              loading: 'lazy',
+              width: 32,
+              height: 32,
+              class: 'advanced-sitemap__group-icon',
+              alt: '',
+              aria-hidden: 'true'
+          }}
+        {%- endif -%}
+        {%- if title != blank -%}
+          <h3 class="advanced-sitemap__group-title">{{ title | escape }}</h3>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ── Navigation links ──────────────────────────────── {%- endcomment -%}
+    {%- if menu != blank -%}
+
+      {%- comment -%}
+        Level 1: top-level links.
+        NOTE: list-unstyled is intentionally NOT used here so that disc
+        bullets are applied via the --level-N modifier classes defined in
+        the section stylesheet.
+      {%- endcomment -%}
+      <ul class="advanced-sitemap__links advanced-sitemap__links--level-1" role="list">
+        {%- for link in menu.links -%}
+          <li class="advanced-sitemap__link-item">
+
+            <a
+              href="{{ link.url }}"
+              class="advanced-sitemap__link advanced-sitemap__link--level-1"
+              {% if link.active %}aria-current="page"{% endif %}
+            >
+              {{- link.title | escape -}}
+            </a>
+
+            {%- comment -%}
+              Level 2: child links.
+              Rendered as an indented sub-list immediately after the parent
+              link when the parent has one or more child items.
+            {%- endcomment -%}
+            {%- if link.links.size > 0 -%}
+              <ul class="advanced-sitemap__links advanced-sitemap__links--level-2" role="list">
+                {%- for child_link in link.links -%}
+                  <li class="advanced-sitemap__link-item">
+
+                    <a
+                      href="{{ child_link.url }}"
+                      class="advanced-sitemap__link advanced-sitemap__link--level-2"
+                      {% if child_link.active %}aria-current="page"{% endif %}
+                    >
+                      {{- child_link.title | escape -}}
+                    </a>
+
+                    {%- comment -%}
+                      Level 3: grandchild links.
+                      Further indented beneath the child link.
+                    {%- endcomment -%}
+                    {%- if child_link.links.size > 0 -%}
+                      <ul class="advanced-sitemap__links advanced-sitemap__links--level-3" role="list">
+                        {%- for grandchild_link in child_link.links -%}
+                          <li class="advanced-sitemap__link-item">
+                            <a
+                              href="{{ grandchild_link.url }}"
+                              class="advanced-sitemap__link advanced-sitemap__link--level-3"
+                              {% if grandchild_link.active %}aria-current="page"{% endif %}
+                            >
+                              {{- grandchild_link.title | escape -}}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+
+          </li>
+        {%- endfor -%}
+      </ul>
+
+    {%- else -%}
+      {%- comment -%} Prompt visible only in the theme editor {%- endcomment -%}
+      {%- if request.design_mode -%}
+        <p class="advanced-sitemap__empty-text">
+          Select a navigation menu in the theme editor to populate this group.
+        </p>
+      {%- endif -%}
+    {%- endif -%}
+
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  /*
+    Nested navigation link lists for the Advanced Sitemap menu_group block.
+    Three levels of hierarchy: parent → child → grandchild.
+
+    The double-class selector (.advanced-sitemap__links.advanced-sitemap__links--level-N)
+    carries higher specificity than the base .advanced-sitemap__links rule defined in the
+    section stylesheet, which sets display:flex and list-style:none. These rules override
+    that for the hierarchical bullet-list layout used by menu_group blocks.
+  */
+
+  /* ── Level 1: top-level links — disc bullets, no extra indent ─────── */
+  .advanced-sitemap__links.advanced-sitemap__links--level-1 {
+    display: block;
+    list-style: disc;
+    padding-inline-start: 1.1rem;
+    gap: 0;
+    margin: 0;
+  }
+
+  .advanced-sitemap__links--level-1 > .advanced-sitemap__link-item {
+    margin-block-end: 0.35rem;
+    list-style: inherit;
+  }
+
+  /* ── Level 2: child links — indented under parent ─────────────────── */
+  .advanced-sitemap__links.advanced-sitemap__links--level-2 {
+    display: block;
+    list-style: disc;
+    padding-inline-start: 1.25rem;
+    margin-block-start: 0.3rem;
+    margin-block-end: 0.25rem;
+    gap: 0;
+  }
+
+  .advanced-sitemap__links--level-2 > .advanced-sitemap__link-item {
+    margin-block-end: 0.2rem;
+    list-style: inherit;
+  }
+
+  /* ── Level 3: grandchild links — further indented, circle bullet ──── */
+  .advanced-sitemap__links.advanced-sitemap__links--level-3 {
+    display: block;
+    list-style: disc;
+    padding-inline-start: 1.25rem;
+    margin-block-start: 0.2rem;
+    margin-block-end: 0.1rem;
+    gap: 0;
+  }
+
+  .advanced-sitemap__links--level-3 > .advanced-sitemap__link-item {
+    margin-block-end: 0.15rem;
+    list-style: inherit;
+  }
+
+  /* ── Link size scaling per level ───────────────────────────────────── */
+  /* Level 1 inherits base --as-link-size directly */
+
+  .advanced-sitemap__link--level-2 {
+    font-size: calc(var(--as-link-size, 0.875rem) * 0.97);
+  }
+
+  .advanced-sitemap__link--level-3 {
+    font-size: calc(var(--as-link-size, 0.875rem) * 0.93);
+    /* opacity: 0.82; */
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Menu Group",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Group title",
+      "placeholder": "e.g. Shop, Company, Support"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation menu",
+      "info": "Child and grandchild links are displayed automatically if present in the menu."
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image",
+      "label": "Icon image",
+      "info": "Optional. Displayed next to the group title. Recommended: 32 × 32 px."
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,155 @@
+{%- doc -%}
+  Mega Menu Promotion block.
+
+  Rendered via content_for 'block', type: '_mega-menu-promo', id: sb.id calls in
+  _header-menu.liquid (desktop) and header-drawer.liquid (mobile). The caller
+  already filters by menu_link_title, so this block simply counts its active
+  images and delegates rendering to snippets/mega-menu-promo.liquid.
+
+  Pass is_mobile: true from the caller to switch to the two-column mobile layout.
+
+  Add one block per menu item that needs promotional cards (e.g. one for
+  "The Shop", one for "Sale"). Set menu_link_title to the exact nav item label.
+{%- enddoc -%}
+
+{% liquid
+  assign promo_count = 0
+  for i in (1..5)
+    assign image_key = 'promo_' | append: i | append: '_image'
+    if block.settings[image_key] != blank
+      assign promo_count = promo_count | plus: 1
+    endif
+  endfor
+%}
+{%- assign raw_handle = block.settings.menu_link_title | strip -%}
+{%- if raw_handle == '-' or raw_handle == blank -%}
+  {%- assign block_handle = 'default' -%}
+{%- else -%}
+  {%- assign block_handle = raw_handle | handleize -%}
+{%- endif -%}
+
+{%- if promo_count > 0 -%}
+  <div
+    class="mega-menu-promo-block"
+    data-handle="{{ block_handle }}"
+    data-promo-handle="{{ block_handle }}"
+    {{ block.shopify_attributes }}
+  >
+    {%- render 'mega-menu-promo', promo_block: block, promo_count: promo_count, is_mobile: is_mobile -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Mega Menu Promotion",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "menu_link_title",
+      "label": "Menu Link Title",
+      "info": "Enter the exact navigation menu item title (case-sensitive) that should display these promotional cards. Example: The Shop"
+    },
+    {
+      "type": "header",
+      "content": "Promo Card 1"
+    },
+    {
+      "type": "text",
+      "id": "promo_1_title",
+      "label": "Title 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_1_image",
+      "label": "Image 1"
+    },
+    {
+      "type": "url",
+      "id": "promo_1_link",
+      "label": "Link 1"
+    },
+    {
+      "type": "header",
+      "content": "Promo Card 2"
+    },
+    {
+      "type": "text",
+      "id": "promo_2_title",
+      "label": "Title 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_2_image",
+      "label": "Image 2"
+    },
+    {
+      "type": "url",
+      "id": "promo_2_link",
+      "label": "Link 2"
+    },
+    {
+      "type": "header",
+      "content": "Promo Card 3"
+    },
+    {
+      "type": "text",
+      "id": "promo_3_title",
+      "label": "Title 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_3_image",
+      "label": "Image 3"
+    },
+    {
+      "type": "url",
+      "id": "promo_3_link",
+      "label": "Link 3"
+    },
+    {
+      "type": "header",
+      "content": "Promo Card 4"
+    },
+    {
+      "type": "text",
+      "id": "promo_4_title",
+      "label": "Title 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_4_image",
+      "label": "Image 4"
+    },
+    {
+      "type": "url",
+      "id": "promo_4_link",
+      "label": "Link 4"
+    },
+    {
+      "type": "header",
+      "content": "Promo Card 5"
+    },
+    {
+      "type": "text",
+      "id": "promo_5_title",
+      "label": "Title 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_5_image",
+      "label": "Image 5"
+    },
+    {
+      "type": "url",
+      "id": "promo_5_link",
+      "label": "Link 5"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mega Menu Promotion"
+    }
+  ]
+}
+{% endschema %}

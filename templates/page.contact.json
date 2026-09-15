@@ -1,0 +1,200 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "text",
+          "name": "t:names.title",
+          "settings": {
+            "class_name": "",
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "text",
+          "name": "t:names.content",
+          "settings": {
+            "class_name": "",
+            "text": "{{ closest.page.content }}",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 0
+      }
+    },
+    "section_F8pGbW": {
+      "type": "section",
+      "blocks": {
+        "text_wwqWtV": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h1>Contact us</h1>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 10,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_CdARAh": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "about-banner-text",
+            "text": "<p>Got a question about a product, a uniform program, or an order? You'll be talking to a real person who knows our uniforms inside and out.</p>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 10,
+            "padding-block-end": 20,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_wwqWtV",
+        "text_CdARAh"
+      ],
+      "custom_css": [
+        ".faq-tab--about-banner-text rte-formatter {max-width: 850px !important; margin-inline: auto !important;}"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-c21fb250-0bdb-4523-ac3a-239ea8e18494",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image": "shopify://shop_images/Design_Header_-_About_Us_page_c075b843-930c-4e11-92b1-ffd96156252e.jpg",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "custom_liquid_hyxR8D": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .dty-contact {\n    width: 100%;\n    max-width: 1320px;\n    margin: 0 auto;\n    padding: 70px 40px;\n    color: #000000;\n  }\n\n  .dty-contact__layout {\n    display: grid;\n    grid-template-columns: minmax(280px, 0.72fr) minmax(500px, 1.28fr);\n    gap: clamp(50px, 7vw, 110px);\n    align-items: start;\n  }\n\n  /* LEFT INFORMATION PANEL */\n\n  .dty-contact__info {\n    color: #000000;\n    font-size: 15px;\n    line-height: 1.4;\n  }\n\n  .dty-contact__info-block {\n    margin: 0 0 22px;\n    padding: 0 0 18px;\n    border-bottom: 1px dotted #aeb2bf;\n  }\n\n  .dty-contact__heading {\n    margin: 0 0 17px;\n    color: #000000;\n    font-size: 15px;\n    line-height: 1.2;\n    font-weight: 600;\n    text-transform: uppercase;\n  }\n\n  .dty-contact__info p {\n    margin: 0;\n    color: #000000;\n    line-height: 1.4;\n  }\n\n  .dty-contact__info a {\n    color: #000000;\n    text-decoration: none;\n  }\n\n  .dty-contact__returns-link {\n    display: inline-block;\n    color: #000000;\n    font-weight: 500;\n    text-decoration: underline !important;\n    text-underline-offset: 2px;\n  }\n\n  /* FORM */\n\n  .dty-contact__form {\n    width: 100%;\n    color: #000000;\n  }\n\n  .dty-contact__fields {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n    gap: 18px 30px;\n  }\n\n  .dty-contact__field {\n    min-width: 0;\n  }\n\n  .dty-contact__field--full {\n    grid-column: 1 / -1;\n  }\n\n  .dty-contact__field label {\n    display: block;\n    margin: 0 0 6px;\n    color: #000000;\n    font-size: 14px;\n    line-height: 1.4;\n  }\n\n  .dty-contact__required {\n    color: #d02929;\n  }\n\n  .dty-contact__field input,\n  .dty-contact__field select,\n  .dty-contact__field textarea {\n    display: block;\n    width: 100%;\n    min-width: 0;\n    padding: 9px 11px;\n    border: 1px solid #aeb2bf;\n    border-radius: 0;\n    outline: none;\n    background: #ffffff;\n    color: #000000;\n    font: inherit;\n    font-size: 14px;\n    box-shadow: none;\n    appearance: none;\n    box-sizing: border-box;\n  }\n\n  .dty-contact__field input,\n  .dty-contact__field select {\n    height: 42px;\n  }\n\n  .dty-contact__field input:focus,\n  .dty-contact__field select:focus,\n  .dty-contact__field textarea:focus {\n    border-color: #151c3b;\n  }\n\n  .dty-contact__field textarea {\n    min-height: 145px;\n    resize: vertical;\n  }\n\n  .dty-contact__select {\n    position: relative;\n  }\n\n  .dty-contact__select::after {\n    content: \"\";\n    position: absolute;\n    right: 14px;\n    bottom: 17px;\n    width: 7px;\n    height: 7px;\n    border-right: 1px solid #000000;\n    border-bottom: 1px solid #000000;\n    pointer-events: none;\n    transform: rotate(45deg);\n  }\n\n  .dty-contact__field select {\n    padding-right: 38px;\n    cursor: pointer;\n  }\n\n  .dty-contact__button {\n    display: block;\n    width: calc(50% - 15px);\n    min-height: 48px;\n    margin: 24px 0 0;\n    padding: 13px 25px;\n    border: 1px solid #151c3b;\n    border-radius: 3px;\n    background: #151c3b;\n    color: #ffffff;\n    font: inherit;\n    font-size: 14px;\n    text-align: center;\n    cursor: pointer;\n    transition:\n      background-color 0.2s ease,\n      color 0.2s ease;\n  }\n\n  .dty-contact__button:hover {\n    background: #ffffff;\n    color: #151c3b;\n  }\n\n  /* ERROR MESSAGE */\n\n  .dty-contact__error {\n    grid-column: 1 / -1;\n    margin: 0 0 4px;\n    padding: 14px;\n    border: 1px solid #d02929;\n    background: #fff3f3;\n    color: #a51f1f;\n    font-size: 14px;\n    line-height: 1.4;\n  }\n\n  .dty-contact__error ul {\n    margin: 7px 0 0;\n    padding-left: 20px;\n  }\n\n  /* SUCCESS MESSAGE */\n\n  .dty-contact__success {\n    display: flex;\n    min-height: 340px;\n    padding: 50px;\n    border: 1px solid #aeb2bf;\n    background: #ffffff;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    box-sizing: border-box;\n  }\n\n  .dty-contact__success-content {\n    width: 100%;\n    max-width: 520px;\n  }\n\n  .dty-contact__success h2 {\n    margin: 0 0 14px;\n    color: #000000;\n    font-size: clamp(25px, 3vw, 38px);\n    line-height: 1.15;\n    font-weight: 500;\n  }\n\n  .dty-contact__success p {\n    margin: 0;\n    color: #000000;\n    font-size: 14px;\n    line-height: 1.4;\n  }\n\n  /* TABLET */\n\n  @media screen and (max-width: 900px) {\n    .dty-contact {\n      padding: 50px 25px;\n    }\n\n    .dty-contact__layout {\n      grid-template-columns: 1fr;\n      gap: 45px;\n    }\n  }\n\n  /* MOBILE */\n\n  @media screen and (max-width: 600px) {\n    .dty-contact {\n      padding: 38px 20px;\n    }\n\n    .dty-contact__layout {\n      gap: 38px;\n    }\n\n    .dty-contact__fields {\n      grid-template-columns: 1fr;\n      gap: 16px;\n    }\n\n    .dty-contact__field--full {\n      grid-column: auto;\n    }\n\n    .dty-contact__field input,\n    .dty-contact__field select {\n      min-height: 46px;\n    }\n\n    .dty-contact__field textarea {\n      min-height: 160px;\n    }\n\n    .dty-contact__button {\n      width: 100%;\n      min-height: 50px;\n    }\n\n    .dty-contact__success {\n      min-height: 260px;\n      padding: 35px 22px;\n    }\n  }\n</style>\n\n<section class=\"dty-contact\">\n  <div class=\"dty-contact__layout\">\n\n    <aside class=\"dty-contact__info\">\n\n      <div class=\"dty-contact__info-block\">\n        <h2 class=\"dty-contact__heading\">\n          Customer Care &amp; Wholesale\n        </h2>\n\n        <p>\n          Mon - Fri: 9am - 5pm AEST<br>\n\n          <a href=\"mailto:hello@designstoyou.com.au\">\n            hello@designstoyou.com.au\n          </a><br>\n\n          <a href=\"tel:+61397532555\">\n            03 9753 2555\n          </a>\n        </p>\n      </div>\n\n      <div class=\"dty-contact__info-block\">\n        <h2 class=\"dty-contact__heading\">\n          Address\n        </h2>\n\n        <p>\n          31 Enterprise Dr, Rowville VIC 3178\n        </p>\n      </div>\n\n      <div class=\"dty-contact__info-block\">\n        <h2 class=\"dty-contact__heading\">\n          Online Returns\n        </h2>\n\n        <p>\n          Please visit our return form below to process your return.\n          All returns must be processed within 30 days of purchase.\n          This form is for our retail store only.\n        </p>\n      </div>\n\n      <a\n        class=\"dty-contact__returns-link\"\n        href=\"https://dty-designs.myshopify.com/pages/submit-a-return-request\"\n      >\n        Returns Form\n      </a>\n\n    </aside>\n\n    <div class=\"dty-contact__form\">\n\n      {% form 'contact', id: 'DTYContactForm' %}\n\n        {% if form.posted_successfully? %}\n\n          <div\n            class=\"dty-contact__success\"\n            tabindex=\"-1\"\n            autofocus\n          >\n            <div class=\"dty-contact__success-content\">\n              <h2>Thank you for submitting</h2>\n\n              <p>\n                Your enquiry has been received. A member of our team\n                will be in touch with you as soon as possible.\n              </p>\n            </div>\n          </div>\n\n        {% else %}\n\n          <div class=\"dty-contact__fields\">\n\n            {% if form.errors %}\n              <div\n                class=\"dty-contact__error\"\n                role=\"alert\"\n              >\n                Please check the details below and try again.\n\n                {{ form.errors | default_errors }}\n              </div>\n            {% endif %}\n\n            <div class=\"dty-contact__field\">\n              <label for=\"DTYContactFirstName\">\n                First name<span class=\"dty-contact__required\">*</span>\n              </label>\n\n              <input\n                id=\"DTYContactFirstName\"\n                type=\"text\"\n                name=\"contact[First name]\"\n                autocomplete=\"given-name\"\n                required\n              >\n            </div>\n\n            <div class=\"dty-contact__field\">\n              <label for=\"DTYContactLastName\">\n                Last name<span class=\"dty-contact__required\">*</span>\n              </label>\n\n              <input\n                id=\"DTYContactLastName\"\n                type=\"text\"\n                name=\"contact[Last name]\"\n                autocomplete=\"family-name\"\n                required\n              >\n            </div>\n\n            <div class=\"dty-contact__field\">\n              <label for=\"DTYContactCompany\">\n                Company<span class=\"dty-contact__required\">*</span>\n              </label>\n\n              <input\n                id=\"DTYContactCompany\"\n                type=\"text\"\n                name=\"contact[Company]\"\n                autocomplete=\"organization\"\n                required\n              >\n            </div>\n\n            <div class=\"dty-contact__field\">\n              <label for=\"DTYContactEmail\">\n                Email address<span class=\"dty-contact__required\">*</span>\n              </label>\n\n              <input\n                id=\"DTYContactEmail\"\n                type=\"email\"\n                name=\"contact[email]\"\n                autocomplete=\"email\"\n                autocorrect=\"off\"\n                autocapitalize=\"off\"\n                value=\"{{ form.email }}\"\n                required\n              >\n            </div>\n\n            <div class=\"dty-contact__field\">\n              <label for=\"DTYContactPhone\">\n                Phone number<span class=\"dty-contact__required\">*</span>\n              </label>\n\n              <input\n                id=\"DTYContactPhone\"\n                type=\"tel\"\n                name=\"contact[Phone number]\"\n                autocomplete=\"tel\"\n                pattern=\"[0-9+() -]*\"\n                required\n              >\n            </div>\n\n            <div class=\"dty-contact__field dty-contact__select\">\n              <label for=\"DTYContactIndustry\">\n                Industry<span class=\"dty-contact__required\">*</span>\n              </label>\n\n              <select\n                id=\"DTYContactIndustry\"\n                name=\"contact[Industry]\"\n                required\n              >\n                <option value=\"\" selected disabled>\n                  Please select\n                </option>\n\n                <option value=\"Corporate\">Corporate</option>\n                <option value=\"Healthcare\">Healthcare</option>\n                <option value=\"Hospitality\">Hospitality</option>\n                <option value=\"Retail\">Retail</option>\n                <option value=\"Education\">Education</option>\n                <option value=\"Government\">Government</option>\n\n                <option value=\"Trades and construction\">\n                  Trades and construction\n                </option>\n\n                <option value=\"Other\">Other</option>\n              </select>\n            </div>\n\n            <div class=\"dty-contact__field dty-contact__select\">\n              <label for=\"DTYContactStaff\">\n                Number of staff you’re outfitting?<span class=\"dty-contact__required\">*</span>\n              </label>\n\n              <select\n                id=\"DTYContactStaff\"\n                name=\"contact[Number of staff]\"\n                required\n              >\n                <option value=\"\" selected disabled>\n                  Please select\n                </option>\n\n                <option value=\"1-50\">1–50</option>\n                <option value=\"51-100\">51–100</option>\n                <option value=\"101-300\">101–300</option>\n                <option value=\"301-500\">301–500</option>\n                <option value=\"500+\">500+</option>\n              </select>\n            </div>\n\n            <div class=\"dty-contact__field dty-contact__select\">\n              <label for=\"DTYContactSource\">\n                Where did you hear about us?<span class=\"dty-contact__required\">*</span>\n              </label>\n\n              <select\n                id=\"DTYContactSource\"\n                name=\"contact[Where did you hear about us]\"\n                required\n              >\n                <option value=\"\" selected disabled>\n                  Please select\n                </option>\n\n                <option value=\"Google\">Google</option>\n                <option value=\"Social media\">Social media</option>\n                <option value=\"Referral\">Referral</option>\n                <option value=\"Existing customer\">\n                  Existing customer\n                </option>\n                <option value=\"Event or trade show\">\n                  Event or trade show\n                </option>\n                <option value=\"Other\">Other</option>\n              </select>\n            </div>\n\n            <div class=\"dty-contact__field dty-contact__field--full\">\n              <label for=\"DTYContactMessage\">\n                Message<span class=\"dty-contact__required\">*</span>\n              </label>\n\n              <textarea\n                id=\"DTYContactMessage\"\n                name=\"contact[body]\"\n                required\n              >{{ form.body }}</textarea>\n            </div>\n\n          </div>\n\n          <button\n            class=\"dty-contact__button\"\n            type=\"submit\"\n          >\n            Submit\n          </button>\n\n        {% endif %}\n\n      {% endform %}\n\n    </div>\n  </div>\n</section>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_F8pGbW",
+    "custom_liquid_hyxR8D"
+  ]
+}

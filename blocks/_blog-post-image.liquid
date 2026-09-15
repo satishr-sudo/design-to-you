@@ -1,0 +1,194 @@
+
+
+{%- doc -%}
+  Renders the blog post image block.
+
+  @param {object} article - The article object
+{%- enddoc -%}
+
+{%- assign image = article.image -%}
+{%- assign block_settings = block.settings -%}
+
+<div class="blog-post-card__image-container">
+  <a
+    href="{{ article.url }}"
+    aria-label="{{ article.title | escape }}"
+  >
+    <img
+      srcset="
+        {% if image.width >= 350 %}{{ image | image_url: width: 350 }} 350w,{% endif %}
+        {% if image.width >= 750 %}{{ image | image_url: width: 750 }} 750w,{% endif %}
+        {% if image.width >= 1100 %}{{ image | image_url: width: 1100 }} 1100w,{% endif %}
+        {% if image.width >= 1500 %}{{ image | image_url: width: 1500 }} 1500w,{% endif %}
+        {{ image | image_url }} {{ image.width }}w
+      "
+      src="{{ image | image_url: width: 1100 }}"
+      loading="eager"
+      fetchpriority="high"
+      width="{{ image.width }}"
+      height="{{ image.height }}"
+      alt="{{ image.alt | escape }}"
+      class="
+        border-style
+        blog-post-card__image
+        blog-post-card__image--{{ block_settings.height }}
+      "
+      style="{% render 'border-override', settings: block_settings %}"
+    >
+  </a>
+</div>
+
+{% stylesheet %}
+  .blog-post-card__image-container {
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .blog-post-card__image-container > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .blog-post-card__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 0.35s ease;
+    will-change: transform;
+  }
+
+  /* Size variants */
+  .blog-post-card__image--small {
+    aspect-ratio: 3 / 2;
+  }
+
+  .blog-post-card__image--medium {
+    aspect-ratio: 1;
+  }
+
+  .blog-post-card__image--large {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Horizontal hero layout */
+  .blog-post-item--horizontal
+    .blog-post-card__image-container {
+    align-self: stretch;
+    min-height: 320px;
+  }
+
+  .blog-post-item--horizontal
+    .blog-post-card__image-container > a {
+    height: 100%;
+  }
+
+  .blog-post-item--horizontal
+    .blog-post-card__image {
+    height: 100%;
+    aspect-ratio: unset;
+  }
+
+  /*
+   * Subtle 2.5% zoom matching the Other Articles cards.
+   */
+  @media (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .blog-post-item:hover
+      .blog-post-card__image {
+      transform: scale(1.025);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blog-post-card__image {
+      transition: none;
+    }
+
+    .blog-post-item:hover
+      .blog-post-card__image {
+      transform: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.image",
+  "blocks": [],
+  "settings": [
+    {
+      "type": "select",
+      "id": "height",
+      "label": "t:settings.height",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:options.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:options.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:options.large"
+        }
+      ],
+      "default": "large"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "t:settings.border",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 10,
+      "step": 0.5,
+      "unit": "px",
+      "label": "t:settings.border_width",
+      "default": 1,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:settings.border_opacity",
+      "default": 100,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "t:settings.corner_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,284 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "class_name": "",
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "section_JxEWHt": {
+      "type": "section",
+      "blocks": {
+        "text_X6zqyB": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h1>RETURNS & EXCHANGES</h1>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 10,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_CNtwLK": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "about-banner-text",
+            "text": "<p>Fill out our return request form to arrange a return, exchange or store credit for items purchased through our online store.</p><p><strong>Please read our </strong><span style=\"text-decoration:underline\"><strong>Conditions of Return</strong></span><strong> and </strong><span style=\"text-decoration:underline\"><strong>Return Policy </strong></span><strong>(below) before submitting a returns request.</strong></p>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 10,
+            "padding-block-end": 20,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_X6zqyB",
+        "text_CNtwLK"
+      ],
+      "custom_css": [
+        ".faq-tab--about-banner-text rte-formatter {max-width: 850px !important; margin-inline: auto !important;}"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "custom_classname": "",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-c21fb250-0bdb-4523-ac3a-239ea8e18494",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image": "shopify://shop_images/Design_Header_-_About_Us_page_c075b843-930c-4e11-92b1-ffd96156252e.jpg",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "custom_liquid_FmKrT9": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .dty-returns {\n    width: 100%;\n    margin: 0 auto;\n    padding: 70px 0px;\n    color: #000000;\n  }\n\n  .dty-returns,\n  .dty-returns * {\n    box-sizing: border-box;\n  }\n\n  .dty-returns__layout {\n    display: grid;\n    grid-template-columns: minmax(280px, 0.72fr) minmax(500px, 1.28fr);\n    gap: clamp(50px, 7vw, 110px);\n    align-items: start;\n  }\n\n  /* LEFT INFORMATION */\n\n  .dty-returns__info {\n    color: #000000;\n    font-size: 15px;\n    line-height: 1.4;\n  }\n\n  .dty-returns__info-block {\n    margin: 0 0 22px;\n    padding: 0 0 18px;\n    border-bottom: 1px dotted #aeb2bf;\n  }\n\n  .dty-returns__info-heading {\n    margin: 0 0 17px !important;\n    padding: 0 !important;\n    color: #000000 !important;\n    font-family: \"ALT Picaro\", \"Alt Picaro\", sans-serif !important;\n    font-size: 15px !important;\n    line-height: 1.2 !important;\n    font-weight: 600 !important;\n    letter-spacing: normal !important;\n    text-transform: uppercase !important;\n  }\n\n  .dty-returns__info p {\n    margin: 0 !important;\n    padding: 0 !important;\n    color: #000000 !important;\n    font-family: inherit !important;\n    font-size: 15px !important;\n    line-height: 1.4 !important;\n    font-weight: 400 !important;\n    letter-spacing: normal !important;\n  }\n\n  .dty-returns__info a {\n    color: #000000 !important;\n    font-family: inherit !important;\n    text-decoration: none;\n  }\n\n  .dty-returns__policy-text {\n    font-weight: 600 !important;\n  }\n\n  .dty-returns__policy-text a {\n    font-weight: 600 !important;\n    text-decoration: underline !important;\n    text-underline-offset: 2px;\n  }\n\n  /* FORM */\n\n  .dty-returns__form {\n    width: 100%;\n    color: #000000;\n  }\n\n  .dty-returns__step {\n    display: none;\n  }\n\n  .dty-returns__step.is-active {\n    display: block;\n  }\n\n  .dty-returns__fields {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n    gap: 18px 30px;\n  }\n\n  .dty-returns__field {\n    min-width: 0;\n  }\n\n  .dty-returns__field--full {\n    grid-column: 1 / -1;\n  }\n\n  #DTYReturnRequestForm .dty-returns__field label {\n    display: block !important;\n    margin: 0 0 6px !important;\n    padding: 0 !important;\n    color: #000000 !important;\n    font-family: inherit !important;\n    font-size: 14px !important;\n    line-height: 1.4 !important;\n    font-weight: 400 !important;\n    letter-spacing: normal !important;\n    text-transform: none !important;\n  }\n\n  .dty-returns__required {\n    color: #d02929;\n  }\n\n  .dty-returns__optional {\n    color: #000000;\n    font-weight: 400;\n  }\n\n  /* INPUTS */\n\n  #DTYReturnRequestForm .dty-returns__field input,\n  #DTYReturnRequestForm .dty-returns__field select,\n  #DTYReturnRequestForm .dty-returns__field textarea {\n    display: block !important;\n    width: 100% !important;\n    min-width: 0 !important;\n    margin: 0 !important;\n    padding: 9px 11px !important;\n    border: 1px solid #aeb2bf !important;\n    border-radius: 0 !important;\n    outline: none !important;\n    background-color: #ffffff !important;\n    background-image: none !important;\n    color: #000000 !important;\n    font-family: inherit !important;\n    font-size: 14px !important;\n    line-height: 1.4 !important;\n    font-weight: 400 !important;\n    letter-spacing: normal !important;\n    box-shadow: none !important;\n    opacity: 1 !important;\n    appearance: none !important;\n    -webkit-appearance: none !important;\n  }\n\n  #DTYReturnRequestForm .dty-returns__field input,\n  #DTYReturnRequestForm .dty-returns__field select {\n    height: 42px !important;\n    min-height: 42px !important;\n  }\n\n  #DTYReturnRequestForm .dty-returns__field textarea {\n    min-height: 145px !important;\n    height: auto !important;\n    resize: vertical !important;\n  }\n\n  #DTYReturnRequestForm .dty-returns__field input:focus,\n  #DTYReturnRequestForm .dty-returns__field select:focus,\n  #DTYReturnRequestForm .dty-returns__field textarea:focus {\n    border-color: #151c3b !important;\n    outline: none !important;\n    box-shadow: none !important;\n  }\n\n  #DTYReturnRequestForm .dty-returns__field input::placeholder,\n  #DTYReturnRequestForm .dty-returns__field textarea::placeholder {\n    color: #777777 !important;\n    font-family: inherit !important;\n    font-size: 14px !important;\n    font-weight: 400 !important;\n    letter-spacing: normal !important;\n    opacity: 1 !important;\n  }\n\n  /* SELECT ARROW */\n\n  .dty-returns__select {\n    position: relative;\n  }\n\n  .dty-returns__select::after {\n    content: \"\";\n    position: absolute;\n    right: 14px;\n    bottom: 17px;\n    width: 7px;\n    height: 7px;\n    border-right: 1px solid #000000;\n    border-bottom: 1px solid #000000;\n    pointer-events: none;\n    transform: rotate(45deg);\n  }\n\n  #DTYReturnRequestForm .dty-returns__field select {\n    padding-right: 38px !important;\n    cursor: pointer !important;\n  }\n\n  /* CONSENT */\n\n  .dty-returns__consent {\n    display: flex;\n    align-items: flex-start;\n    gap: 10px;\n    margin-top: 22px;\n  }\n\n  #DTYReturnRequestForm .dty-returns__consent input {\n    flex: 0 0 auto !important;\n    width: 16px !important;\n    min-width: 16px !important;\n    height: 16px !important;\n    min-height: 16px !important;\n    margin: 2px 0 0 !important;\n    padding: 0 !important;\n    border: 1px solid #aeb2bf !important;\n    border-radius: 0 !important;\n    accent-color: #151c3b !important;\n    cursor: pointer !important;\n  }\n\n  #DTYReturnRequestForm .dty-returns__consent label {\n    margin: 0 !important;\n    padding: 0 !important;\n    color: #000000 !important;\n    font-family: inherit !important;\n    font-size: 14px !important;\n    line-height: 1.4 !important;\n    font-weight: 400 !important;\n    letter-spacing: normal !important;\n    text-transform: none !important;\n    cursor: pointer !important;\n  }\n\n  .dty-returns__policy-link {\n    color: #000000 !important;\n    font-family: inherit !important;\n    text-decoration: underline !important;\n    text-underline-offset: 2px;\n  }\n\n  /* BUTTONS */\n\n  .dty-returns__single-button {\n    width: calc(50% - 15px);\n    margin-top: 24px;\n  }\n\n  .dty-returns__buttons {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n    gap: 30px;\n    margin-top: 24px;\n  }\n\n  #DTYReturnRequestForm .dty-returns__button {\n    display: block !important;\n    width: 100% !important;\n    min-height: 48px !important;\n    margin: 0 !important;\n    padding: 13px 25px !important;\n    border: 1px solid #151c3b !important;\n    border-radius: 3px !important;\n    background: #151c3b !important;\n    color: #ffffff !important;\n    font-family: inherit !important;\n    font-size: 14px !important;\n    line-height: 1.4 !important;\n    font-weight: 400 !important;\n    letter-spacing: normal !important;\n    text-align: center !important;\n    text-transform: none !important;\n    box-shadow: none !important;\n    cursor: pointer !important;\n    transition:\n      background-color 0.2s ease,\n      color 0.2s ease !important;\n  }\n\n  #DTYReturnRequestForm .dty-returns__button:hover {\n    border-color: #151c3b !important;\n    background: #ffffff !important;\n    color: #151c3b !important;\n  }\n\n  #DTYReturnRequestForm .dty-returns__button--previous {\n    border-color: #151c3b !important;\n    background: #ffffff !important;\n    color: #151c3b !important;\n  }\n\n  #DTYReturnRequestForm .dty-returns__button--previous:hover {\n    background: #151c3b !important;\n    color: #ffffff !important;\n  }\n\n  /* ERROR MESSAGE */\n\n  .dty-returns__error {\n    margin: 0 0 18px;\n    padding: 14px;\n    border: 1px solid #d02929;\n    background: #fff3f3;\n    color: #a51f1f;\n    font-family: inherit;\n    font-size: 14px;\n    line-height: 1.4;\n  }\n\n  .dty-returns__error ul {\n    margin: 7px 0 0;\n    padding-left: 20px;\n  }\n\n  /* SUCCESS MESSAGE */\n\n  .dty-returns__success {\n    display: flex;\n    min-height: 340px;\n    padding: 50px;\n    border: 1px solid #aeb2bf;\n    background: #ffffff;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n  }\n\n  .dty-returns__success-content {\n    width: 100%;\n    max-width: 520px;\n  }\n\n  .dty-returns__success h2 {\n    margin: 0 0 14px;\n    color: #000000;\n    font-family: inherit;\n    font-size: clamp(25px, 3vw, 38px);\n    line-height: 1.15;\n    font-weight: 500;\n  }\n\n  .dty-returns__success p {\n    margin: 0;\n    color: #000000;\n    font-family: inherit;\n    font-size: 14px;\n    line-height: 1.4;\n    font-weight: 400;\n  }\n\n  /* TABLET */\n\n  @media screen and (max-width: 900px) {\n    .dty-returns {\n      padding: 50px 0px;\n    }\n\n    .dty-returns__layout {\n      grid-template-columns: 1fr;\n      gap: 45px;\n    }\n  }\n\n  /* MOBILE */\n\n  @media screen and (max-width: 600px) {\n    .dty-returns {\n      padding: 38px 0px;\n    }\n\n    .dty-returns__layout {\n      gap: 38px;\n    }\n\n    .dty-returns__fields {\n      grid-template-columns: 1fr;\n      gap: 16px;\n    }\n\n    .dty-returns__field--full {\n      grid-column: auto;\n    }\n\n    #DTYReturnRequestForm .dty-returns__field input,\n    #DTYReturnRequestForm .dty-returns__field select {\n      height: 46px !important;\n      min-height: 46px !important;\n    }\n\n    #DTYReturnRequestForm .dty-returns__field textarea {\n      min-height: 160px !important;\n    }\n\n    .dty-returns__single-button {\n      width: 100%;\n    }\n\n    .dty-returns__buttons {\n      grid-template-columns: 1fr;\n      gap: 12px;\n    }\n\n    #DTYReturnRequestForm .dty-returns__button {\n      min-height: 50px !important;\n    }\n\n    .dty-returns__success {\n      min-height: 260px;\n      padding: 35px 22px;\n    }\n  }\n</style>\n\n<section class=\"dty-returns\">\n  <div class=\"dty-returns__layout\">\n\n    <aside class=\"dty-returns__info\">\n\n      <div class=\"dty-returns__info-block\">\n        <h2 class=\"dty-returns__info-heading\">\n          Customer Care\n        </h2>\n\n        <p>\n          Mon - Fri: 9am - 5pm AEST<br>\n\n          <a href=\"mailto:hello@designstoyou.com.au\">\n            hello@designstoyou.com.au\n          </a><br>\n\n          <a href=\"tel:+61397532555\">\n            03 9753 2555\n          </a>\n        </p>\n      </div>\n\n      <div class=\"dty-returns__info-block\">\n        <h2 class=\"dty-returns__info-heading\">\n          Returns &amp; Exchanges\n        </h2>\n\n        <p class=\"dty-returns__policy-text\">\n          Please read our\n          <a href=\"https://dty-designs.myshopify.com/pages/contact#return-policy\">\n            Conditions of Return and Return Policy\n          </a>\n          below before submitting a return request.\n        </p>\n      </div>\n\n    </aside>\n\n    <div class=\"dty-returns__form\">\n\n      {% form 'contact', id: 'DTYReturnRequestForm' %}\n\n        <input\n          type=\"hidden\"\n          name=\"contact[Request type]\"\n          value=\"Online Return Request\"\n        >\n\n        {% if form.posted_successfully? %}\n\n          <div\n            class=\"dty-returns__success\"\n            tabindex=\"-1\"\n            autofocus\n          >\n            <div class=\"dty-returns__success-content\">\n              <h2>Thank you for submitting</h2>\n\n              <p>\n                Your return request has been received. A member of our\n                team will be in touch with you as soon as possible.\n              </p>\n            </div>\n          </div>\n\n        {% else %}\n\n          {% if form.errors %}\n            <div\n              class=\"dty-returns__error\"\n              role=\"alert\"\n            >\n              Please check the details below and try again.\n\n              {{ form.errors | default_errors }}\n            </div>\n          {% endif %}\n\n          <!-- STEP ONE -->\n\n          <div\n            class=\"dty-returns__step is-active\"\n            data-return-step=\"1\"\n            aria-hidden=\"false\"\n          >\n            <div class=\"dty-returns__fields\">\n\n              <div class=\"dty-returns__field\">\n                <label for=\"DTYReturnFirstName\">\n                  First name<span class=\"dty-returns__required\">*</span>\n                </label>\n\n                <input\n                  id=\"DTYReturnFirstName\"\n                  type=\"text\"\n                  name=\"contact[First name]\"\n                  autocomplete=\"given-name\"\n                  required\n                >\n              </div>\n\n              <div class=\"dty-returns__field\">\n                <label for=\"DTYReturnLastName\">\n                  Last name<span class=\"dty-returns__required\">*</span>\n                </label>\n\n                <input\n                  id=\"DTYReturnLastName\"\n                  type=\"text\"\n                  name=\"contact[Last name]\"\n                  autocomplete=\"family-name\"\n                  required\n                >\n              </div>\n\n              <div class=\"dty-returns__field\">\n                <label for=\"DTYReturnEmail\">\n                  Email address<span class=\"dty-returns__required\">*</span>\n                </label>\n\n                <input\n                  id=\"DTYReturnEmail\"\n                  type=\"email\"\n                  name=\"contact[email]\"\n                  autocomplete=\"email\"\n                  autocorrect=\"off\"\n                  autocapitalize=\"off\"\n                  value=\"{{ form.email }}\"\n                  required\n                >\n              </div>\n\n              <div class=\"dty-returns__field\">\n                <label for=\"DTYReturnPhone\">\n                  Phone number<span class=\"dty-returns__required\">*</span>\n                </label>\n\n                <input\n                  id=\"DTYReturnPhone\"\n                  type=\"tel\"\n                  name=\"contact[Phone number]\"\n                  autocomplete=\"tel\"\n                  pattern=\"[0-9+() -]*\"\n                  required\n                >\n              </div>\n\n              <div class=\"dty-returns__field dty-returns__field--full\">\n                <label for=\"DTYReturnOrderNumber\">\n                  Order or invoice number<span class=\"dty-returns__required\">*</span>\n                </label>\n\n                <input\n                  id=\"DTYReturnOrderNumber\"\n                  type=\"text\"\n                  name=\"contact[Order or invoice number]\"\n                  required\n                >\n              </div>\n\n            </div>\n\n            <div class=\"dty-returns__single-button\">\n              <button\n                class=\"dty-returns__button\"\n                type=\"button\"\n                data-return-next\n              >\n                Next\n              </button>\n            </div>\n          </div>\n\n          <!-- STEP TWO -->\n\n          <div\n            class=\"dty-returns__step\"\n            data-return-step=\"2\"\n            aria-hidden=\"true\"\n          >\n            <div class=\"dty-returns__fields\">\n\n              <div class=\"dty-returns__field dty-returns__field--full\">\n                <label for=\"DTYReturnItems\">\n                  Items for return<span class=\"dty-returns__required\">*</span>\n                </label>\n\n                <input\n                  id=\"DTYReturnItems\"\n                  type=\"text\"\n                  name=\"contact[Items for return]\"\n                  placeholder=\"Please include style codes, sizes and quantities\"\n                  required\n                >\n              </div>\n\n              <div class=\"dty-returns__field dty-returns__select\">\n                <label for=\"DTYReturnReason\">\n                  Reason for return<span class=\"dty-returns__required\">*</span>\n                </label>\n\n                <select\n                  id=\"DTYReturnReason\"\n                  name=\"contact[Reason for return]\"\n                  required\n                >\n                  <option value=\"\" selected disabled>\n                    Please select\n                  </option>\n\n                  <option value=\"Change of mind\">\n                    Change of mind\n                  </option>\n\n                  <option value=\"Change of size\">\n                    Change of size\n                  </option>\n\n                  <option value=\"Faulty or damaged\">\n                    Faulty or damaged\n                  </option>\n\n                  <option value=\"Incorrectly supplied\">\n                    Incorrectly supplied\n                  </option>\n\n                  <option value=\"Other\">\n                    Other\n                  </option>\n                </select>\n              </div>\n\n              <div class=\"dty-returns__field dty-returns__field--full\">\n                <label for=\"DTYReturnExchange\">\n                  Exchanging for\n                  <span class=\"dty-returns__optional\">(optional)</span>\n                </label>\n\n                <input\n                  id=\"DTYReturnExchange\"\n                  type=\"text\"\n                  name=\"contact[Exchanging for]\"\n                  placeholder=\"Please include style codes, sizes and quantities\"\n                >\n              </div>\n\n              <div class=\"dty-returns__field dty-returns__field--full\">\n                <label for=\"DTYReturnComments\">\n                  Additional comments\n                  <span class=\"dty-returns__optional\">(optional)</span>\n                </label>\n\n                <textarea\n                  id=\"DTYReturnComments\"\n                  name=\"contact[body]\"\n                  placeholder=\"Please include any additional information about your return request\"\n                ></textarea>\n              </div>\n\n            </div>\n\n            <div class=\"dty-returns__consent\">\n              <input\n                id=\"DTYReturnConsent\"\n                type=\"checkbox\"\n                name=\"contact[Return policy agreed]\"\n                value=\"Yes\"\n                required\n              >\n\n              <label for=\"DTYReturnConsent\">\n                I confirm that I have read and agree to Designs To You’s\n                <a\n                  class=\"dty-returns__policy-link\"\n                  href=\"https://dty-designs.myshopify.com/pages/contact#return-policy\"\n                >\n                  Return Policy below\n                </a><span class=\"dty-returns__required\">*</span>\n              </label>\n            </div>\n\n            <div class=\"dty-returns__buttons\">\n              <button\n                class=\"dty-returns__button dty-returns__button--previous\"\n                type=\"button\"\n                data-return-previous\n              >\n                Previous\n              </button>\n\n              <button\n                class=\"dty-returns__button\"\n                type=\"submit\"\n              >\n                Submit\n              </button>\n            </div>\n          </div>\n\n        {% endif %}\n\n      {% endform %}\n\n    </div>\n  </div>\n</section>\n\n<script>\n  document.addEventListener('DOMContentLoaded', function () {\n    var returnsSection = document.querySelector('.dty-returns');\n\n    if (!returnsSection) return;\n\n    var stepOne = returnsSection.querySelector(\n      '[data-return-step=\"1\"]'\n    );\n\n    var stepTwo = returnsSection.querySelector(\n      '[data-return-step=\"2\"]'\n    );\n\n    var nextButton = returnsSection.querySelector(\n      '[data-return-next]'\n    );\n\n    var previousButton = returnsSection.querySelector(\n      '[data-return-previous]'\n    );\n\n    function showReturnStep(stepToShow, stepToHide) {\n      if (!stepToShow || !stepToHide) return;\n\n      stepToHide.classList.remove('is-active');\n      stepToHide.setAttribute('aria-hidden', 'true');\n\n      stepToShow.classList.add('is-active');\n      stepToShow.setAttribute('aria-hidden', 'false');\n\n      stepToShow.scrollIntoView({\n        behavior: 'smooth',\n        block: 'start'\n      });\n    }\n\n    if (nextButton && stepOne && stepTwo) {\n      nextButton.addEventListener('click', function () {\n        var requiredFields = stepOne.querySelectorAll(\n          'input[required], select[required], textarea[required]'\n        );\n\n        var firstInvalidField = null;\n\n        requiredFields.forEach(function (field) {\n          if (!field.checkValidity() && !firstInvalidField) {\n            firstInvalidField = field;\n          }\n        });\n\n        if (firstInvalidField) {\n          firstInvalidField.reportValidity();\n          firstInvalidField.focus();\n          return;\n        }\n\n        showReturnStep(stepTwo, stepOne);\n      });\n    }\n\n    if (previousButton && stepOne && stepTwo) {\n      previousButton.addEventListener('click', function () {\n        showReturnStep(stepOne, stepTwo);\n      });\n    }\n  });\n</script>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "custom_liquid_ffbPjy": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"dty-dotted-divider\"></div>\n\n<div class=\"dty-dotted-divider\"></div>\n\n<style>\n  .dty-dotted-divider {\n    width: 100%;\n    margin: 0;\n    border-top: 1px dotted #c8c8c8;\n  }\n</style>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "section_XXtUcW": {
+      "type": "section",
+      "blocks": {
+        "text_UFM8qc": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "class_name": "",
+            "text": "<h3>Return Policy</h3>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_9Wkp6A": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "class_name": "",
+            "text": "<p>You can return or exchange items within <span style=\"text-decoration:underline\">30 days</span> of the invoice date, provided they meet our <strong>Conditions of Return</strong> (listed below).</p><p>To initiate a return or exchange:</p><ol><li>Contact us at <span style=\"text-decoration:underline\">(03) 9753 2555</span> or submit the ‘<span style=\"text-decoration:underline\">Return Request</span>’ form above to obtain a <span style=\"text-decoration:underline\">Return Authority Number (RA)</span>.</li><li>Return the item within <span style=\"text-decoration:underline\">14 days</span> of receiving your RA number.</li></ol><p>Please note that return postage costs are at your expense unless the goods are faulty or incorrectly supplied. Refunds will be issued to the original payment method within <span style=\"text-decoration:underline\">5 business days</span> of receiving the return, but may take up to <span style=\"text-decoration:underline\">10 business days</span> to process, depending on your financial institution.</p><h4><strong><br/>Conditions of Return</strong></h4><p> </p><p>To qualify for a return, the following conditions must be met:</p><ul><li>Items must be in their original, <span style=\"text-decoration:underline\">unworn</span> condition with all tags and labels attached.</li><li>You must include a valid <span style=\"text-decoration:underline\">Return Authority Number (RA)</span>.</li><li><span style=\"text-decoration:underline\">Customised items</span> (e.g. embroidered) and <span style=\"text-decoration:underline\">Final Sale/Clearance items</span> cannot be returned unless faulty or incorrectly supplied.</li><li>Items remain your responsibility until received by us. Please ensure they are securely packaged. We recommend using trackable shipping, as we are not liable for items lost or damaged in transit.</li></ul><h4><strong><br/>Special Conditions</strong></h4><p> </p><ul><li><strong>Afterpay Orders:</strong> Items purchased via Afterpay can only be returned for <span style=\"text-decoration:underline\">store credit</span>. Refunds are not available for Afterpay orders.</li><li><strong>Final Sale/Clearance Items:</strong> Final Sale or Clearance items are not eligible for return. Any returned items will be sent back to you at your expense.</li></ul><h4><strong><br/>Return Shipping</strong></h4><p> </p><p>You are responsible for the return shipping costs, which are non-refundable. We recommend using a trackable shipping service to ensure safe delivery.</p>",
+            "device_visibility": "all",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "loose",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_UFM8qc",
+        "text_9Wkp6A"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "custom_classname": "cms-page-content",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 25,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 100,
+        "padding-block-end": 70
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_JxEWHt",
+    "custom_liquid_FmKrT9",
+    "custom_liquid_ffbPjy",
+    "section_XXtUcW"
+  ]
+}

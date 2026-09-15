@@ -1,0 +1,1011 @@
+{%- comment -%}
+  Custom Work Slider — sections/custom-work-slider.liquid
+  Cloned from product-list-slider.liquid. Replaces collection/product cards
+  with manually configured blocks (image, label, description, link).
+  Left panel (heading, paragraph, button) is driven by section settings.
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign slide_blocks = section.blocks | where: 'type', 'slide'
+  assign slide_count = slide_blocks.size
+  if slide_count == 0
+    assign slide_count = 3
+  endif
+-%}
+
+{% if s.layout_type == 'carousel' %}
+  <style>
+    #shopify-section-{{ section.id }} slideshow-component {
+      timeline-scope: var(--slideshow-timeline), --cwsl-scroll;
+    }
+
+    #shopify-section-{{ section.id }} .cwsl__inner slideshow-slides {
+      scroll-timeline-name: --cwsl-scroll;
+      scroll-timeline-axis: inline;
+    }
+  </style>
+
+  <script>
+    /*
+     * Force single-slide navigation for this carousel only.
+     *
+     * The Horizon slideshow.js computes nextIndex / previousIndex as:
+     *   current ± visibleSlides.length
+     * so clicking next on a 3-up carousel jumps 3 slides at once.
+     *
+     * We shadow those two getters on the specific slideshow-component
+     * instance inside this section so the step is always exactly 1.
+     * No shared theme files are modified.
+     */
+    (function () {
+      var sectionId = {{ section.id | json }};
+
+      customElements.whenDefined('slideshow-component').then(function () {
+        var section = document.getElementById('shopify-section-' + sectionId);
+        if (!section) return;
+
+        var slideshow = section.querySelector('slideshow-component');
+        if (!slideshow) return;
+
+        Object.defineProperty(slideshow, 'nextIndex', {
+          get: function () {
+            return this.current + 1;
+          },
+          configurable: true
+        });
+
+        Object.defineProperty(slideshow, 'previousIndex', {
+          get: function () {
+            return this.current - 1;
+          },
+          configurable: true
+        });
+      });
+    }());
+  </script>
+{% endif %}
+
+<div class="section-background color-{{ s.color_scheme }}"></div>
+
+<div
+  class="
+    section
+    section--{{ s.section_width }}
+    color-{{ s.color_scheme }}
+    section-resource-list
+    product-list-slider
+    cwsl-section
+    spacing-style
+    gap-style
+    {% if s.custom_class_name %}{{ s.custom_class_name }}{% endif %}
+  "
+  style="
+    {% render 'spacing-style', settings: section.settings %}
+    {% render 'gap-style', value: s.gap %}
+  "
+>
+  {%- comment -%} Build slide items from blocks {%- endcomment -%}
+
+  {% capture list_items %}
+    {% if slide_blocks.size > 0 %}
+      {% for block in slide_blocks %}
+        <div class="resource-list__item">
+          <a
+            href="{{ block.settings.button_url | default: '#' }}"
+            class="cwsl-card"
+            {{ block.shopify_attributes }}
+          >
+            <div
+              class="cwsl-card__media"
+              {% if block.settings.use_background_color %}
+                style="background-color: {{ block.settings.background_color }};"
+              {% endif %}
+            >
+              {% unless block.settings.use_background_color %}
+                {%- if block.settings.image != blank -%}
+                  {{-
+                    block.settings.image
+                    | image_url: width: 800
+                    | image_tag:
+                      class: 'cwsl-card__image',
+                      alt: block.settings.image_alt,
+                      loading: 'lazy',
+                      widths: '300, 400, 600, 800'
+                  -}}
+                {%- else -%}
+                  {{- 'image' | placeholder_svg_tag: 'cwsl-card__image cwsl-card__image--placeholder' -}}
+                {%- endif -%}
+              {% endunless %}
+            </div>
+
+            <div class="cwsl-card__overlay">
+              <div class="cwsl-card__top">
+                {%- if block.settings.label != blank -%}
+                  <span class="cwsl-card__label">
+                    {{- block.settings.label | escape -}}
+                  </span>
+
+                  <span class="cwsl-card__arrow-icon" aria-hidden="true">
+                    {{- 'icon-arrow.svg' | inline_asset_content -}}
+                  </span>
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.description != blank -%}
+                <div class="cwsl-card__description">
+                  {{- block.settings.description -}}
+                </div>
+              {%- endif -%}
+            </div>
+          </a>
+        </div>
+
+        {% unless forloop.last %}
+          <!--@list/split-->
+        {% endunless %}
+      {% endfor %}
+    {% else %}
+      {%- comment -%}
+        Placeholder slides shown in editor before blocks are added
+      {%- endcomment -%}
+
+      {% for i in (1..3) %}
+        <div class="resource-list__item">
+          <div class="cwsl-card cwsl-card--placeholder">
+            <div class="cwsl-card__media">
+              {{- 'image' | placeholder_svg_tag: 'cwsl-card__image cwsl-card__image--placeholder' -}}
+            </div>
+
+            <div class="cwsl-card__overlay">
+              <div class="cwsl-card__top">
+                <span class="cwsl-card__label">
+                  Slide {{ i }}
+                </span>
+
+                <span class="cwsl-card__arrow-icon" aria-hidden="true">
+                  →
+                </span>
+              </div>
+
+              <div class="cwsl-card__description">
+                <p>Add your slide content in the Theme Editor.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% unless forloop.last %}
+          <!--@list/split-->
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+  {% endcapture %}
+
+  {%- liquid
+    assign list_items_array = list_items | strip | split: '<!--@list/split-->'
+  -%}
+
+  {% if s.layout_type == 'carousel' %}
+    {%- liquid
+      if s.section_width == 'page-width'
+        assign gutter_style = '--gutter-slide-width: var(--util-page-margin-offset);'
+
+        if s.header_position == 'left'
+          assign slideshow_gutters = 'end'
+        else
+          assign slideshow_gutters = 'start end'
+        endif
+      else
+        assign slideshow_gutters = null
+        assign gutter_style = '--gutter-slide-width: 0px;'
+      endif
+    -%}
+
+    {% capture carousel_slides %}
+      {% for item in list_items_array %}
+        {% render 'slideshow-slide',
+          index: forloop.index0,
+          children: item,
+          class: 'resource-list__slide'
+        %}
+      {% endfor %}
+    {% endcapture %}
+
+    {% capture carousel_footer %}
+      <div class="cwsl-footer">
+        <div class="cwsl-nav">
+          {%- render 'slideshow-arrow',
+            action: 'previous',
+            icon_style: s.icons_style,
+            icon_shape: s.icons_shape
+          -%}
+
+          {%- render 'slideshow-arrow',
+            action: 'next',
+            icon_style: s.icons_style,
+            icon_shape: s.icons_shape
+          -%}
+        </div>
+
+        <div class="cwsl-progress-track">
+          <div class="cwsl-progress-fill"></div>
+        </div>
+      </div>
+    {% endcapture %}
+
+    <div class="product-list-slider__layout force-full-width{% if s.header_position != 'left' %} product-list-slider__layout--top{% endif %}">
+      <div class="product-list-slider__header">
+        <div class="cwsl-header">
+          {%- if s.heading != blank -%}
+            <h3 class="cwsl-header__heading">
+              {{- s.heading | escape -}}
+            </h3>
+          {%- endif -%}
+
+          {%- if s.subheading != blank -%}
+            <div class="cwsl-header__subheading rte">
+              {{- s.subheading -}}
+            </div>
+          {%- endif -%}
+
+          {%- if s.button_label != blank -%}
+            <a
+              href="{{ s.button_url | default: '#' }}"
+              class="button button-{{ s.button_style }} cwsl-header__button"
+            >
+              {{- s.button_label | escape -}}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div
+        class="product-list-slider__inner cwsl__inner resource-list resource-list__carousel"
+        style="
+          --resource-list-column-gap-desktop: {{ s.columns_gap }}px;
+          --column-count: {{ s.columns }};
+          --column-count-mobile: 1;
+          --mobile-card-size: {{ s.mobile_card_size | default: '75cqw' }};
+        "
+      >
+        <div
+          class="resource-list__carousel"
+          style="--slide-width-max: 450px; {{ gutter_style }}"
+        >
+          {% render 'slideshow',
+            ref: 'productListSlider',
+            class: 'resource-list__carousel',
+            slides: carousel_slides,
+            show_arrows: false,
+            controls: carousel_footer,
+            auto_hide_controls: false,
+            infinite: false,
+            slide_count: slide_count,
+            slideshow_gutters: slideshow_gutters
+          %}
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="product-list-slider__layout force-full-width product-list-slider__layout--top">
+      <div class="product-list-slider__header">
+        <div class="cwsl-header">
+          {%- if s.heading != blank -%}
+            <h2 class="cwsl-header__heading">
+              {{- s.heading | escape -}}
+            </h2>
+          {%- endif -%}
+
+          {%- if s.subheading != blank -%}
+            <div class="cwsl-header__subheading rte">
+              {{- s.subheading -}}
+            </div>
+          {%- endif -%}
+
+          {%- if s.button_label != blank -%}
+            <a
+              href="{{ s.button_url | default: '#' }}"
+              class="button button-{{ s.button_style }} cwsl-header__button"
+            >
+              {{- s.button_label | escape -}}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div
+        class="cwsl-grid"
+        style="
+          --column-count: {{ s.columns }};
+          --cwsl-gap: {{ s.columns_gap }}px;
+        "
+      >
+        {% for block in slide_blocks %}
+          <a
+            href="{{ block.settings.button_url | default: '#' }}"
+            class="cwsl-card"
+            {{ block.shopify_attributes }}
+          >
+            <div
+              class="cwsl-card__media"
+              {% if block.settings.use_background_color %}
+                style="background-color: {{ block.settings.background_color }};"
+              {% endif %}
+            >
+              {% unless block.settings.use_background_color %}
+                {%- if block.settings.image != blank -%}
+                  {{-
+                    block.settings.image
+                    | image_url: width: 800
+                    | image_tag:
+                      class: 'cwsl-card__image',
+                      alt: block.settings.image_alt,
+                      loading: 'lazy',
+                      widths: '300, 400, 600, 800'
+                  -}}
+                {%- else -%}
+                  {{- 'image' | placeholder_svg_tag: 'cwsl-card__image cwsl-card__image--placeholder' -}}
+                {%- endif -%}
+              {% endunless %}
+            </div>
+
+            <div class="cwsl-card__overlay">
+              <div class="cwsl-card__top">
+                {%- if block.settings.label != blank -%}
+                  <span class="cwsl-card__label">
+                    {{- block.settings.label | escape -}}
+                  </span>
+
+                  <span class="cwsl-card__arrow-icon" aria-hidden="true">
+                    {{- 'icon-arrow.svg' | inline_asset_content -}}
+                  </span>
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.description != blank -%}
+                <div class="cwsl-card__description">
+                  {{- block.settings.description -}}
+                </div>
+              {%- endif -%}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  /* Card */
+
+  .cwsl-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-md, 8px);
+    text-decoration: none;
+    color: #fff;
+    height: 100%;
+  }
+
+  .cwsl-card__media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+  }
+
+  .cwsl-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit;
+  }
+
+  .cwsl-card__image--placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(var(--color-foreground-rgb) / 0.08);
+    border-radius: inherit;
+  }
+
+  /* Gradient overlay */
+
+  .cwsl-card__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.30) 0%,
+      transparent 40%,
+      transparent 55%,
+      rgba(0, 0, 0, 0.60) 100%
+    );
+    border-radius: inherit;
+  }
+
+  /* Top row */
+
+  .cwsl-card__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .cwsl-card__label {
+    font-family: var(--font-heading--family);
+  }
+
+  .cwsl-card__arrow-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    color: #fff;
+  }
+
+  .cwsl-card__arrow-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Bottom description */
+
+  .cwsl-card__description {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .cwsl-card__description > * {
+    margin: 0;
+  }
+
+  /* Header panel */
+
+  .cwsl-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--spacing-3, 16px);
+    height: 100%;
+    padding-block: var(--spacing-4, 24px);
+  }
+
+  .cwsl-header__heading {
+    margin: 0;
+    color: var(--color-foreground-heading);
+  }
+
+  .cwsl-header__subheading {
+    color: var(--color-foreground);
+    margin: 0;
+  }
+
+  .cwsl-header__subheading > * {
+    margin: 0;
+  }
+
+  .cwsl-header__button {
+    margin-top: var(--spacing-1, 8px);
+  }
+
+  /* Grid layout */
+
+  .cwsl-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--column-count, 3), 1fr);
+    gap: var(--cwsl-gap, 8px);
+  }
+
+  /* Footer and navigation */
+
+  .cwsl-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-block-start: 1.5rem;
+    padding-inline-start: var(--gutter-slide-width, 0px);
+    padding-inline-end: var(--gutter-slide-width, 0px);
+  }
+
+  @media (min-width: 750px) {
+    .cwsl-section.section--page-width
+      .product-list-slider__layout:not(.product-list-slider__layout--top)
+      .cwsl-footer {
+      padding-inline-start: 0;
+    }
+  }
+
+  .cwsl-nav {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 20px;
+  }
+
+  .cwsl-nav button.slideshow-control {
+    display: flex;
+    align-items: center;
+  }
+
+  .cwsl-nav .svg-wrapper.icon-arrow {
+    color: var(--color-input-background);
+    height: auto;
+    width: auto;
+  }
+
+  .cwsl-nav .svg-wrapper.icon-arrow svg {
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
+  }
+
+  .cwsl-progress-track {
+    flex: 1;
+    height: 3px;
+    background-color: var(--color-border);
+    position: relative;
+    overflow: hidden;
+    max-width: 400px;
+    border-radius: 50px;
+  }
+
+  .cwsl-progress-fill {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    background-color: #240000;
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: cwsl-progress linear both;
+    animation-timeline: --cwsl-scroll;
+  }
+
+  @keyframes cwsl-progress {
+    from {
+      transform: scaleX(0);
+    }
+
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (min-width: 750px) {
+    .custom-img-slider-section .cwsl-footer {
+      padding-inline-start: 0;
+    }
+
+    .custom-img-slider-section .product-list-slider__header {
+      max-width: 350px;
+    }
+  }
+
+  @media (min-width: 750px) and (max-width: 1200px) {
+    .custom-img-slider-section
+      .resource-list__carousel
+      .resource-list__slide {
+      --column-count: 2;
+      --section-slide-width: calc(
+        (
+            100% -
+              (
+                var(--resource-list-column-gap) *
+                  (var(--column-count) - 1)
+              ) -
+              var(--peek-next-slide-size)
+          ) /
+          var(--column-count)
+      );
+      width: var(--section-slide-width);
+    }
+  }
+
+  @media (min-width: 750px) and (max-width: 991px) {
+    .custom-img-slider-section
+      .resource-list__carousel
+      .resource-list__slide {
+      --column-count: 1;
+      --section-slide-width: calc(
+        (
+            100% -
+              (
+                var(--resource-list-column-gap) *
+                  (var(--column-count) - 1)
+              ) -
+              var(--peek-next-slide-size)
+          ) /
+          var(--column-count)
+      );
+      width: var(--section-slide-width);
+    }
+  }
+
+  /* Mobile */
+
+  @media screen and (max-width: 749px) {
+    .custom-img-slider-section {
+      padding-block: 48px;
+    }
+
+    .cwsl-card__media {
+      min-height: 280px;
+    }
+
+    .cwsl-header {
+      padding-top: 0;
+      padding-inline: var(--util-page-margin-offset);
+    }
+
+    .custom-img-slider-section .cwsl-header {
+      padding-inline: 0;
+    }
+
+    .cwsl-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .custom-img-slider-section .product-list-slider__header {
+      padding-inline: var(--page-margin);
+    }
+
+    .custom-img-slider-section
+      .resource-list__carousel
+      .resource-list__slide {
+      padding-inline-start: var(--gutter-slide-width, 0);
+      scroll-padding-inline-start: var(--gutter-slide-width, 0);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Custom Work Slider",
+  "class": "section-custom-work-slider",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text",
+          "info": "Describe the image for screen readers and SEO"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_background_color",
+          "label": "Use background color instead of image",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "default": "#D9D9D9",
+          "visible_if": "{{ block.settings.use_background_color }}"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "The brief",
+          "info": "Short tag shown at the top-left of the slide image"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "We start with your team, your industry, your brief. No assumptions. No off-the-shelf answers."
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Link URL",
+          "info": "The entire card is clickable"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class_name",
+      "label": "Custom class",
+      "info": "Add a custom CSS class for additional styling."
+    },
+    {
+      "type": "header",
+      "content": "Header panel"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How we work"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Paragraph",
+      "default": "<p>Every uniform starts with a conversation. Here's where it goes from there.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Get in touch",
+      "info": "Leave blank to hide the button"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        }
+      ],
+      "default": "secondary"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Layout type",
+      "options": [
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Visible columns (desktop)",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "mobile_card_size",
+      "label": "Mobile card size",
+      "options": [
+        {
+          "value": "85cqw",
+          "label": "Full (1 visible)"
+        },
+        {
+          "value": "75cqw",
+          "label": "Peek (1.2 visible)"
+        },
+        {
+          "value": "60cqw",
+          "label": "Medium (1.5 visible)"
+        }
+      ],
+      "default": "75cqw",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Column gap",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "select",
+      "id": "header_position",
+      "label": "Header position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left (side by side)"
+        },
+        {
+          "value": "top",
+          "label": "Top (stacked)"
+        }
+      ],
+      "default": "left",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "header",
+      "content": "Carousel navigation",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "Arrow icon style",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "Arrow"
+        },
+        {
+          "value": "chevron",
+          "label": "Chevron"
+        },
+        {
+          "value": "arrows_large",
+          "label": "Arrow large"
+        },
+        {
+          "value": "chevron_large",
+          "label": "Chevron large"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "arrow",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "Arrow icon background",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Work Slider",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "label": "The brief",
+            "description": "We start with your team, your industry, your brief. No assumptions. No off-the-shelf answers."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "label": "The design",
+            "description": "Colours, logos, fabrics — created in-house around your brand. Patterns designed and owned by us, built to your spec."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "label": "The portal",
+            "description": "Your own custom ordering portal, built for your program. Staff order direct. You stay in control. No back rooms, no guesswork."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

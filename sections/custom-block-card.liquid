@@ -1,0 +1,544 @@
+{%- liquid
+  assign cols_desktop = section.settings.columns_desktop
+  assign cols_tablet = section.settings.columns_tablet
+  assign cols_mobile = section.settings.columns_mobile
+  assign enable_anim = section.settings.enable_hover_animation
+
+  case section.settings.card_aspect_ratio
+    when 'portrait'
+      assign aspect_ratio = '3 / 4'
+    when 'landscape'
+      assign aspect_ratio = '4 / 3'
+    when 'wide'
+      assign aspect_ratio = '16 / 9'
+    else
+      assign aspect_ratio = '1 / 1'
+  endcase
+
+  case section.settings.label_size
+    when 'sm'
+      assign label_fs = 'clamp(14px, 1.8vw, 24px)'
+    when 'lg'
+      assign label_fs = 'clamp(14px, 3.8vw, 44px)'
+    when 'xl'
+      assign label_fs = 'clamp(14px, 4vw, 56px)'
+    else
+      assign label_fs = 'clamp(14px, 3.5vw, 32px)'
+  endcase
+
+  assign shadow_opacity = section.settings.label_shadow_opacity | divided_by: 100.0 | round: 2
+
+  if section.settings.label_uppercase
+    assign label_transform = 'uppercase'
+  else
+    assign label_transform = 'none'
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --bc-cols-desktop:         {{ cols_desktop }};
+    --bc-cols-tablet:          {{ cols_tablet }};
+    --bc-cols-mobile:          {{ cols_mobile }};
+    --bc-gap:                  {{ section.settings.gap }}px;
+    --bc-pt:                   {{ section.settings.padding_top }}px;
+    --bc-pb:                   {{ section.settings.padding_bottom }}px;
+    --bc-radius:               {{ section.settings.card_border_radius }}px;
+    --bc-card-bg:              {{ section.settings.card_bg_color }};
+    --bc-label-color:          {{ section.settings.label_color }};
+    --bc-label-fs:             {{ label_fs }};
+    --bc-label-transform:      {{ label_transform }};
+    --bc-label-shadow-opacity: {{ shadow_opacity }};
+    --bc-aspect-ratio:         {{ aspect_ratio }};
+    --bc-dur:                  {{ section.settings.animation_duration }}ms;
+    --bc-ease:                 cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .block-cards {
+    padding-top: var(--bc-pt, 64px);
+    padding-bottom: var(--bc-pb, 8px);
+  }
+
+
+  .block-cards__heading {
+    margin-block-end: 1.5rem;
+    text-align: center;
+  }
+
+  .block-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--bc-cols-mobile, 1), 1fr);
+    gap: var(--bc-gap, 28px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .block-cards__item  img{
+    transition: all 0.4s ease; 
+  }
+  .block-cards__item:hover img{
+    transform:scale(1.05);
+  }
+  @media (min-width: 750px) {
+    .block-cards__grid {
+      grid-template-columns: repeat(var(--bc-cols-tablet, 2), 1fr);
+    }
+  }
+
+  @media (min-width: 990px) {
+    .block-cards__grid {
+      grid-template-columns: repeat(var(--bc-cols-desktop, 2), 1fr);
+    }
+  }
+
+  .block-cards__card {
+    position: relative;
+    display: block;
+    aspect-ratio: var(--bc-aspect-ratio, 1 / 1);
+   
+    border-radius: var(--bc-radius, 10px);
+    overflow: hidden;
+    isolation: isolate;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .block-cards__crop {
+    position: absolute;
+    inset: 0;
+    transform-origin: center;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .block-cards__image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .block-cards__placeholder-wrap {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  .block-cards__placeholder-svg {
+    width: 40%;
+    height: 40%;
+    fill: rgba(255, 255, 255, 0.2);
+  }
+
+  .block-cards__label {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    color: var(--bc-label-color, #fff);
+    font-size: var(--bc-label-fs, clamp(22px, 2.5vw, 32px));
+    font-family:var(--font-heading--family);
+    text-align: center;
+    text-transform: var(--bc-label-transform, uppercase);
+    text-shadow: 0 2px 18px rgba(0, 0, 0, var(--bc-label-shadow-opacity, 0.35));
+    pointer-events: none;
+  }
+
+  {% comment %} @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .block-cards__card--animated:hover .block-cards__crop {
+      animation: bc-badge-in var(--bc-dur, 1500ms) var(--bc-ease, cubic-bezier(0.34, 1.56, 0.64, 1)) both;
+    }
+  }
+
+  @keyframes bc-badge-in {
+    from { transform: scale(0.32) rotate(-22deg); }
+    to   { transform: scale(1.14) rotate(0deg); }
+  } {% endcomment %}
+
+  .block-cards__card:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+    border-radius: var(--bc-radius, 10px);
+  }
+
+  .block-cards__svg-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .block-cards__empty-state {
+    padding: 2rem;
+    text-align: center;
+    opacity: 0.5;
+    border: 2px dashed currentColor;
+    border-radius: var(--bc-radius, 10px);
+  }
+
+
+    {% comment %} @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      #shopify-section-{{ section.id }} .block-cards__card--animated:hover .block-cards__crop {
+        clip-path: url(#bc-badge-{{ section.id }});
+      }
+    } {% endcomment %}
+</style>
+
+{% comment %} <svg aria-hidden="true" focusable="false" class="block-cards__svg-defs">
+  <defs>
+    <clipPath id="bc-badge-{{ section.id }}" clipPathUnits="objectBoundingBox">
+      <path d="M0.89758 0.28263L0.71737 0.10242C0.59733 0.22247 0.40268 0.22247 0.28263 0.10242L0.10242 0.28263C0.22247 0.40268 0.22247 0.59732 0.10242 0.71737L0.28263 0.89758C0.40268 0.77752 0.59733 0.77752 0.71737 0.89758L0.89758 0.71737C0.77752 0.59732 0.77752 0.40268 0.89758 0.28263Z"/>
+    </clipPath>
+  </defs>
+</svg> {% endcomment %}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <section
+    class="block-cards"
+    aria-label="{{ section.settings.section_aria_label | default: 'Featured categories' | escape }}"
+  >
+    <div class="section section--{{ section.settings.section_width }} spacing-style">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="block-cards__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        {%- capture img_sizes -%}(min-width: 990px) calc((min(100vw, var(--page-width, 1200px)) - 80px) / {{ cols_desktop }}), (min-width: 750px) calc((100vw - 40px) / {{ cols_tablet }}), calc(100vw - 40px){%- endcapture -%}
+
+        <ul class="block-cards__grid" role="list">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign card_link = block.settings.link | default: '#'
+              assign card_label = block.settings.label | default: 'Card'
+              assign img_loading = block.settings.image_loading | default: 'lazy'
+              assign has_aria = false
+              if block.settings.aria_label != blank
+                assign has_aria = true
+              endif
+            -%}
+
+            <li class="block-cards__item" {{ block.shopify_attributes }}>
+              <a
+                class="block-cards__card{% if enable_anim %} block-cards__card--animated{% endif %}"
+                href="{{ card_link }}"
+                {%- if has_aria %}
+                  aria-label="{{ block.settings.aria_label | escape }}"
+                {% endif %}
+              >
+                <div class="block-cards__crop test" aria-hidden="true">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 1200
+                      | image_tag:
+                        loading: img_loading,
+                        widths: '400, 600, 800, 1000, 1200',
+                        sizes: img_sizes,
+                        class: 'block-cards__image',
+                        alt: ''
+                    }}
+                  {%- endif -%}
+                </div>
+
+                <span
+                  class="block-cards__label"
+                  {%- if has_aria %}
+                    aria-hidden="true"
+                  {% endif %}
+                >
+                  {{- card_label | escape -}}
+                </span>
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+      {%- elsif request.design_mode -%}
+        <p class="block-cards__empty-state">Add cards using the Theme Editor sidebar.</p>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Block Cards",
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Optional — leave blank to hide."
+    },
+    {
+      "type": "text",
+      "id": "section_aria_label",
+      "label": "Accessible section label",
+      "default": "Featured categories",
+      "info": "Describes the section to screen readers."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns — desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "columns_tablet",
+      "label": "Columns — tablet",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Columns — mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Card gap",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card background colour",
+      "default": "#5a3e2b",
+      "info": "Visible while the image loads or when no image is set."
+    },
+    {
+      "type": "header",
+      "content": "Card appearance"
+    },
+    {
+      "type": "select",
+      "id": "card_aspect_ratio",
+      "label": "Card shape",
+      "options": [
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "portrait", "label": "Portrait (3:4)" },
+        { "value": "landscape", "label": "Landscape (4:3)" },
+        { "value": "wide", "label": "Wide (16:9)" }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Label"
+    },
+    {
+      "type": "select",
+      "id": "label_size",
+      "label": "Label size",
+      "options": [
+        { "value": "sm", "label": "Small" },
+        { "value": "md", "label": "Medium" },
+        { "value": "lg", "label": "Large" },
+        { "value": "xl", "label": "Extra large" }
+      ],
+      "default": "md"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label colour",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "label_shadow_opacity",
+      "label": "Label shadow opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 35,
+      "info": "Increase for better readability over busy images."
+    },
+    {
+      "type": "checkbox",
+      "id": "label_uppercase",
+      "label": "Uppercase label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Hover animation"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_hover_animation",
+      "label": "Enable hover animation",
+      "default": true,
+      "info": "Image stamps in with a scale and rotate effect. Automatically disabled on touch screens and for users who prefer reduced motion."
+    },
+    {
+      "type": "range",
+      "id": "animation_duration",
+      "label": "Animation speed",
+      "min": 100,
+      "max": 2000,
+      "step": 100,
+      "unit": "ms",
+      "default": 1500
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Catalogue",
+          "info": "Text displayed over the image."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        },
+        {
+          "type": "select",
+          "id": "image_loading",
+          "label": "Image loading",
+          "options": [
+            { "value": "lazy", "label": "Lazy (default)" },
+            { "value": "eager", "label": "Eager (above the fold)" }
+          ],
+          "default": "lazy",
+          "info": "Set the first visible card to 'Eager' to improve page load speed (LCP)."
+        },
+        {
+          "type": "header",
+          "content": "Accessibility"
+        },
+        {
+          "type": "text",
+          "id": "aria_label",
+          "label": "Custom accessible label",
+          "info": "Overrides the label for screen readers. Use to add context, e.g. 'Browse our full catalogue'."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Block Cards",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "label": "Catalogue",
+            "image_loading": "eager"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "label": "Shop Uniforms"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

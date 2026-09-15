@@ -1,0 +1,53 @@
+
+
+<div class="blog-post-content rte">
+  <rte-formatter>
+    {{ article.content }}
+  </rte-formatter>
+</div>
+
+{% stylesheet %}
+  .blog-post-content img {
+    object-fit: cover;
+    object-position: top center;
+    aspect-ratio: 3.187;
+    border-radius: 5px;
+  }
+
+  /*
+   * Display all headings within the article body
+   * at the theme's Heading 4 size.
+   * This does not affect the main article title.
+   */
+  .blog-post-content h1,
+  .blog-post-content h2,
+  .blog-post-content h3,
+  .blog-post-content h4 {
+    font-size: var(--font-h4--size, 20px) !important;
+    line-height: var(--font-h4--line-height, 1.3) !important;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .blog-post-content h1,
+    .blog-post-content h2,
+    .blog-post-content h3,
+    .blog-post-content h4 {
+      font-size: 18px !important;
+      line-height: 1.35 !important;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.content",
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:names.content"
+    }
+  ]
+}
+{% endschema %}

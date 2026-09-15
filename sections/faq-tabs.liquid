@@ -1,0 +1,552 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} faq-section{% if section.settings.custom_classname %} {{ section.settings.custom_classname }}{% endif %}"
+  id="faq-section-{{ section.id }}"
+  style="
+    {%- if section.settings.section_height == 'custom' -%}
+      --section-min-height: {{ section.settings.section_height_custom }}svh;
+    {%- elsif section.settings.section_height == 'full-screen' -%}
+      --section-min-height: 100svh;
+    {%- elsif section.settings.section_height != '' -%}
+      --section-min-height: var(--section-height-{{ section.settings.section_height }});
+    {%- endif -%}
+  "
+>
+
+  {%- if section.settings.background_media != 'none' -%}
+    <div class="custom-section-background">
+      {%- render 'background-media',
+        background_media: section.settings.background_media,
+        background_video: section.settings.video,
+        background_video_position: section.settings.video_position,
+        background_image: section.settings.background_image,
+        background_image_position: section.settings.background_image_position
+      -%}
+    </div>
+  {%- endif -%}
+
+  <div
+    class="border-style"
+    style="{%- render 'border-override', settings: section.settings -%}"
+  >
+
+    {%- if section.settings.toggle_overlay -%}
+      {%- render 'overlay', settings: section.settings, layer: '0' -%}
+    {%- endif -%}
+
+    <div
+      class="spacing-style faq-section__body"
+      style="
+        --faq-gap: {{ section.settings.gap | default: 24 }}px;
+        {%- render 'spacing-style', settings: section.settings -%}
+      "
+    >
+      {%- content_for 'blocks' -%}
+    </div>
+
+  </div>
+</div>
+
+{% stylesheet %}
+  /* ── Section body ─────────────────────────────── */
+  .faq-section__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--faq-gap, 1.5rem);
+  }
+
+  /* ── Tab triggers ─────────────────────────────── */
+  /*
+    Set the same "Class" value on a Text block and an Accordion block
+    to link them as a tab and its panel.
+  */
+  .faq-tab-trigger {
+    cursor: pointer;
+    user-select: none;
+    padding: 16px 24px;
+    border: 1px solid var(--color-primary-button-border);
+    border-radius: 10px;
+   
+  
+    justify-content: center;
+    flex:1;
+  }
+
+  .faq-tab-trigger:hover {
+    border-color: var(--color-primary-button-hover-border);
+  }
+
+  .faq-tab-trigger.faq-tab--active {
+    border-width: 2px;
+    border-color: var(--color-primary-button-hover-border);
+    color: var(--color-primary-button-hover-border);
+  }
+   .faq-tabs-group .group-block-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+@media(max-width:991px){
+  .faq-tabs-group .group-block-content{
+     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(max-width:749px){
+  .faq-tabs-group .group-block-content{
+     grid-template-columns: 1fr;
+  }
+}
+  /* ── Accordion panels ─────────────────────────── */
+  .accordion[class*="faq-tab--"][hidden] {
+    display: none;
+  }
+
+  /* ── Accordion hover — matches active tab colour ── */
+  .accordion[class*="faq-tab--"] details summary {
+    transition: color var(--animation-speed) var(--animation-easing);
+  }
+
+  .accordion[class*="faq-tab--"] details summary:hover {
+    color: var(--color-primary, currentColor);
+  }
+
+  .accordion[class*="faq-tab--"] details summary:hover svg,
+  .accordion[class*="faq-tab--"] details summary:hover .icon {
+    color: var(--color-primary, currentColor);
+  }
+{% endstylesheet %}
+
+<script>
+  (function () {
+    var section = document.getElementById('faq-section-{{ section.id }}');
+    if (!section) return;
+
+    function getKey(el) {
+      return el.dataset.faqTab || el.dataset.faqPanel || null;
+    }
+
+    // Triggers: text blocks with a tab key set (outer wrapper div from text.liquid)
+    var tabs = Array.from(section.querySelectorAll('[data-faq-tab]'));
+
+    // Panels: accordion blocks with a matching tab key
+    var panels = Array.from(section.querySelectorAll('[data-faq-panel]'));
+
+    if (!tabs.length || !panels.length) return;
+
+    // Apply trigger styling class so CSS rules engage
+    tabs.forEach(function (t) { t.classList.add('faq-tab-trigger'); });
+
+    function activate(key) {
+      tabs.forEach(function (t) {
+        var isActive = getKey(t) === key;
+        t.classList.toggle('faq-tab--active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      panels.forEach(function (p) {
+        p.hidden = getKey(p) !== key;
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('tabindex', '0');
+      tab.addEventListener('click', function () { activate(getKey(tab)); });
+      tab.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(getKey(tab)); }
+      });
+    });
+
+    if (tabs[0]) activate(getKey(tabs[0]));
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ — Tabbed",
+  "tag": "section",
+  "class": "section-wrapper",
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_classname",
+      "label": "Custom class"
+    },
+    {
+      "type": "header",
+      "content": "Size"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "Section height",
+      "options": [
+        {
+          "value": "",
+          "label": "Auto"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "full-screen",
+          "label": "Full screen"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "range",
+      "id": "section_height_custom",
+      "label": "Custom height",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "unit": "%",
+      "visible_if": "{{ section.settings.section_height == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between tabs and content",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "background_media",
+      "label": "Background media",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "select",
+      "id": "video_position",
+      "label": "Video fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "background_image_position",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "fit",
+          "label": "Fit"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "header",
+      "content": "Borders"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "Style",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "solid",
+          "label": "Solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Thickness",
+      "min": 0,
+      "max": 10,
+      "step": 0.5,
+      "unit": "px",
+      "default": 1,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "label": "Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_overlay",
+      "label": "Show overlay",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay colour",
+      "alpha": true,
+      "default": "#00000026",
+      "visible_if": "{{ section.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style",
+      "label": "Overlay style",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Solid"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient"
+        }
+      ],
+      "default": "solid",
+      "visible_if": "{{ section.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "gradient_direction",
+      "label": "Gradient direction",
+      "options": [
+        {
+          "value": "to top",
+          "label": "Up"
+        },
+        {
+          "value": "to bottom",
+          "label": "Down"
+        }
+      ],
+      "default": "to top",
+      "visible_if": "{{ section.settings.toggle_overlay and section.settings.overlay_style == 'gradient' }}"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ — Tabbed",
+      "blocks": {
+        "tab-row": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "gap": 12
+          },
+          "blocks": {
+            "tab1": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Ordering &amp; Payments</p>",
+                "width": "fit-content",
+                "type_preset": "h6",
+                "class_name": "ordering"
+              }
+            },
+            "tab2": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Shipping &amp; Delivery</p>",
+                "width": "fit-content",
+                "type_preset": "h6",
+                "class_name": "shipping"
+              }
+            },
+            "tab3": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Returns &amp; Exchanges</p>",
+                "width": "fit-content",
+                "type_preset": "h6",
+                "class_name": "returns"
+              }
+            }
+          },
+          "block_order": ["tab1", "tab2", "tab3"]
+        },
+        "panel1": {
+          "type": "accordion",
+          "settings": {
+            "class_name": "ordering",
+            "dividers": true
+          }
+        },
+        "panel2": {
+          "type": "accordion",
+          "settings": {
+            "class_name": "shipping",
+            "dividers": true
+          }
+        },
+        "panel3": {
+          "type": "accordion",
+          "settings": {
+            "class_name": "returns",
+            "dividers": true
+          }
+        }
+      },
+      "block_order": ["tab-row", "panel1", "panel2", "panel3"]
+    }
+  ]
+}
+{% endschema %}
