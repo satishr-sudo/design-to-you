@@ -416,7 +416,7 @@ export function start(element, axis) {
 export function closest(values, target) {
   return values.reduce(function (prev, curr) {
     return Math.abs(curr - target) < Math.abs(prev - target) ? curr : prev;
-  });
+  }, values[0]);
 }
 
 /**
@@ -635,7 +635,7 @@ class Scheduler {
       this.#scheduled = true;
 
       // Wait for any in-progress view transitions to finish
-      if (viewTransition.current) await viewTransition.current;
+      if (viewTransition.current !== undefined) await viewTransition.current;
 
       requestAnimationFrame(this.flush);
     }

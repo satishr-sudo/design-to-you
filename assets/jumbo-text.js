@@ -93,7 +93,7 @@ class JumboText extends Component {
     const secondPassFontSize =
       Math.floor(((firstPassFontSize * containerWidth) / secondPassWidestChildWidth) * 100) / 100 - 0.15;
 
-    if (secondPassFontSize !== firstPassFontSize) {
+    if (Math.abs(secondPassFontSize - firstPassFontSize) > Number.EPSILON) {
       this.style.fontSize = this.#clampFontSize(secondPassFontSize);
     }
 

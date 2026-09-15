@@ -271,8 +271,9 @@ function getMostVisibleElement(elements) {
   return new Promise((resolve) => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const mostVisible = entries.reduce((prev, current) =>
-          current.intersectionRatio > prev.intersectionRatio ? current : prev
+        const mostVisible = entries.reduce(
+          (prev, current) => (current.intersectionRatio > prev.intersectionRatio ? current : prev),
+          entries[0]
         );
         observer.disconnect();
         resolve(/** @type {HTMLElement} */ (mostVisible.target));

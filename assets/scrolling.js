@@ -192,7 +192,7 @@ export class Scroller {
    * Sets up the scroll end promise if not already set.
    */
   #setup() {
-    if (this.#promise) {
+    if (this.#promise !== undefined) {
       return;
     }
 

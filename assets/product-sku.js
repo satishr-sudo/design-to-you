@@ -17,18 +17,27 @@ import { ThemeEvents, VariantUpdateEvent } from '@theme/events';
 class ProductSkuComponent extends Component {
   requiredRefs = ['skuContainer', 'sku'];
 
+  /**
+   * The element we subscribed to in connectedCallback. Captured so disconnectedCallback can
+   * unsubscribe from the same element even after this component has already been detached from
+   * the DOM, at which point `this.closest(...)` can no longer find it.
+   * @type {Element | null}
+   */
+  #subscribedTarget = null;
+
   connectedCallback() {
     super.connectedCallback();
     const target = this.closest('[id*="ProductInformation-"], [id*="QuickAdd-"], product-card');
     if (!target) return;
+    this.#subscribedTarget = target;
     target.addEventListener(ThemeEvents.variantUpdate, this.updateSku);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    const target = this.closest('[id*="ProductInformation-"], [id*="QuickAdd-"], product-card');
-    if (!target) return;
-    target.removeEventListener(ThemeEvents.variantUpdate, this.updateSku);
+    if (!this.#subscribedTarget) return;
+    this.#subscribedTarget.removeEventListener(ThemeEvents.variantUpdate, this.updateSku);
+    this.#subscribedTarget = null;
   }
 
   /**

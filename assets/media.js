@@ -100,7 +100,7 @@ class DeferredMedia extends Component {
         iframe.dataset.videoType === 'youtube'
           ? '{"event":"command","func":"playVideo","args":""}'
           : '{"method":"play"}',
-        '*'
+        new URL(iframe.src, window.location.href).origin
       );
     } else {
       this.querySelector('video')?.play();
@@ -121,7 +121,7 @@ class DeferredMedia extends Component {
         iframe.dataset.videoType === 'youtube'
           ? '{"event":"command","func":"' + 'pauseVideo' + '","args":""}'
           : '{"method":"pause"}',
-        '*'
+        new URL(iframe.src, window.location.href).origin
       );
     } else {
       this.querySelector('video')?.pause();

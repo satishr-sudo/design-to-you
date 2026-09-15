@@ -125,7 +125,7 @@ body.page-width-narrow.smart-cart--enabled {
   width: 90px
 }
 
-.rebuy-cart .rebuy-widget .rebuy-product-grid.large-style-line .rebuy-product-block .rebuy-product-actions::hover {
+.rebuy-cart .rebuy-widget .rebuy-product-grid.large-style-line .rebuy-product-block .rebuy-product-actions:hover {
   background-color: #77a4cf;
   color: white
 }

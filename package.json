@@ -1,0 +1,28 @@
+{
+  "name": "live-sonar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satishr-sudo/design-to-you.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/satishr-sudo/design-to-you/issues"
+  },
+  "homepage": "https://github.com/satishr-sudo/design-to-you#readme",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^5.0.1",
+    "jsdom": "^30.0.1",
+    "vitest": "^5.0.1"
+  }
+}

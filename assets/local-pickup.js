@@ -6,36 +6,45 @@ class LocalPickup extends Component {
   /** @type {AbortController | undefined} */
   #activeFetch;
 
+  /**
+   * The section we subscribed to in connectedCallback. Captured so disconnectedCallback can
+   * unsubscribe from the same element even after this component has already been detached from
+   * the DOM, at which point `this.closest(...)` can no longer find it.
+   * @type {Element | null}
+   */
+  #closestSection = null;
+
   connectedCallback() {
     super.connectedCallback();
 
-    const closestSection = this.closest(`.shopify-section, dialog`);
-
-    /** @type {(event: VariantUpdateEvent) => void} */
-    const variantUpdated = (event) => {
-      if (event.detail.data.newProduct) {
-        this.dataset.productUrl = event.detail.data.newProduct.url;
-      }
-
-      const variantId = event.detail.resource ? event.detail.resource.id : null;
-      const variantAvailable = event.detail.resource ? event.detail.resource.available : null;
-      if (variantId !== this.dataset.variantId) {
-        if (variantId && variantAvailable) {
-          this.removeAttribute('hidden');
-          this.dataset.variantId = variantId;
-          this.#fetchAvailability(variantId);
-        } else {
-          this.setAttribute('hidden', '');
-        }
-      }
-    };
-
-    closestSection?.addEventListener(ThemeEvents.variantUpdate, variantUpdated);
-
-    this.disconnectedCallback = () => {
-      closestSection?.removeEventListener(ThemeEvents.variantUpdate, variantUpdated);
-    };
+    this.#closestSection = this.closest(`.shopify-section, dialog`);
+    this.#closestSection?.addEventListener(ThemeEvents.variantUpdate, this.#variantUpdated);
   }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.#closestSection?.removeEventListener(ThemeEvents.variantUpdate, this.#variantUpdated);
+    this.#closestSection = null;
+  }
+
+  /** @type {(event: VariantUpdateEvent) => void} */
+  #variantUpdated = (event) => {
+    if (event.detail.data.newProduct) {
+      this.dataset.productUrl = event.detail.data.newProduct.url;
+    }
+
+    const variantId = event.detail.resource ? event.detail.resource.id : null;
+    const variantAvailable = event.detail.resource ? event.detail.resource.available : null;
+    if (variantId !== this.dataset.variantId) {
+      if (variantId && variantAvailable) {
+        this.removeAttribute('hidden');
+        this.dataset.variantId = variantId;
+        this.#fetchAvailability(variantId);
+      } else {
+        this.setAttribute('hidden', '');
+      }
+    }
+  };
 
   #createAbortController() {
     if (this.#activeFetch) this.#activeFetch.abort();

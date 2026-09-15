@@ -32,8 +32,7 @@ class ProductTitle extends Component {
       this.resizeObserver.observe(this);
       this.#calculateTruncation();
     } else {
-      /** @type {Window} */
-      (window).addEventListener('resize', this.#handleResize.bind(this));
+      window.addEventListener('resize', this.#handleResize);
       this.#calculateTruncation();
     }
   }
@@ -64,11 +63,13 @@ class ProductTitle extends Component {
   }
 
   /**
-   * Handle window resize events
+   * Handle window resize events.
+   * Declared as a bound field (rather than a prototype method) so the same function reference
+   * can be passed to both addEventListener and removeEventListener.
    */
-  #handleResize() {
+  #handleResize = () => {
     this.#calculateTruncation();
-  }
+  };
 
   disconnectedCallback() {
     super.disconnectedCallback();

@@ -407,7 +407,7 @@
 } */
 
 
-@media(max-:749px){
+@media (max-width: 749px){
   .about-img-wrapper .custom-section-content{
      margin-top:-30px;
   }

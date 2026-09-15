@@ -3,16 +3,25 @@ import { morph } from '@theme/morph';
 import { Component } from '@theme/component';
 
 class ProductInventory extends Component {
+  /**
+   * The element we subscribed to in connectedCallback. Captured so disconnectedCallback can
+   * unsubscribe from the same element even after this component has already been detached from
+   * the DOM, at which point `this.closest(...)` can no longer find it.
+   * @type {Element | null}
+   */
+  #subscribedSection = null;
+
   connectedCallback() {
     super.connectedCallback();
     const closestSection = this.closest('.shopify-section, dialog');
+    this.#subscribedSection = closestSection;
     closestSection?.addEventListener(ThemeEvents.variantUpdate, this.updateInventory);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    const closestSection = this.closest('.shopify-section, dialog');
-    closestSection?.removeEventListener(ThemeEvents.variantUpdate, this.updateInventory);
+    this.#subscribedSection?.removeEventListener(ThemeEvents.variantUpdate, this.updateInventory);
+    this.#subscribedSection = null;
   }
 
   /**
