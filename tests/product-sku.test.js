@@ -18,6 +18,13 @@ function makeSkuComponent(productId) {
   };
 }
 
+function fireVariantUpdate(section, target, variant, detail) {
+  const event = new VariantUpdateEvent(variant, 'source', detail);
+  Object.defineProperty(event, 'target', { value: target });
+  section.dispatchEvent(event);
+  return event;
+}
+
 describe('product-sku-component', () => {
   it('registers the custom element', () => {
     expect(customElements.get('product-sku-component')).toBeDefined();
@@ -26,12 +33,7 @@ describe('product-sku-component', () => {
   it('shows the sku and updates its text when a matching variant update event fires', () => {
     const { section, sku } = makeSkuComponent('123');
 
-    const event = new VariantUpdateEvent({ id: 'v1', available: true, sku: 'ABC-123' }, 'source', {
-      html: document,
-      productId: '123',
-    });
-    Object.defineProperty(event, 'target', { value: section });
-    section.dispatchEvent(event);
+    fireVariantUpdate(section, section, { id: 'v1', available: true, sku: 'ABC-123' }, { html: document, productId: '123' });
 
     expect(sku.style.display).toBe('block');
     expect(sku.refs.sku.textContent).toBe('ABC-123');
@@ -40,12 +42,7 @@ describe('product-sku-component', () => {
   it('hides the component when the variant has no sku', () => {
     const { section, sku } = makeSkuComponent('123');
 
-    const event = new VariantUpdateEvent({ id: 'v1', available: true, sku: '' }, 'source', {
-      html: document,
-      productId: '123',
-    });
-    Object.defineProperty(event, 'target', { value: section });
-    section.dispatchEvent(event);
+    fireVariantUpdate(section, section, { id: 'v1', available: true, sku: '' }, { html: document, productId: '123' });
 
     expect(sku.style.display).toBe('none');
     expect(sku.refs.sku.textContent).toBe('');
@@ -56,12 +53,7 @@ describe('product-sku-component', () => {
     const otherProduct = document.createElement('div');
     otherProduct.dataset.productId = '999';
 
-    const event = new VariantUpdateEvent({ id: 'v1', sku: 'SHOULD-NOT-APPLY' }, 'source', {
-      html: document,
-      productId: '999',
-    });
-    Object.defineProperty(event, 'target', { value: otherProduct });
-    section.dispatchEvent(event);
+    fireVariantUpdate(section, otherProduct, { id: 'v1', sku: 'SHOULD-NOT-APPLY' }, { html: document, productId: '999' });
 
     expect(sku.refs.sku.textContent).toBe('');
   });
@@ -79,13 +71,11 @@ describe('product-sku-component', () => {
     const section = document.getElementById('ProductInformation-1');
     const sku = document.querySelector('product-sku-component');
 
-    const event = new VariantUpdateEvent({ id: 'v2', sku: 'NEW-SKU' }, 'source', {
+    fireVariantUpdate(section, section, { id: 'v2', sku: 'NEW-SKU' }, {
       html: document,
       productId: '456',
       newProduct: { id: '456', url: '/products/new' },
     });
-    Object.defineProperty(event, 'target', { value: section });
-    section.dispatchEvent(event);
 
     expect(sku.dataset.productId).toBe('456');
     expect(sku.refs.sku.textContent).toBe('NEW-SKU');
@@ -94,13 +84,11 @@ describe('product-sku-component', () => {
   it('adopts the new product id but skips the sku update when the target does not yet match it', () => {
     const { section, sku } = makeSkuComponent('123');
 
-    const event = new VariantUpdateEvent({ id: 'v2', sku: 'SHOULD-NOT-APPLY' }, 'source', {
+    fireVariantUpdate(section, section, { id: 'v2', sku: 'SHOULD-NOT-APPLY' }, {
       html: document,
       productId: '456',
       newProduct: { id: '456', url: '/products/new' },
     });
-    Object.defineProperty(event, 'target', { value: section });
-    section.dispatchEvent(event);
 
     expect(sku.dataset.productId).toBe('456');
     expect(sku.refs.sku.textContent).toBe('');

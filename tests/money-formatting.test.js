@@ -61,59 +61,46 @@ describe('convertMoneyToMinorUnits', () => {
 });
 
 describe('formatMoney', () => {
-  it('formats a plain amount using the default template', () => {
-    expect(formatMoney(1000, '{{amount}}', 'USD')).toBe('10.00');
-  });
-
-  it('formats a currency symbol template', () => {
-    expect(formatMoney(150000, '${{amount}}', 'USD')).toBe('$1,500.00');
-  });
-
-  it('formats amount_no_decimals, rounding to the nearest whole unit', () => {
-    expect(formatMoney(150099, '{{amount_no_decimals}}', 'USD')).toBe('1,501');
-  });
-
-  it('formats amount_with_comma_separator', () => {
-    expect(formatMoney(150050, '{{amount_with_comma_separator}}', 'USD')).toBe('1.500,50');
-  });
-
-  it('formats amount_no_decimals_with_comma_separator (thousands=".", no decimals)', () => {
-    expect(formatMoney(150050, '{{amount_no_decimals_with_comma_separator}}', 'USD')).toBe('1.501');
-  });
-
-  it('formats amount_no_decimals_with_space_separator', () => {
-    expect(formatMoney(150050, '{{amount_no_decimals_with_space_separator}}', 'USD')).toBe('1 501');
-  });
-
-  it('formats amount_with_space_separator', () => {
-    expect(formatMoney(150050, '{{amount_with_space_separator}}', 'USD')).toBe('1 500,50');
-  });
-
-  it('formats amount_with_period_and_space_separator', () => {
-    expect(formatMoney(150050, '{{amount_with_period_and_space_separator}}', 'USD')).toBe('1 500.50');
-  });
-
-  it('formats amount_with_apostrophe_separator', () => {
-    expect(formatMoney(150050, '{{amount_with_apostrophe_separator}}', 'USD')).toBe("1'500.50");
-  });
-
-  it('substitutes the currency placeholder', () => {
-    expect(formatMoney(1000, '{{amount}} {{currency}}', 'USD')).toBe('10.00 USD');
-  });
-
-  it('handles zero-decimal currencies (JPY) with the default template', () => {
-    expect(formatMoney(1500, '{{amount}}', 'JPY')).toBe('1,500');
-  });
-
-  it('handles zero amounts', () => {
-    expect(formatMoney(0, '{{amount}}', 'USD')).toBe('0.00');
-  });
-
-  it('falls back to the default amount formatting for an unrecognized placeholder', () => {
-    expect(formatMoney(1000, '{{unknown_placeholder}}', 'USD')).toBe('10.00');
-  });
-
-  it('is case-insensitive for the currency code', () => {
-    expect(formatMoney(1000, '{{amount}}', 'usd')).toBe('10.00');
+  it.each([
+    ['formats a plain amount using the default template', 1000, '{{amount}}', 'USD', '10.00'],
+    ['formats a currency symbol template', 150000, '${{amount}}', 'USD', '$1,500.00'],
+    ['formats amount_no_decimals, rounding to the nearest whole unit', 150099, '{{amount_no_decimals}}', 'USD', '1,501'],
+    ['formats amount_with_comma_separator', 150050, '{{amount_with_comma_separator}}', 'USD', '1.500,50'],
+    [
+      'formats amount_no_decimals_with_comma_separator (thousands=".", no decimals)',
+      150050,
+      '{{amount_no_decimals_with_comma_separator}}',
+      'USD',
+      '1.501',
+    ],
+    [
+      'formats amount_no_decimals_with_space_separator',
+      150050,
+      '{{amount_no_decimals_with_space_separator}}',
+      'USD',
+      '1 501',
+    ],
+    ['formats amount_with_space_separator', 150050, '{{amount_with_space_separator}}', 'USD', '1 500,50'],
+    [
+      'formats amount_with_period_and_space_separator',
+      150050,
+      '{{amount_with_period_and_space_separator}}',
+      'USD',
+      '1 500.50',
+    ],
+    ['formats amount_with_apostrophe_separator', 150050, '{{amount_with_apostrophe_separator}}', 'USD', "1'500.50"],
+    ['substitutes the currency placeholder', 1000, '{{amount}} {{currency}}', 'USD', '10.00 USD'],
+    ['handles zero-decimal currencies (JPY) with the default template', 1500, '{{amount}}', 'JPY', '1,500'],
+    ['handles zero amounts', 0, '{{amount}}', 'USD', '0.00'],
+    [
+      'falls back to the default amount formatting for an unrecognized placeholder',
+      1000,
+      '{{unknown_placeholder}}',
+      'USD',
+      '10.00',
+    ],
+    ['is case-insensitive for the currency code', 1000, '{{amount}}', 'usd', '10.00'],
+  ])('%s', (_name, amount, template, currency, expected) => {
+    expect(formatMoney(amount, template, currency)).toBe(expected);
   });
 });
