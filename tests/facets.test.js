@@ -134,19 +134,21 @@ describe('facet-inputs-component', () => {
 
   function makeFacetInputs() {
     document.body.innerHTML = `
-      <facets-form-component section-id="sec-1">
-        <form ref="facetsForm">
-          <details>
-            <facet-status-component>
-              <span ref="facetStatus"></span>
-            </facet-status-component>
-            <facet-inputs-component>
-              <label><input type="checkbox" name="filter.v.color" value="red" ref="facetInputs[]" /></label>
-              <label><input type="checkbox" name="filter.v.color" value="blue" ref="facetInputs[]" /></label>
-            </facet-inputs-component>
-          </details>
-        </form>
-      </facets-form-component>
+      <div class="shopify-section" id="shopify-section-sec-1">
+        <facets-form-component section-id="sec-1">
+          <form ref="facetsForm">
+            <details>
+              <facet-status-component>
+                <span ref="facetStatus"></span>
+              </facet-status-component>
+              <facet-inputs-component>
+                <label><input type="checkbox" name="filter.v.color" value="red" ref="facetInputs[]" /></label>
+                <label><input type="checkbox" name="filter.v.color" value="blue" ref="facetInputs[]" /></label>
+              </facet-inputs-component>
+            </details>
+          </form>
+        </facets-form-component>
+      </div>
     `;
     return {
       facetsForm: document.querySelector('facets-form-component'),
@@ -194,10 +196,6 @@ describe('facet-inputs-component', () => {
     try {
       getSectionHTMLMock.mockClear();
       const { facetInputs } = makeFacetInputs();
-      document.body.appendChild(document.createElement('form')); // ensure closest('form') exists
-      const form = document.createElement('form');
-      form.appendChild(facetInputs.closest('facets-form-component'));
-      document.body.appendChild(form);
       const label = facetInputs.querySelector('label');
       const event = new MouseEvent('mouseover');
       Object.defineProperty(event, 'target', { value: label });
@@ -228,6 +226,7 @@ describe('price-facet-component', () => {
         <form ref="facetsForm">
           <details>
             <facet-status-component>
+              <template ref="moneyFormat">${moneyFormat}</template>
               <span ref="facetStatus" data-currency="${currency}" data-range-max="10000"></span>
             </facet-status-component>
             <price-facet-component data-currency="${currency}" data-money-format="${moneyFormat}">
@@ -277,18 +276,20 @@ describe('price-facet-component', () => {
 
       el.updatePriceFilterAndResults();
 
-      expect(el.refs.minInput.value).toBe('$0.00');
+      // The input itself renders a bare number without a currency symbol: an adjacent
+      // <label> displays the symbol so it isn't duplicated (see #extractMoneyPlaceholder).
+      expect(el.refs.minInput.value).toBe('0.00');
     });
 
     it('clamps a value above the maximum down to the maximum', () => {
       const el = makePriceFacet();
       el.refs.maxInput.value = '999999';
       el.refs.maxInput.setAttribute('data-min', '0');
-      el.refs.maxInput.setAttribute('data-max', '10000');
+      el.refs.maxInput.setAttribute('data-max', '100.00');
 
       el.updatePriceFilterAndResults();
 
-      expect(el.refs.maxInput.value).toBe('$100.00');
+      expect(el.refs.maxInput.value).toBe('100.00');
     });
 
     it('leaves an in-range value untouched', () => {

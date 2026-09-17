@@ -70,7 +70,7 @@
           autocapitalize="off"
           autocomplete="email"
           pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-          value="{{ form.email }}"
+          value="{{ form.email | escape }}"
           {% if form.errors contains 'email' %}
             aria-invalid="true"
             aria-describedby="RecipientForm-email-error-{{ block.id }}"
@@ -101,7 +101,7 @@
           id="Recipient-name-{{ block.id }}"
           name="properties[Recipient name]"
           placeholder="{{ 'content.recipient_form_name_label' | t }}"
-          value="{{ form.name }}"
+          value="{{ form.name | escape }}"
           maxlength="100"
           {% if form.errors contains 'name' %}
             aria-invalid="true"
@@ -144,7 +144,7 @@
             aria-invalid="true"
             aria-describedby="RecipientForm-message-error-{{ block.id }}"
           {% endif %}
-        >{{ form.message }}</textarea>
+        >{{ form.message | escape }}</textarea>
 
         <label
           for="Recipient-message-{{ block.id }}"
@@ -187,7 +187,7 @@
           name="properties[Send on]"
           placeholder="{{ 'content.recipient_form_send_on_label' | t }}"
           pattern="\d{4}-\d{2}-\d{2}"
-          value="{{ form.send_on }}"
+          value="{{ form.send_on | escape }}"
           {% if form.errors contains 'send_on' %}
             aria-invalid="true"
             aria-describedby="RecipientForm-send_on-error-{{ block.id }}"

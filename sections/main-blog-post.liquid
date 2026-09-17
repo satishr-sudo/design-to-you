@@ -38,7 +38,7 @@
               <div class="blog-post-comment">
                 {{ comment.content }}
                 <div class="blog-post-comment__author">
-                  <span class="blog-post-comment__author-name">{{- comment.author -}}</span>
+                  <span class="blog-post-comment__author-name">{{- comment.author | escape -}}</span>
                   <span>{{- 'blogs.article.comment_author_separator' | t -}}</span>
                   <span class="blog-post-comment__date">
                     {{- comment.created_at | time_tag: format: 'date' -}}

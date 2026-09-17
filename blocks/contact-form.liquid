@@ -59,7 +59,7 @@
         class="contact-form__input"
         autocomplete="name"
         name="contact[name]"
-        value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+        value="{% if form.name %}{{ form.name | escape }}{% elsif customer %}{{ customer.name | escape }}{% endif %}"
         placeholder="{{ 'blocks.contact_form.name' | t }}"
       >
 
@@ -78,7 +78,7 @@
         name="contact[email]"
         spellcheck="false"
         autocapitalize="off"
-        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        value="{% if form.email %}{{ form.email | escape }}{% elsif customer %}{{ customer.email | escape }}{% endif %}"
         aria-required="true"
         {% if form.errors contains 'email' and form.id == form_id %}
           aria-invalid="true"
@@ -101,7 +101,7 @@
       autocomplete="tel"
       name="contact[phone]"
       pattern="[0-9\-]*"
-      value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+      value="{% if form.phone %}{{ form.phone | escape }}{% elsif customer %}{{ customer.phone | escape }}{% endif %}"
       placeholder="{{ 'blocks.contact_form.phone' | t }}"
     >
 
@@ -118,7 +118,7 @@
       name="contact[body]"
       placeholder="{{ 'blocks.contact_form.comment' | t }}"
     >
-      {{- form.body -}}
+      {{- form.body | escape -}}
     </textarea>
     <div class="contact-form__consent">
       <input

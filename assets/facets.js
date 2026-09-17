@@ -287,15 +287,26 @@ class PriceFacetComponent extends Component {
    * @param {HTMLInputElement} input - The input element to adjust
    */
   #adjustToValidValues(input) {
-    if (input.value.trim() === '') return;
+    const trimmedValue = input.value.trim();
+    if (trimmedValue === '') return;
 
     const { currency, moneyFormat } = this;
-    // Parse the user's input value using currency-aware parsing
-    const value = this.#parseDisplayValue(input.value, currency);
 
-    // data-min and data-max now contain raw minor unit values (not formatted)
+    // data-min and data-max hold formatted decimal strings (as produced by Liquid's
+    // `money_without_currency` filter), so they're parsed with the same currency-aware logic.
     const min = this.#parseDisplayValue(input.getAttribute('data-min') ?? '0', currency);
     const max = this.#parseDisplayValue(input.getAttribute('data-max') ?? '0', currency);
+
+    // A leading minus sign can reach here via paste/autofill even though typing one is blocked
+    // by #onKeyDown. convertMoneyToMinorUnits() has no concept of negative amounts, so it's
+    // treated explicitly here as below the valid range rather than silently parsed as positive.
+    if (trimmedValue.startsWith('-')) {
+      input.value = formatMoney(min, moneyFormat, currency);
+      return;
+    }
+
+    // Parse the user's input value using currency-aware parsing
+    const value = this.#parseDisplayValue(trimmedValue, currency);
 
     if (value < min) {
       input.value = formatMoney(min, moneyFormat, currency);
@@ -366,15 +377,16 @@ class FacetClearComponent extends Component {
       event.preventDefault();
     }
 
-    const container = event.target.closest('facet-inputs-component, price-facet-component');
-    container?.querySelectorAll('[type="checkbox"]:checked, input').forEach((input) => {
-      if (input instanceof HTMLInputElement) {
-        input.checked = false;
-        input.value = '';
-      }
+    const details = event.target.closest('details');
+    details?.querySelectorAll('facet-inputs-component, price-facet-component').forEach((container) => {
+      container.querySelectorAll('[type="checkbox"]:checked, input').forEach((input) => {
+        if (input instanceof HTMLInputElement) {
+          input.checked = false;
+          input.value = '';
+        }
+      });
     });
 
-    const details = event.target.closest('details');
     const statusComponent = details?.querySelector('facet-status-component');
 
     if (!(statusComponent instanceof FacetStatusComponent)) return;
