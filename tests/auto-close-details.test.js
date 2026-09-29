@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import '@theme/auto-close-details';
 
+
 function setInnerWidth(width) {
   Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: width });
 }
