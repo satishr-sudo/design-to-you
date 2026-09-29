@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/satishr-sudo/design-to-you#readme",
   "devDependencies": {
-    "@vitest/coverage-v8": "^5.0.1",
+    "@vitest/coverage-v8": "^5.0.2",
     "jsdom": "^30.0.1",
-    "vitest": "^5.0.1"
+    "vitest": "^5.0.2"
   }
 }
