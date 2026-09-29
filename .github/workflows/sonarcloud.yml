@@ -28,6 +28,13 @@ jobs:
       - name: Run tests with coverage
         run: npm run coverage
 
+      - name: Verify coverage report
+        run: |
+          echo "--- lcov.info exists? ---"
+          ls -la coverage/lcov.info
+          echo "--- First 10 lines of lcov.info ---"
+          head -10 coverage/lcov.info
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@689fb39b34b9aa95ebc5f8f119343ddd51542402 # v4.2.2
         env:
